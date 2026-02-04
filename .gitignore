@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Environment Variables (IMPORTANTISSIMO PER LA TUA API KEY)
+.env
+
+# Cache e Dati Locali
+cache_spacenews/
+*.xlsx
+db_deals.json
+
+# Angular / Node
+node_modules/
+dist/
+.angular/
+
+# Editor
+.vscode/
