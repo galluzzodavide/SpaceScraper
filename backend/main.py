@@ -1,92 +1,82 @@
-# backend/main.py
-import os
-import json
-from typing import List
-from fastapi import FastAPI, HTTPException
+import logging
+from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from typing import List
+from dotenv import load_dotenv
 
-from .models import DealData, ScrapeResponse
-from .scraper_service import SpaceScraperService
+# Importa i modelli e il servizio
+from .models import DealData, ScrapeSettings, ScrapeStatus
+from .scraper_service import SpaceScraperService, current_status
 
-# Inizializzazione App
-app = FastAPI(title="SpaceNews Scraper API")
+load_dotenv()
 
-# Configurazione CORS (Cruciale per sviluppo Angular locale)
-# Permette al frontend su localhost:4200 di chiamare localhost:8000
+# --- FILTRO LOG PER ZITTIRE IL POLLING ---
+# Questa classe nasconde i log che contengono "/api/status"
+class EndpointFilter(logging.Filter):
+    def filter(self, record: logging.LogRecord) -> bool:
+        return "/api/status" not in record.getMessage()
+
+app = FastAPI()
+
+# Applichiamo il filtro all'avvio
+@app.on_event("startup")
+async def startup_event():
+    # Recupera il logger di Uvicorn e aggiunge il filtro
+    logging.getLogger("uvicorn.access").addFilter(EndpointFilter())
+
+# Configurazione CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In prod, restringi a "http://localhost:4200" o simili
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Configurazione Service
-API_KEY = os.getenv("MISTRAL_API_KEY")
-service = SpaceScraperService(api_key=API_KEY)
+last_results = []
 
-# Database "File-based" semplice per iniziare
-DB_FILE = "db_deals.json"
-
-def load_db() -> List[DealData]:
-    if not os.path.exists(DB_FILE):
-        return []
-    with open(DB_FILE, "r", encoding="utf-8") as f:
-        data = json.load(f)
-        return [DealData(**d) for d in data]
-
-def save_db(deals: List[DealData]):
-    # Carica esistenti per non sovrascrivere
-    existing = load_db()
-    
-    # Creiamo un dict per deduplicare tramite URL
-    merged = {d.url: d for d in existing} 
-    for new_d in deals:
-        merged[new_d.url] = new_d
-    
-    final_list = list(merged.values())
-    
-    # Convertiamo i modelli Pydantic in dict per JSON
-    with open(DB_FILE, "w", encoding="utf-8") as f:
-        # model_dump() è il metodo Pydantic v2 (usa .dict() se v1)
-        json.dump([d.model_dump() for d in final_list], f, indent=2, default=str)
-
-@app.get("/api/deals", response_model=List[DealData])
-def get_deals():
-    """Restituisce tutti i deal salvati nel database locale."""
-    return load_db()
-
-@app.post("/api/scrape", response_model=ScrapeResponse)
-def start_scraping():
-    """
-    Avvia lo scraping. 
-    NOTA: In una app desktop reale con PySide, questo blocca il thread 
-    del server se non gestito. Tuttavia, dato che PySide eseguirà FastAPI 
-    in un thread separato, l'interfaccia non si bloccherà, ma questa chiamata 
-    HTTP aspetterà finché lo scraping non è finito.
-    """
-    if not API_KEY:
-        raise HTTPException(status_code=500, detail="MISTRAL_API_KEY not set on server.")
-
-    print("Starting scraping pipeline...")
-    
+def run_scraper_task(settings: ScrapeSettings):
+    global last_results
     try:
-        # Avvia il servizio
-        new_deals = service.run_pipeline()
-        
-        # Salva nel DB locale
-        save_db(new_deals)
-        
-        return ScrapeResponse(
-            status="completed",
-            total_found=0, # Da implementare meglio col tracking
-            processed=0,
-            new_deals=len(new_deals),
-            message="Scraping completed successfully"
-        )
+        service = SpaceScraperService(settings)
+        last_results = service.scrape()
     except Exception as e:
-        print(f"Scraping error: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Errore critico task: {e}")
+        current_status["is_running"] = False
+        current_status["message"] = f"Error: {str(e)}"
+        if "logs" in current_status:
+             current_status["logs"].insert(0, {
+                 "timestamp": "", 
+                 "message": f"Critical Error: {str(e)}", 
+                 "type": "error"
+             })
 
-# Per avviare il server standalone per test:
-# uvicorn backend.main:app --reload
+@app.post("/api/start-scrape")
+async def start_scrape(settings: ScrapeSettings, background_tasks: BackgroundTasks):
+    if current_status["is_running"]:
+        return {"message": "Scraper is already running"}
+    
+    global last_results
+    last_results = [] 
+    
+    background_tasks.add_task(run_scraper_task, settings)
+    return {"message": "Scraper started successfully"}
+
+@app.get("/api/status", response_model=ScrapeStatus)
+async def get_status():
+    return {
+        "is_running": current_status["is_running"],
+        "total_articles": current_status["total"],
+        "processed_articles": current_status["processed"],
+        "current_status": current_status["message"],
+        "last_update": current_status["last_update"],
+        "logs": current_status.get("logs", []) 
+    }
+
+@app.get("/api/results", response_model=List[DealData])
+async def get_results():
+    return last_results
+
+@app.get("/")
+def read_root():
+    return {"status": "SpaceScraper Backend Ready"}

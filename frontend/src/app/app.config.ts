@@ -7,7 +7,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withFetch()), // withFetch è utile per SSR
+    provideHttpClient(withFetch()), // <--- FONDAMENTALE per parlare col backend
     provideAnimations()
   ]
 };

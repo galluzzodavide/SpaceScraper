@@ -1,216 +1,171 @@
-# backend/scraper_service.py
-import json
-import os
-import re
 import time
-import hashlib
 import requests
-from pathlib import Path
-from typing import List, Optional, Callable
-from dateutil import parser as dtparser
+import json
 from bs4 import BeautifulSoup
+from .models import ScrapeSettings, DealData
 
-# Importa il modello Pydantic
-from .models import DealData
+# Stato globale
+current_status = {
+    "is_running": False,
+    "total": 0,
+    "processed": 0,
+    "message": "Idle",
+    "last_update": "",
+    "logs": [] 
+}
 
 class SpaceScraperService:
-    def __init__(self, api_key: str, cache_dir: str = "cache_spacenews"):
-        self.api_key = api_key
+    def __init__(self, settings: ScrapeSettings):
+        self.settings = settings
+        if not self.settings.api_key or not self.settings.api_key.strip():
+            raise ValueError("API Key non fornita dall'utente!")
+            
+        self.companies_list = [c.strip() for c in settings.target_companies.split(",")]
         self.base_url = "https://spacenews.com"
-        self.target_companies = ["ICEYE"]
-        self.model = "mistral-large-latest"
-        self.api_url = "https://api.mistral.ai/v1/chat/completions"
+        self.headers = {"User-Agent": "SpaceScraper/1.0"}
+
+    def add_log(self, message, type="info"):
+        """ Log nel Terminale E nel Frontend """
+        timestamp = time.strftime("%H:%M:%S")
+        entry = {"timestamp": timestamp, "message": message, "type": type}
         
-        self.cache_dir = Path(cache_dir)
-        self.cache_dir.mkdir(exist_ok=True)
+        # Stampa su backend
+        print(f"[{type.upper()}] {message}")
         
-        self.user_agent = "Mozilla/5.0 (compatible; SpaceNewsDealBot/0.1)"
-        self.http_timeout = 30
+        # Inserisci nel feed frontend (in cima)
+        current_status["logs"].insert(0, entry)
+        current_status["logs"] = current_status["logs"][:150] # Limite storico
+
+    def update_status(self, message, processed=None, total=None):
+        current_status["message"] = message
+        current_status["last_update"] = time.strftime("%H:%M:%S")
+        if processed is not None: current_status["processed"] = processed
+        if total is not None: current_status["total"] = total
+
+    def discover_urls(self):
+        urls = []
+        self.add_log(f"Scanning {self.settings.max_pages} pages for {self.companies_list}...", "info")
         
-        # Le istruzioni aggiornate con Short-Circuit
-        self.system_instructions = (
-            "Sei un estrattore specializzato di informazioni finanziarie e industriali dal testo di news nel settore space. "
-            "Il tuo obiettivo è determinare se l'articolo descrive un evento aziendale concreto.\n\n"
+        for page in range(1, self.settings.max_pages + 1):
+            try:
+                self.add_log(f"Fetching Page {page}...", "info")
+                
+                api_url = f"{self.base_url}/wp-json/wp/v2/posts"
+                params = {
+                    "per_page": 20, 
+                    "page": page, 
+                    "search": " ".join(self.companies_list),
+                    "after": f"{self.settings.min_year}-01-01T00:00:00"
+                }
+                
+                r = requests.get(api_url, params=params, headers=self.headers, timeout=10)
+                
+                if r.status_code == 200:
+                    items = r.json()
+                    self.add_log(f"Page {page}: Found {len(items)} articles.", "success")
+                    for item in items:
+                        urls.append(item['link'])
+                else:
+                    self.add_log(f"Page {page}: API Error {r.status_code}", "error")
+            except Exception as e:
+                self.add_log(f"Error Page {page}: {str(e)}", "error")
+        
+        unique_urls = list(set(urls))
+        self.add_log(f"Total Unique URLs found: {len(unique_urls)}", "info")
+        return unique_urls
 
-            "DEFINIZIONE DI RILEVANZA E USCITA RAPIDA:\n"
-            "- is_relevant deve essere true SOLO se l'articolo descrive un evento aziendale reale e concreto.\n"
-            "- Se non esiste un evento aziendale concreto, o se ICEYE non è coinvolta, imposta ESATTAMENTE:\n"
-            "  {\"is_relevant\": false}\n"
-            "- In questo caso, NON compilare gli altri campi.\n\n"
-
-            "SE L'ARTICOLO È RILEVANTE (is_relevant=true):\n"
-            "Compila tutti i campi: source, url, title, published_date, section, is_relevant, relevance_score, "
-            "deal_type, deal_status, acquirer, target, investors, amount, currency, valuation, stake_percent, "
-            "key_assets, geography, summary, why_it_matters, entities.\n"
-            "- deal_type: acquisition, merger, investment, partnership, contract, ipo.\n"
-            "- deal_status: rumor, announced, completed.\n"
-            "- entities: Includi SOLO ICEYE e le entità direttamente coinvolte.\n\n"
-            "Restituisci solo JSON valido."
-        )
-
-    # --- HELPER FUNCTIONS ---
-    def _txt(self, s: str) -> str:
-        return re.sub(r"\s+", " ", s).strip() if s else ""
-
-    def _sha1(self, s: str) -> str:
-        return hashlib.sha1(s.encode("utf-8")).hexdigest()
-
-    def _cache_path(self, url: str) -> Path:
-        return self.cache_dir / f"{self._sha1(url)}.json"
-
-    def _load_cached(self, url: str) -> Optional[dict]:
-        p = self._cache_path(url)
-        if p.exists():
-            return json.loads(p.read_text(encoding="utf-8"))
-        return None
-
-    def _save_cached(self, url: str, data: dict) -> None:
-        self._cache_path(url).write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
-
-    def _contains_target(self, text: str) -> bool:
-        t = text.lower()
-        return any(c.lower() in t for c in self.target_companies)
-
-    # --- CORE LOGIC ---
-    def discover_articles(self, year_min: int = 2020) -> List[str]:
-        # Logica WP API (semplificata per brevità, stessa del tuo script)
-        after = f"{year_min}-01-01T00:00:00"
-        out = []
-        # Limitiamo a 1 pagina per demo rapida, in prod aumenta max_pages
-        api_url = f"{self.base_url}/wp-json/wp/v2/posts"
-        params = {"per_page": 50, "page": 1, "after": after, "search": " ".join(self.target_companies)}
+    def scrape(self):
+        current_status["is_running"] = True
+        current_status["logs"] = [] 
+        current_status["processed"] = 0
+        current_status["total"] = 0
         
         try:
-            r = requests.get(api_url, params=params, headers={"User-Agent": self.user_agent}, timeout=self.http_timeout)
-            if r.status_code == 200:
-                items = r.json()
-                for it in items:
-                    link = it.get("link")
-                    if link and link.startswith(self.base_url):
-                        out.append(link)
+            self.update_status("Starting discovery...")
+            urls = self.discover_urls()
+            total = len(urls)
+            
+            # Appena trovati gli URL, impostiamo il totale (es. 0/40)
+            if total == 0:
+                self.add_log("No articles found to analyze.", "warning")
+                self.update_status("Completed (No articles)", 0, 0)
+                current_status["is_running"] = False
+                return []
+
+            self.update_status(f"Starting analysis of {total} articles...", 0, total)
+            self.add_log(f"Starting AI Analysis on {total} articles...", "info")
+
+            results = []
+            
+            for i, url in enumerate(urls):
+                if not current_status["is_running"]: break 
+
+                short_url = url.split('/')[-2]
+                self.update_status(f"Analyzing: {short_url}", i+1, total)
+                
+                # Fetch
+                try:
+                    resp = requests.get(url, headers=self.headers, timeout=10)
+                    if resp.status_code != 200: continue
+                    soup = BeautifulSoup(resp.text, 'html.parser')
+                    text = " ".join([p.text for p in soup.find_all('p')])
+                except Exception as e:
+                    self.add_log(f"Fetch Error: {short_url}", "error")
+                    continue
+
+                # AI
+                try:
+                    deal_data = self.call_mistral(text, url)
+                    is_rel = deal_data.get('is_relevant', False)
+                    
+                    if is_rel:
+                        self.add_log(f"✅ RELEVANT DEAL: {short_url}", "success")
+                        deal_data['url'] = url
+                        if not deal_data.get('title'):
+                            h1 = soup.find('h1')
+                            deal_data['title'] = h1.get_text().strip() if h1 else "No Title"
+                        results.append(deal_data)
+                    else:
+                        # QUI GENERIAMO IL WARNING CHE VUOI VEDERE
+                        self.add_log(f"Skipped (Not relevant): {short_url}", "warning")
+                        
+                except Exception as e:
+                    self.add_log(f"AI Error: {str(e)}", "error")
+                
+                time.sleep(1)
+
+            self.add_log(f"Analysis Completed. Found {len(results)} deals.", "success")
+            self.update_status("Analysis Completed", total, total)
+            current_status["is_running"] = False
+            return results
+
         except Exception as e:
-            print(f"Error discovery: {e}")
-            
-        # Deduplica
-        return list(dict.fromkeys(out))
+            self.add_log(f"FATAL ERROR: {str(e)}", "error")
+            current_status["is_running"] = False
+            return []
 
-    def fetch_article(self, url: str) -> Optional[dict]:
-        try:
-            r = requests.get(url, headers={"User-Agent": self.user_agent}, timeout=self.http_timeout)
-            if r.status_code != 200:
-                return None
-            
-            soup = BeautifulSoup(r.text, "html.parser")
-            h1 = soup.find("h1")
-            title = self._txt(h1.get_text()) if h1 else ""
-            
-            # Estrazione data
-            meta_pub = soup.find("meta", {"property": "article:published_time"})
-            pub_date = ""
-            if meta_pub and meta_pub.get("content"):
-                pub_date = meta_pub["content"]
-
-            msec = soup.find("meta", {"property": "article:section"})
-            section = self._txt(msec.get("content", "")) if msec else ""
-
-            body_parts = []
-            article_tag = soup.find("article") or soup
-            for p in article_tag.find_all("p"):
-                t = self._txt(p.get_text(" "))
-                if len(t) >= 40:
-                    body_parts.append(t)
-            
-            return {
-                "url": url, "title": title, "published_date": pub_date,
-                "section": section, "text": "\n".join(body_parts)
-            }
-        except Exception:
-            return None
-
-    def analyze_with_mistral(self, article_data: dict) -> dict:
-        user_template = (
-            f"URL: {article_data['url']}\nTITLE: {article_data['title']}\n"
-            f"DATE: {article_data['published_date']}\nSECTION: {article_data['section']}\n\n{article_data['text'][:18000]}"
-        )
-        
+    def call_mistral(self, text, url):
+        # ... (Usa la versione con Retry che ti ho dato nel turno precedente) ...
+        # (Se ti serve te la rincollo, ma è quella con il ciclo 'for attempt in range(max_retries)')
         payload = {
-            "model": self.model,
+            "model": self.settings.ai_model,
             "response_format": {"type": "json_object"},
             "messages": [
-                {"role": "system", "content": self.system_instructions},
-                {"role": "user", "content": user_template},
-            ],
-            "temperature": 0.0,
-            "max_tokens": 900,
+                {"role": "system", "content": self.settings.system_prompt},
+                {"role": "user", "content": f"URL: {url}\nTEXT: {text[:15000]}"}
+            ]
+        }
+        headers = {
+            "Authorization": f"Bearer {self.settings.api_key}",
+            "Content-Type": "application/json"
         }
         
-        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
-        r = requests.post(self.api_url, headers=headers, json=payload, timeout=60)
-        r.raise_for_status()
-        
-        content = r.json()["choices"][0]["message"]["content"]
-        # Try parse
-        try:
-            return json.loads(content)
-        except:
-            # Fallback regex
-            match = re.search(r"\{[\s\S]*\}", content)
-            if match:
-                return json.loads(match.group(0))
-            raise ValueError("Invalid JSON from LLM")
-
-    def run_pipeline(self, progress_callback: Optional[Callable[[int, int], None]] = None) -> List[DealData]:
-        urls = self.discover_articles()
-        results = []
-        total = len(urls)
-
-        for i, url in enumerate(urls):
-            # Notifica progresso
-            if progress_callback:
-                progress_callback(i + 1, total)
-
-            # 1. Check Cache
-            cached = self._load_cached(url)
-            if cached:
-                if cached.get("is_relevant") is True:
-                    # Validiamo con Pydantic per sicurezza
-                    try:
-                        results.append(DealData(**cached))
-                    except: pass
-                continue
-
-            # 2. Fetch
-            art = self.fetch_article(url)
-            time.sleep(0.5) # Gentilezza
-            if not art: continue
-            
-            # Filtro rapido parole chiave
-            if not self._contains_target(art["title"] + " " + art["text"]):
-                continue
-
-            # 3. LLM
+        max_retries = 3
+        for attempt in range(max_retries):
             try:
-                llm_data = self.analyze_with_mistral(art)
+                r = requests.post("https://api.mistral.ai/v1/chat/completions", json=payload, headers=headers, timeout=30)
+                r.raise_for_status()
+                return json.loads(r.json()["choices"][0]["message"]["content"])
             except Exception as e:
-                print(f"LLM Error on {url}: {e}")
-                continue
-
-            # Merge metadati + LLM
-            full_data = {
-                "source": "SpaceNews",
-                "url": url,
-                "title": art["title"],
-                "published_date": art["published_date"],
-                "section": art["section"],
-                **llm_data
-            }
-
-            self._save_cached(url, full_data)
-
-            # 4. Filtro Finale
-            if full_data.get("is_relevant") is True:
-                results.append(DealData(**full_data))
-            
-            time.sleep(0.5) # Rate limit LLM
-
-        return results
+                if attempt == max_retries - 1: raise e
+                time.sleep((attempt + 1) * 2)
