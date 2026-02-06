@@ -1,0 +1,89 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/u-s-faces-stiff-competition-from-china-in-satellite-remote-sensing/",
+  "title": "U.S. faces stiff competition from China in satellite remote sensing",
+  "published_date": "2024-10-01",
+  "section": "Remote Sensing",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": [
+    "United States",
+    "China",
+    "Finland",
+    "South Korea"
+  ],
+  "summary": "A report by national security think tanks highlights the competitive landscape of the global commercial remote sensing industry, comparing U.S. and Chinese capabilities. The U.S. leads in SAR imaging, while China excels in electro-optical and multispectral systems. Finnish company ICEYE is mentioned as a top performer in SAR but is not involved in any concrete deal.",
+  "why_it_matters": "The report underscores the intensifying competition between the U.S. and China in commercial remote sensing, with implications for national security and industry leadership. It also notes the need for U.S. government support to maintain competitiveness.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "competitor",
+      "involvement": "mentioned as a top performer in SAR imaging"
+    },
+    {
+      "name": "Center for Strategic and International Studies (CSIS)",
+      "role": "report publisher",
+      "involvement": "co-published the report on commercial remote sensing rankings"
+    },
+    {
+      "name": "Taylor Geospatial Institute",
+      "role": "report publisher",
+      "involvement": "co-published the report on commercial remote sensing rankings"
+    },
+    {
+      "name": "U.S. Geospatial Intelligence Foundation (USGIF)",
+      "role": "report publisher",
+      "involvement": "co-published the report on commercial remote sensing rankings"
+    },
+    {
+      "name": "Maxar",
+      "role": "competitor",
+      "involvement": "mentioned for its WorldView-3 and WorldView Legion systems in EO imaging"
+    },
+    {
+      "name": "Umbra SAR",
+      "role": "competitor",
+      "involvement": "ranked first in SAR imaging category"
+    },
+    {
+      "name": "Capella Space",
+      "role": "competitor",
+      "involvement": "ranked second in SAR imaging category"
+    },
+    {
+      "name": "SuperView Neo-1 (China)",
+      "role": "competitor",
+      "involvement": "ranked first in EO systems category"
+    },
+    {
+      "name": "SuperView Neo-3 (China)",
+      "role": "competitor",
+      "involvement": "ranked first in multispectral category"
+    },
+    {
+      "name": "Satellogic",
+      "role": "competitor",
+      "involvement": "ranked second in multispectral category"
+    },
+    {
+      "name": "Orbital Sidekick",
+      "role": "competitor",
+      "involvement": "developer of GHOSt, ranked first in hyperspectral imaging"
+    },
+    {
+      "name": "Pixxel (India)",
+      "role": "competitor",
+      "involvement": "ranked second in hyperspectral imaging"
+    }
+  ]
+}

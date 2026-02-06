@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/europes-space-funding-gap-threatens-industry-potential/",
+  "title": "Europe’s space funding gap threatens industry potential",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "Europe",
+  "summary": "Europe's space industry faces a funding gap, particularly in growth-stage capital, threatening its ability to scale and compete with the U.S. While Europe excels in early-stage innovation, it lacks cohesive funding mechanisms for mature ventures, forcing companies like ICEYE to seek investment abroad. NewSpace Capital, which has invested in ICEYE, highlights the need for larger European funds and institutional support to retain value in the region.",
+  "why_it_matters": "The article underscores structural challenges in Europe's space funding ecosystem, which could hinder the commercial success of companies like ICEYE despite their technological advancements. It calls for systemic changes to prevent Europe from losing its competitive edge in the global space industry.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "target",
+      "involvement": "mentioned as a portfolio company of NewSpace Capital, but no concrete deal described"
+    },
+    {
+      "name": "NewSpace Capital",
+      "role": "investor",
+      "involvement": "discussed investments in ICEYE and Kayrros, but no new deal announced"
+    },
+    {
+      "name": "European Space Policy Institute (ESPI)",
+      "role": "research organization",
+      "involvement": "provided data on space investment trends"
+    },
+    {
+      "name": "European Investment Fund",
+      "role": "financial institution",
+      "involvement": "conducted survey on VC outlook"
+    },
+    {
+      "name": "Kayrros",
+      "role": "target",
+      "involvement": "mentioned as a portfolio company of NewSpace Capital"
+    }
+  ]
+}

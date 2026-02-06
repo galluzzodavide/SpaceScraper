@@ -33,7 +33,7 @@
 /* Area Risultati */
 .results-area {
   flex-grow: 1;
-  width: 0; /* TRUCCO CSS: Permette al flex-child di scrollare correttamente */
+  width: 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@
 }
 
 /* ========================================= */
-/* TABELLA CON SLIDER ORIZZONTALE           */
+/* TABELLA CON FILTRI E SCORE                */
 /* ========================================= */
 .table-container {
   background: white;
@@ -68,25 +68,51 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  width: 100%; /* Occupa tutto lo spazio disponibile */
+  width: 100%;
 
+  /* --- HEADER TABELLA (Titolo + Filtri) --- */
   .table-header {
       padding: 15px 20px;
       border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between; /* Separa titolo (sx) e filtri (dx) */
+      align-items: center;
+      
       h2 { margin: 0; font-size: 18px; color: #333; }
+  }
+
+  /* --- STILE PULSANTI FILTRO --- */
+  mat-button-toggle-group {
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      height: 32px;
+      align-items: center;
+      background: #fafafa;
+      
+      mat-button-toggle {
+          font-size: 12px;
+          color: #666;
+          padding: 0 5px;
+          
+          &.mat-button-toggle-checked {
+              background-color: #e3f2fd !important; /* Blu chiaro */
+              color: #1565c0 !important; /* Blu scuro */
+              font-weight: 600;
+          }
+      }
   }
 
   /* WRAPPER SCROLLABILE */
   .table-scroll-wrapper {
       width: 100%;
-      overflow-x: auto; /* Scroll orizzontale */
+      overflow-x: auto;
       padding-bottom: 15px;
       background: white;
   }
 
   table { 
       width: 100%;
-      min-width: 3000px; /* FORZA LARGHEZZA ENORME per attivare scroll */
+      min-width: 3100px; /* Larghezza aumentata per far stare tutto */
       border-collapse: collapse;
   }
   
@@ -108,7 +134,23 @@
       font-size: 12px;
   }
 
-  /* Badge */
+  /* --- BADGE SCORE (COLORI SEMAFORO) --- */
+  .score-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 11px;
+      color: white;
+      min-width: 35px;
+      text-align: center;
+      
+      &.score-high { background-color: #2e7d32; }   /* Verde (>= 0.90) */
+      &.score-medium { background-color: #f57c00; } /* Arancione (0.70 - 0.89) */
+      &.score-low { background-color: #d32f2f; }    /* Rosso (< 0.70) */
+  }
+
+  /* Badge Status */
   .status-badge {
       font-size: 10px; text-transform: uppercase; padding: 3px 8px; border-radius: 12px; background: #eee;
       &.announced { background: #e3f2fd; color: #1565c0; }
@@ -116,7 +158,8 @@
       &.rumor { background: #fff3e0; color: #ef6c00; }
   }
 
-  /* Larghezze Colonne */
+  /* --- LARGHEZZE COLONNE --- */
+  .mat-column-relevance_score { min-width: 70px; text-align: center; }
   .mat-column-published_date { min-width: 100px; }
   .mat-column-title { min-width: 250px; font-weight: 500; }
   .mat-column-summary { min-width: 400px; color: #444; }

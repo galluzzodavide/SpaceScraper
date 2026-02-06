@@ -1,0 +1,30 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/beyond-the-golden-dome-why-effective-missile-defense-begins-far-left-of-launch/",
+  "title": "Beyond the Golden Dome: Why effective missile defense begins far left of launch",
+  "published_date": null,
+  "section": "Opinion",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article discusses the importance of integrating commercial remote sensing capabilities, such as synthetic aperture radar (SAR), into the U.S. missile defense strategy to enable proactive pre-launch monitoring. It highlights the role of companies like ICEYE in providing persistent, all-weather monitoring to complement government systems and enhance early threat detection.",
+  "why_it_matters": "The article argues for sustained funding and policy commitments to incorporate commercial space capabilities into missile defense, emphasizing their role in closing coverage gaps, providing redundancy, and enabling proactive prevention rather than reactive interception.",
+  "entities": [
+    {
+      "name": "ICEYE US",
+      "type": "company",
+      "role": "mentioned",
+      "involvement": "contextual"
+    }
+  ]
+}

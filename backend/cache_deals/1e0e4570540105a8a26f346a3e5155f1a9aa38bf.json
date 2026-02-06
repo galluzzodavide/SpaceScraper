@@ -1,0 +1,50 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-launches-pilot-flood-scheme-with-if-pc-insurance/",
+  "title": "ICEYE launches pilot flood scheme with If P&C Insurance",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "ICEYE’s Flood Insights product",
+    "proprietary synthetic aperture radar (SAR) satellite constellation",
+    "flood extent and depth insights"
+  ],
+  "geography": [
+    "Global (focus on flood monitoring)"
+  ],
+  "summary": "ICEYE has entered a pilot scheme with If P&C Insurance to provide its Flood Insights product, leveraging ICEYE’s SAR satellite constellation to deliver rapid flood data and insights. The partnership aims to enhance If P&C Insurance’s claims handling processes for flood-related losses and improve customer response during flood events.",
+  "why_it_matters": "This partnership demonstrates the growing integration of space-based data solutions in the insurance industry, particularly for natural catastrophe response. It highlights ICEYE’s role as a key provider of actionable SAR data for risk assessment and claims management, potentially setting a precedent for similar collaborations in the sector.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "provider",
+      "type": "company"
+    },
+    {
+      "name": "If P&C Insurance",
+      "role": "customer/partner",
+      "type": "company"
+    },
+    {
+      "name": "Tuomas Räikkönen",
+      "role": "Head of Large & International Claims, If P&C Insurance",
+      "type": "person"
+    },
+    {
+      "name": "Rafal Modrzewski",
+      "role": "CEO & Co-founder of ICEYE",
+      "type": "person"
+    }
+  ]
+}

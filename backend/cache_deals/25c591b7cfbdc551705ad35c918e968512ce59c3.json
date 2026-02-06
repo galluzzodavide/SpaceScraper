@@ -1,0 +1,43 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/australian-government-selects-iceye-for-near-real-time-flood-and-bushfire-data-to-strengthen-disaster-response/",
+  "title": "Australian Government selects ICEYE for near real-time flood and bushfire data to strengthen disaster response",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "Federal Government of Australia",
+  "target": "ICEYE",
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "Flood and Bushfire Insights products",
+    "Synthetic Aperture Radar (SAR) satellite constellation",
+    "ArcGIS integration"
+  ],
+  "geography": "Australia",
+  "summary": "The Federal Government of Australia has selected ICEYE to supply near real-time flood and bushfire hazard data for all states and territories. This agreement expands ICEYE's existing relationship with the government, leveraging its SAR satellite constellation to provide actionable intelligence for disaster response and recovery efforts.",
+  "why_it_matters": "This contract strengthens Australia's disaster response capabilities by integrating ICEYE's advanced SAR technology and near real-time data analytics. It highlights ICEYE's growing role in government-level emergency management and its leadership in the natural catastrophe solutions market.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "provider"
+    },
+    {
+      "name": "Federal Government of Australia",
+      "type": "government",
+      "role": "customer"
+    },
+    {
+      "name": "Esri",
+      "type": "company",
+      "role": "technology partner"
+    }
+  ]
+}

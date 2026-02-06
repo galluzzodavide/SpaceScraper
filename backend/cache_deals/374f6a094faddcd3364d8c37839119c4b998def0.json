@@ -1,0 +1,47 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/space-forge-names-manager-for-u-s-manufacturing-operations/",
+  "title": "Space Forge names manager for U.S. manufacturing operations",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [],
+  "geography": [
+    "United States",
+    "United Kingdom"
+  ],
+  "summary": "Space Forge has appointed Andrew Parlock as managing director for U.S. manufacturing operations. Parlock previously worked at Iceye, where he helped attract U.S. defense and intelligence customers. Space Forge plans to develop advanced materials and ForgeStar reusable satellites for on-orbit manufacturing and payload return.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "Space Forge",
+      "role": "company",
+      "involvement": "primary"
+    },
+    {
+      "name": "Andrew Parlock",
+      "role": "executive",
+      "involvement": "primary"
+    },
+    {
+      "name": "Iceye",
+      "role": "company",
+      "involvement": "contextual"
+    },
+    {
+      "name": "Northrop Grumman",
+      "role": "company",
+      "involvement": "contextual"
+    }
+  ]
+}

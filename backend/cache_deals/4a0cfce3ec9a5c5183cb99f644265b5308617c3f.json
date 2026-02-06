@@ -1,0 +1,37 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-enters-data-agreement-with-global-parametrics-to-drive-disaster-risk-management-risk-transfer-innovation/",
+  "title": "ICEYE enters data agreement with Global Parametrics to drive disaster risk management, risk transfer innovation",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "ICEYE’s global Flood Insights data",
+    "parametric risk transfer solutions"
+  ],
+  "geography": "global",
+  "summary": "ICEYE has entered into an agreement with Global Parametrics to provide its global Flood Insights data for the development of innovative parametric risk transfer solutions. The data will be used to design, structure, and execute risk transfer mechanisms and determine if contractual thresholds for flood events are met, triggering payments to affected communities.",
+  "why_it_matters": "This partnership enhances the resilience of vulnerable communities by leveraging ICEYE’s near real-time flood data to enable faster and more responsive parametric risk transfer solutions, addressing the growing threat of climate-induced floods.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "data provider",
+      "type": "company"
+    },
+    {
+      "name": "Global Parametrics",
+      "role": "risk transfer solutions provider",
+      "type": "company"
+    }
+  ]
+}

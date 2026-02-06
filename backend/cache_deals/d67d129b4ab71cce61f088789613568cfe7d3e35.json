@@ -1,0 +1,69 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/as-foreign-nations-look-forsovereign-eyes-in-the-skyu-s-satellite-firms-focus-abroad/",
+  "title": "As foreign nations look for sovereign 'eyes in the sky,' U.S. satellite firms focus abroad",
+  "published_date": "2025-06-01",
+  "section": "Business & Industry",
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": "ICEYE",
+  "investors": [],
+  "amount": 200000000,
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "three SAR satellites",
+    "partnership with Rheinmetall (joint venture for satellite manufacturing)",
+    "collaboration with IHI Corp. (24-satellite SAR constellation and domestic manufacturing facility in Japan)",
+    "new office and production line in Athens, Greece"
+  ],
+  "geography": [
+    "Poland",
+    "Germany",
+    "Japan",
+    "Greece"
+  ],
+  "summary": "ICEYE has secured a $200 million deal to provide Poland with three SAR satellites and has expanded its global operations through partnerships in Germany, Japan, and Greece. The company is capitalizing on the growing demand for sovereign Earth observation capabilities driven by geopolitical tensions and the demonstrated utility of commercial satellite imagery in conflicts like the war in Ukraine.",
+  "why_it_matters": "This deal and ICEYE's broader expansion highlight the increasing reliance of foreign nations on commercial satellite providers for sovereign intelligence capabilities. It underscores the shift in the global space industry, where U.S. and allied firms are filling the gap for countries seeking independent space-based surveillance without the need for large-scale government programs.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "target",
+      "type": "company"
+    },
+    {
+      "name": "Poland",
+      "role": "customer",
+      "type": "government"
+    },
+    {
+      "name": "Rheinmetall",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "IHI Corp.",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Germany",
+      "role": "customer/partner",
+      "type": "government"
+    },
+    {
+      "name": "Japan",
+      "role": "customer/partner",
+      "type": "government"
+    },
+    {
+      "name": "Greece",
+      "role": "location",
+      "type": "country"
+    }
+  ]
+}

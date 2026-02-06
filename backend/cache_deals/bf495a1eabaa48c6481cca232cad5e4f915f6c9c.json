@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/satellite-startups-race-to-enhance-wildfire-detection-and-response/",
+  "title": "Satellite startups race to enhance wildfire detection and response",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article discusses the emergence of Earth monitoring satellites aimed at improving wildfire detection and response. Companies like Muon Space and Iceye are developing technologies, including multispectral sensors and SAR, to provide near real-time data. Challenges include data analysis bottlenecks and procurement delays. Iceye US highlights the need for better coordination between satellite providers and emergency agencies.",
+  "why_it_matters": "The development of dedicated satellite constellations for wildfire detection reflects growing investment in space-based disaster response tools, driven by climate change. However, challenges in data analysis and procurement processes remain barriers to effective implementation.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "satellite operator",
+      "involvement": "mentioned as a provider of SAR satellite data for disaster response, but not directly involved in a concrete deal"
+    },
+    {
+      "name": "Muon Space",
+      "role": "satellite startup",
+      "involvement": "developing FireSat constellation for wildfire detection"
+    },
+    {
+      "name": "Earth Fire Alliance",
+      "role": "nonprofit",
+      "involvement": "collaborating with Muon Space on FireSat network"
+    },
+    {
+      "name": "OroraTech",
+      "role": "satellite startup",
+      "involvement": "expanding wildfire monitoring capabilities with new funding and U.S. headquarters"
+    },
+    {
+      "name": "National Reconnaissance Office",
+      "role": "government agency",
+      "involvement": "evaluating Muon Space's sensors for defense use"
+    }
+  ]
+}

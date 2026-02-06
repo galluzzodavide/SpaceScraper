@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/space-based-electronic-eavesdropping-becomes-commercial-battleground/",
+  "title": "Space-based electronic eavesdropping becomes commercial battleground",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article discusses the growing commercial interest in space-based radio frequency (RF) monitoring, highlighting companies like HawkEye 360, Aerospacelab, Unseenlabs, and SAR operators such as Capella Space and ICEYE. It explores the applications of RF data in maritime and land surveillance, competition among firms, and challenges in adoption by government customers.",
+  "why_it_matters": "The transition of RF monitoring from military to commercial use signifies a major shift in space-based intelligence capabilities, with implications for maritime security, defense, and commercial data services. However, the article does not describe a specific deal involving ICEYE or other companies.",
+  "entities": [
+    {
+      "name": "HawkEye 360",
+      "role": "RF monitoring company",
+      "involvement": "mentioned as a key player in space-based RF sensing"
+    },
+    {
+      "name": "Aerospacelab",
+      "role": "RF monitoring startup",
+      "involvement": "mentioned for its plans to field RF monitoring satellites"
+    },
+    {
+      "name": "Unseenlabs",
+      "role": "RF monitoring startup",
+      "involvement": "mentioned for its expansion plans in RF tracking"
+    },
+    {
+      "name": "Capella Space",
+      "role": "SAR satellite operator",
+      "involvement": "mentioned as a competitor in maritime intelligence"
+    },
+    {
+      "name": "ICEYE",
+      "role": "SAR satellite operator",
+      "involvement": "mentioned as a competitor in maritime intelligence"
+    }
+  ]
+}

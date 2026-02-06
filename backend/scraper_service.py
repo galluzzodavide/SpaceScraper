@@ -72,9 +72,29 @@ class SpaceScraperService:
         except Exception as e:
             print(f"Errore salvataggio cache: {e}")
 
-    # --- TEXT UTILS ---
+    # --- TEXT UTILS & SANITIZATION ---
     def _txt(self, s: str) -> str:
         return re.sub(r"\s+", " ", s).strip() if s else ""
+
+    def _sanitize_data(self, data: dict) -> dict:
+        """
+        Pulisce i dati per evitare che oggetti complessi (dict/list) rompano Pydantic.
+        Esempio: se stake_percent è un oggetto {'Bayanat': 54}, lo converte in stringa.
+        """
+        # Campi che nel modello Pydantic sono definiti come Optional[str] ma l'IA potrebbe restituire come oggetti
+        keys_to_fix = ['stake_percent', 'amount', 'valuation', 'key_assets', 'currency']
+        
+        for key in keys_to_fix:
+            if key in data:
+                val = data[key]
+                # Se è un dizionario o una lista, forza la conversione a stringa
+                if isinstance(val, (dict, list)):
+                    data[key] = str(val) # Converte {'A':1} in "{'A':1}"
+                # Se è un numero, converti in stringa per sicurezza (opzionale, Pydantic di solito lo fa)
+                elif isinstance(val, (int, float)):
+                    data[key] = str(val)
+                
+        return data
 
     def parse_article_text(self, html: str) -> str:
         soup = BeautifulSoup(html, "html.parser")
@@ -158,10 +178,14 @@ class SpaceScraperService:
                 cached_data = self.load_cached(url)
                 if cached_data:
                     self.add_log(f"Loaded from cache: {short_url}", "info")
+                    
+                    # FIX: Puliamo anche i dati caricati dalla cache per evitare errori Pydantic
+                    cached_data = self._sanitize_data(cached_data)
+
                     # ESTRAI is_relevant DALLA CACHE
                     if cached_data.get('is_relevant') is True:
                         results.append(cached_data)
-                    continue  # Passa al prossimo URL senza chiamare l'IA
+                    continue 
 
                 # 2. FETCH WEB
                 try:
@@ -198,6 +222,9 @@ class SpaceScraperService:
                         soup = BeautifulSoup(resp.text, "html.parser")
                         h1 = soup.find('h1')
                         deal_data['title'] = h1.get_text().strip() if h1 else short_url
+
+                    # FIX: Puliamo i dati prima di salvare/usare
+                    deal_data = self._sanitize_data(deal_data)
 
                     # 4. SALVATAGGIO IN CACHE (Qualsiasi sia il risultato)
                     self.save_cached(url, deal_data)

@@ -1,0 +1,53 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-delivers-flood-insights-from-recent-hurricanes-to-fema-in-collaboration-with-new-light-technologies-and-bana-solutions/",
+  "title": "ICEYE delivers flood insights from recent hurricanes to FEMA in collaboration with New Light Technologies and Bana Solutions",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "ICEYE’s flood extent and depth data",
+    "SAR satellite constellation",
+    "near real-time flood monitoring capabilities"
+  ],
+  "geography": [
+    "United States",
+    "Puerto Rico",
+    "Alaska",
+    "Kentucky"
+  ],
+  "summary": "ICEYE has delivered critical flood insights to FEMA for multiple major flood events, including hurricanes in Puerto Rico and Alaska, through a collaboration with New Light Technologies (NLT) and Bana Solutions. ICEYE’s SAR satellite data provides near real-time flood monitoring, enhancing FEMA’s emergency response efforts.",
+  "why_it_matters": "This partnership demonstrates ICEYE’s capability to provide actionable, real-time flood data to government agencies during natural disasters, improving emergency response and decision-making. The collaboration highlights the growing role of SAR satellite data in disaster management and recovery.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "provider",
+      "type": "company"
+    },
+    {
+      "name": "New Light Technologies (NLT)",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Bana Solutions (Bana)",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "FEMA",
+      "role": "client",
+      "type": "government_agency"
+    }
+  ]
+}

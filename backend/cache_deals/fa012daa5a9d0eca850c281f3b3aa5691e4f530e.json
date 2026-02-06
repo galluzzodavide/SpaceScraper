@@ -1,0 +1,54 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/from-routine-to-novel-applications-at-the-intersection-of-space-and-ai/",
+  "title": "From routine to novel applications at the intersection of space and AI",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article discusses various applications of artificial intelligence in the space industry, including examples from Orbital Sidekick, AWS, Millennium Space, Iceye, and Degas Ltd. Iceye is mentioned for using generative AI to pair synthetic aperture radar imagery with social media images to generate situational reports for local authorities.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "mentioned",
+      "involvement": "contextual example of AI application"
+    },
+    {
+      "name": "Orbital Sidekick",
+      "role": "mentioned",
+      "involvement": "AI applications in data analysis"
+    },
+    {
+      "name": "AWS",
+      "role": "mentioned",
+      "involvement": "AI solutions provider"
+    },
+    {
+      "name": "Millennium Space",
+      "role": "mentioned",
+      "involvement": "AI tools for efficiency"
+    },
+    {
+      "name": "Degas Ltd.",
+      "role": "mentioned",
+      "involvement": "AI chatbot for farmers"
+    },
+    {
+      "name": "Violet Labs",
+      "role": "mentioned",
+      "involvement": "cautionary example of AI limitations"
+    }
+  ]
+}

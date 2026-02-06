@@ -1,0 +1,66 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/u-s-eases-export-rules-for-space-tech-but-high-resolution-radar-satellites-remain-under-tight-control/",
+  "title": "U.S. eases export rules for space tech but high-resolution radar satellites remain under tight control",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "United States, Finland",
+  "summary": "The U.S. government has relaxed export control regulations for certain space technologies but maintained strict controls on high-resolution synthetic aperture radar (SAR) satellites. The new rules exclude SAR systems operating above 500MHz bandwidth, which industry leaders like Capella Space and Iceye consider obsolete. This regulatory hurdle may drive international customers toward non-U.S. alternatives like Finland's Iceye, as U.S. companies face competitive disadvantages due to ITAR restrictions.",
+  "why_it_matters": "The article highlights the competitive and strategic challenges U.S. SAR satellite companies face due to restrictive export controls, potentially benefiting non-U.S. competitors like Iceye. It underscores the broader geopolitical implications of space technology access and the risk of losing market share to global rivals, including Chinese firms.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "competitor",
+      "involvement": "mentioned as a non-U.S. alternative for SAR satellites"
+    },
+    {
+      "name": "Capella Space",
+      "type": "company",
+      "role": "industry participant",
+      "involvement": "CEO comments on regulatory impact"
+    },
+    {
+      "name": "Umbra",
+      "type": "company",
+      "role": "competitor",
+      "involvement": "mentioned as a U.S. competitor with advanced SAR capabilities"
+    },
+    {
+      "name": "Orbital Insight",
+      "type": "company",
+      "role": "industry participant",
+      "involvement": "chairman comments on strategic value of space assets"
+    },
+    {
+      "name": "Loft Orbital",
+      "type": "company",
+      "role": "industry participant",
+      "involvement": "co-founder comments on geopolitical competition"
+    },
+    {
+      "name": "U.S. Department of Commerce",
+      "type": "government",
+      "role": "regulator",
+      "involvement": "implemented relaxed export rules for certain space technologies"
+    },
+    {
+      "name": "U.S. Department of State",
+      "type": "government",
+      "role": "regulator",
+      "involvement": "maintains ITAR controls on high-resolution SAR satellites"
+    }
+  ]
+}

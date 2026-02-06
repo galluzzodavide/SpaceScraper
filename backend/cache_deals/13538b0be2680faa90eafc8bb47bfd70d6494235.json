@@ -1,0 +1,51 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/bae-systems-brings-south-koreas-hanwha-into-intelligence-gathering-constellation/",
+  "title": "BAE Systems brings South Korea’s Hanwha into intelligence-gathering constellation",
+  "published_date": "2024-06-10",
+  "section": "Satellite & Communications",
+  "is_relevant": true,
+  "relevance_score": 0.8,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "Hanwha’s SAR expertise",
+    "BAE’s ultra-wideband radio frequency (RF) technology",
+    "Azalea intelligence, surveillance, and reconnaissance constellation"
+  ],
+  "geography": [
+    "United Kingdom",
+    "South Korea"
+  ],
+  "summary": "BAE Systems and Hanwha Systems have announced a partnership to explore integrating Hanwha’s synthetic aperture radar (SAR) technology with BAE’s RF technology for the Azalea constellation. This collaboration follows a previous agreement with ICEYE, which is still providing a SAR satellite for the initial cluster. The partnership aims to enhance military and disaster response capabilities and expand into new international markets.",
+  "why_it_matters": "This partnership strengthens the UK-South Korea defense and space technology relationship, enhances the capabilities of the Azalea constellation, and expands opportunities for both companies in international markets. ICEYE’s ongoing involvement highlights its role as a key SAR technology provider in the project.",
+  "entities": [
+    {
+      "name": "BAE Systems",
+      "role": "partner",
+      "involvement": "lead, technology provider (RF sensors)"
+    },
+    {
+      "name": "Hanwha Systems",
+      "role": "partner",
+      "involvement": "technology provider (SAR expertise)"
+    },
+    {
+      "name": "ICEYE",
+      "role": "partner",
+      "involvement": "SAR satellite provider for initial cluster"
+    },
+    {
+      "name": "SpaceX",
+      "role": "launch provider",
+      "involvement": "planned launch of Azalea’s first cluster"
+    }
+  ]
+}

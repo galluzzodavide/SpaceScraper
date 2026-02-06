@@ -1,0 +1,62 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/lockheed-martin-teams-with-iceye-to-advance-ai-enabled-targeting/",
+  "title": "Lockheed Martin teams with Iceye to advance AI-enabled targeting",
+  "published_date": "2023-11-20",
+  "section": "Military Space",
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "AI-powered target recognition technologies",
+    "Lockheed Martin’s automated target recognition (ATR) algorithms",
+    "Iceye’s synthetic aperture radar (SAR) imagery",
+    "Finland’s F-35 tactical aviation program integration"
+  ],
+  "geography": [
+    "Finland",
+    "United States"
+  ],
+  "summary": "Lockheed Martin and Iceye have announced a partnership to develop AI-powered target recognition technologies for Finland’s military. The collaboration leverages Lockheed Martin’s ATR algorithms and Iceye’s SAR satellite imagery to provide space-based intelligence and analytics for Finland’s F-35 program. The technology aims to enhance near real-time decision-making for military operators.",
+  "why_it_matters": "This partnership highlights the growing integration of commercial space capabilities into military applications, particularly in AI-driven intelligence and reconnaissance. It also underscores the strategic collaboration between U.S. defense contractors and European space companies to enhance NATO allies' defense capabilities.",
+  "entities": [
+    {
+      "name": "Lockheed Martin",
+      "type": "company",
+      "role": "partner",
+      "involvement": "provider of AI algorithms and technology integration"
+    },
+    {
+      "name": "Iceye",
+      "type": "company",
+      "role": "partner",
+      "involvement": "provider of SAR satellite imagery and consortium leadership"
+    },
+    {
+      "name": "Finnish military",
+      "type": "government",
+      "role": "end-user",
+      "involvement": "integration of ATR algorithms into ISR systems"
+    },
+    {
+      "name": "Finland",
+      "type": "country",
+      "role": "geography",
+      "involvement": "host nation for the technology deployment"
+    },
+    {
+      "name": "F-35 tactical aviation program",
+      "type": "program",
+      "role": "application",
+      "involvement": "target program for the technology"
+    }
+  ]
+}

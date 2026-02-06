@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonToggleModule } from '@angular/material/button-toggle'; 
 
 import { ApiService } from './services/api.service';
 import { Deal, ScrapeSettings, ScrapeStatus } from './models/deal.model';
@@ -28,7 +29,8 @@ import { interval, Subscription, switchMap, catchError, of } from 'rxjs';
     CommonModule, HttpClientModule, FormsModule,
     MatToolbarModule, MatButtonModule, MatTableModule, MatIconModule,
     MatProgressBarModule, MatChipsModule, MatCardModule, MatFormFieldModule,
-    MatInputModule, MatSelectModule, MatExpansionModule, MatTooltipModule
+    MatInputModule, MatSelectModule, MatExpansionModule, MatTooltipModule,
+    MatButtonToggleModule
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
@@ -72,12 +74,21 @@ CAMPI ECONOMICI:
 Il JSON prodotto deve essere sempre valido.`
   };
 
-  deals: Deal[] = [];
+  // --- CORREZIONE NOMI VARIABILI ---
+  allDeals: Deal[] = [];       // Master list con tutti i dati
+  filteredDeals: Deal[] = [];  // Lista filtrata usata nell'HTML (dataSource)
+  selectedType: string = 'ALL'; // Variabile usata nel [(value)] del toggle group
+  // ---------------------------------
+
+  // Usiamo 'deals' solo come alias per evitare errori residui se referenziato altrove, 
+  // ma la logica principale userà filteredDeals
+  get deals() { return this.filteredDeals; }
+
   status: ScrapeStatus | null = null;
   statusSub: Subscription | null = null;
 
-  // Colonne complete per lo scroll orizzontale
   displayedColumns: string[] = [
+    'relevance_score', 
     'published_date', 'source', 'title', 'section', 'deal_type', 'deal_status', 
     'acquirer', 'target', 'investors', 'amount', 'currency', 'valuation', 
     'stake_percent', 'key_assets', 'geography', 'entities', 'summary', 'why_it_matters'
@@ -107,7 +118,10 @@ Il JSON prodotto deve essere sempre valido.`
       return; 
     }
     
-    this.deals = []; 
+    // Reset
+    this.allDeals = []; 
+    this.filteredDeals = []; 
+    
     this.status = { 
         is_running: true, 
         total_articles: 0, 
@@ -133,7 +147,6 @@ Il JSON prodotto deve essere sempre valido.`
     this.stopPolling();
 
     this.ngZone.runOutsideAngular(() => {
-        // Polling ogni 1 secondo
         this.statusSub = interval(1000).pipe(
             switchMap(() => this.api.getStatus().pipe(
                 catchError(err => {
@@ -147,13 +160,9 @@ Il JSON prodotto deve essere sempre valido.`
                     this.status = s;
                     this.cdr.detectChanges(); 
 
-                    // --- MODIFICA CRUCIALE PER REALTIME ---
-                    // Se abbiamo processato qualcosa, AGGIORNA SUBITO LA TABELLA
-                    // Non aspettare la fine dell'analisi!
-                    if (s.processed_articles > 0 || this.deals.length !== s.total_articles) {
+                    if (s.processed_articles > 0 || this.allDeals.length !== s.total_articles) {
                          this.loadResults(); 
                     }
-                    // --------------------------------------
 
                     if (!s.is_running) {
                         this.stopPolling();
@@ -174,14 +183,39 @@ Il JSON prodotto deve essere sempre valido.`
   loadResults() {
     this.api.getResults().subscribe(data => {
       this.ngZone.run(() => {
-          // Controlliamo se i dati sono cambiati per evitare flicker inutile
-          if (JSON.stringify(data) !== JSON.stringify(this.deals)) {
-              this.deals = data;
-              this.deals.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
+          if (JSON.stringify(data) !== JSON.stringify(this.allDeals)) {
+              this.allDeals = data;
+              this.allDeals.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
+              
+              // Applica il filtro corrente sui nuovi dati
+              this.applyFilter(this.selectedType);
+              
               this.cdr.detectChanges();
           }
       });
     });
+  }
+
+  // --- LOGICA FILTRO (Rinominata applyFilter per matchare HTML) ---
+  applyFilter(type: string) {
+      this.selectedType = type;
+      
+      if (type === 'ALL') {
+          this.filteredDeals = [...this.allDeals];
+      } else {
+          this.filteredDeals = this.allDeals.filter(d => 
+              d.deal_type && d.deal_type.toLowerCase().includes(type.toLowerCase())
+          );
+      }
+  }
+
+  // --- LOGICA COLORE SCORE ---
+  getScoreClass(score: any): string {
+      const val = parseFloat(score);
+      if (isNaN(val)) return '';
+      if (val >= 0.90) return 'score-high';     
+      if (val >= 0.70) return 'score-medium';   
+      return 'score-low';                       
   }
 
   formatData(input: any): string {

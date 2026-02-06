@@ -1,0 +1,54 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/spacex-launches-transporter-13-rideshare-mission/",
+  "title": "SpaceX launches Transporter-13 rideshare mission",
+  "published_date": "2024-03-15",
+  "section": "Launch",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [],
+  "geography": null,
+  "summary": "SpaceX successfully launched the Transporter-13 rideshare mission, carrying over 70 payloads including satellites from various companies such as Iceye, Spire, Varda Space Industries, Albedo, and NASA. Iceye launched four SAR satellites, including its first Gen4 model. The article discusses the impact of SpaceX's rideshare missions on the small satellite industry and competition among launch providers.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "satellite operator",
+      "involvement": "launched satellites"
+    },
+    {
+      "name": "SpaceX",
+      "role": "launch provider",
+      "involvement": "conducted Transporter-13 mission"
+    },
+    {
+      "name": "Spire",
+      "role": "satellite operator",
+      "involvement": "launched satellites"
+    },
+    {
+      "name": "Varda Space Industries",
+      "role": "satellite operator",
+      "involvement": "launched orbital processing capsule"
+    },
+    {
+      "name": "Albedo",
+      "role": "satellite operator",
+      "involvement": "launched first satellite"
+    },
+    {
+      "name": "NASA",
+      "role": "space agency",
+      "involvement": "launched EZIE mission"
+    }
+  ]
+}

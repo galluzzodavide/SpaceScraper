@@ -1,0 +1,51 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/low-earth-orbit-satellite-cluster-to-provide-secure-digital-military-intelligence-from-2024/",
+  "title": "Low Earth orbit satellite cluster to provide secure digital military intelligence from 2024",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": "BAE Systems",
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "ICEYE's advanced SAR technology",
+    "BAE Systems' sensor technology",
+    "AzaleaTM satellite cluster"
+  ],
+  "geography": [
+    "UK",
+    "Finland"
+  ],
+  "summary": "BAE Systems is partnering with ICEYE to integrate ICEYE's advanced Synthetic Aperture Radar (SAR) technology into the AzaleaTM satellite cluster, a multi-sensor satellite system set to launch in 2024. The partnership aims to deliver high-resolution, real-time intelligence for military and disaster response applications by combining SAR, optical, and RF data processing in orbit.",
+  "why_it_matters": "This partnership enhances the UK's sovereign space capabilities and strengthens military and humanitarian intelligence gathering by leveraging ICEYE's SAR technology and BAE Systems' expertise. It represents a significant advancement in real-time, space-based data processing and secure intelligence delivery.",
+  "entities": [
+    {
+      "name": "BAE Systems",
+      "role": "acquirer/partner",
+      "type": "company"
+    },
+    {
+      "name": "ICEYE",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "In-Space Missions",
+      "role": "acquired entity (past deal)",
+      "type": "company"
+    },
+    {
+      "name": "UK Government",
+      "role": "stakeholder",
+      "type": "government"
+    }
+  ]
+}

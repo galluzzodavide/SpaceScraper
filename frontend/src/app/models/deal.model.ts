@@ -5,6 +5,7 @@ export interface Deal {
   published_date: string;
   // ... campi opzionali ...
   is_relevant: boolean;
+  relevance_score?: any;
   deal_type?: string;
   deal_status?: string;
   acquirer?: any;

@@ -1,0 +1,44 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/commercial-radar-satellite-firm-eyes-role-in-u-s-missile-defense/",
+  "title": "Commercial radar satellite firm eyes role in U.S. missile defense",
+  "published_date": null,
+  "section": "Military Space",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [],
+  "geography": "United States",
+  "summary": "Iceye U.S., a subsidiary of Finnish radar satellite operator Iceye, is exploring opportunities to integrate its commercial synthetic aperture radar (SAR) satellites into the U.S. missile defense architecture under the 'Golden Dome for America' initiative. The company is in early discussions with defense industry partners but has not secured formal contracts or long-term commitments from the U.S. government.",
+  "why_it_matters": "The article highlights the potential role of commercial SAR satellites in U.S. missile defense, emphasizing the need for sustained government investment and long-term contracts to support the commercial space industry. However, no concrete deals or financial commitments are announced.",
+  "entities": [
+    {
+      "name": "Iceye",
+      "type": "company",
+      "role": "potential contractor"
+    },
+    {
+      "name": "Iceye U.S.",
+      "type": "company",
+      "role": "subsidiary"
+    },
+    {
+      "name": "U.S. Department of Defense",
+      "type": "government",
+      "role": "potential customer"
+    },
+    {
+      "name": "National Reconnaissance Office (NRO)",
+      "type": "government",
+      "role": "potential customer"
+    }
+  ]
+}

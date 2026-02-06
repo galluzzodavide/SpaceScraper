@@ -1,0 +1,44 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/op-ed-britain-has-all-the-attributes-to-create-a-world-leading-space-economy/",
+  "title": "Op-ed | Britain has all the attributes to create a world-leading space economy",
+  "published_date": null,
+  "section": "Op-ed",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "United Kingdom",
+  "summary": "The article discusses the growth of the global space sector and the UK's significant role in it, highlighting investments, government support, and key companies like OneWeb. It mentions ICEYE as one of the companies supported by Seraphim Space but does not describe a concrete deal involving ICEYE.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "mentioned",
+      "involvement": "contextual reference"
+    },
+    {
+      "name": "Seraphim Space",
+      "role": "investor",
+      "involvement": "portfolio support"
+    },
+    {
+      "name": "OneWeb",
+      "role": "company",
+      "involvement": "contextual reference"
+    },
+    {
+      "name": "UK Space Agency",
+      "role": "government",
+      "involvement": "funding and policy"
+    }
+  ]
+}

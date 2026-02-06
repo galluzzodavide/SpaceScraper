@@ -1,0 +1,56 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/german-defense-firm-partners-with-iceye-to-build-sar-satellites/",
+  "title": "German defense firm partners with Iceye to build SAR satellites",
+  "published_date": "2025-05-08",
+  "section": "Commercial Space",
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": "Rheinmetall",
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": 60,
+  "key_assets": [
+    "joint venture for SAR satellite production facility in Neuss, Germany"
+  ],
+  "geography": "Germany, Finland",
+  "summary": "German defense contractor Rheinmetall has signed a deal with Finnish SAR constellation operator Iceye to establish a joint venture, with Rheinmetall owning 60%. The venture aims to build a satellite production facility in Neuss, Germany, to produce synthetic aperture radar (SAR) satellites. The deal is subject to regulatory approvals and final agreements.",
+  "why_it_matters": "This partnership marks a significant step in Europe's push to bolster military intelligence capabilities and space-based reconnaissance. It also aligns with Germany's increased defense spending and strategic focus on space infrastructure and security.",
+  "entities": [
+    {
+      "name": "Rheinmetall",
+      "type": "company",
+      "role": "acquirer/partner",
+      "industry": "Defense and Space"
+    },
+    {
+      "name": "Iceye",
+      "type": "company",
+      "role": "partner",
+      "industry": "SAR Satellite Operator"
+    },
+    {
+      "name": "Space42",
+      "type": "company",
+      "role": "partner of Iceye (contextual)",
+      "industry": "Earth Observation and Connectivity"
+    },
+    {
+      "name": "DLR (German Aerospace Center)",
+      "type": "government agency",
+      "role": "contextual",
+      "industry": "Space Agency"
+    },
+    {
+      "name": "European Commission",
+      "type": "government",
+      "role": "contextual",
+      "industry": "Policy and Defense"
+    }
+  ]
+}

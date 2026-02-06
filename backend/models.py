@@ -11,10 +11,13 @@ class DealData(BaseModel):
     section: Optional[str] = ""
     
     is_relevant: bool = False
+    # AGGIUNTO: Necessario per mostrare il punteggio colorato nel frontend
+    relevance_score: Optional[Union[float, str]] = None
+    
     deal_type: Optional[str] = "none"
     deal_status: Optional[str] = "unknown"
     
-    # Campi che possono essere stringhe O liste O oggetti
+    # Campi che possono essere stringhe O liste O oggetti (evita crash di validazione)
     acquirer: Optional[Any] = None
     target: Optional[Any] = None
     investors: Optional[Any] = None

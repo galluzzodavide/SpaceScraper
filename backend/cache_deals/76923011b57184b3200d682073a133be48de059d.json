@@ -1,0 +1,123 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/atlas-sets-course-to-triple-sales-after-raising-15-million/",
+  "title": "Atlas sets course to triple sales after raising $15 million",
+  "published_date": "2024-09-04",
+  "section": "Finance",
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "investment",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": "Atlas Space Operations",
+  "investors": [
+    {
+      "name": "NewSpace Capital",
+      "type": "private equity firm",
+      "role": "lead investor"
+    },
+    {
+      "name": "Michigan Capital Network",
+      "type": "investor",
+      "role": "existing investor"
+    },
+    {
+      "name": "Beringea",
+      "type": "investor",
+      "role": "existing investor"
+    },
+    {
+      "name": "Wakestream Ventures",
+      "type": "investor",
+      "role": "existing investor"
+    },
+    {
+      "name": "Boomerang Catapult",
+      "type": "investor",
+      "role": "existing investor"
+    },
+    {
+      "name": "Michigan Rise",
+      "type": "investor",
+      "role": "new investor"
+    },
+    {
+      "name": "Red Cedar Ventures",
+      "type": "investor",
+      "role": "new investor"
+    }
+  ],
+  "amount": 15000000,
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "network management software",
+    "federated ground station network (50+ antennas across 34+ ground stations)",
+    "partnerships with Viasat and Amazon"
+  ],
+  "geography": {
+    "target_hq": "Michigan, USA",
+    "investor_hq": "Luxembourg (NewSpace Capital)",
+    "operations": "global"
+  },
+  "summary": "Atlas Space Operations, a ground station services provider, has raised $15 million in a pre-Series C funding round led by NewSpace Capital. The investment aims to triple the company's revenue over the next 12 months and scale operations, including doubling its workforce by the end of 2024. The funding round also saw participation from existing and new investors.",
+  "why_it_matters": "The investment underscores growing confidence in Atlas' federated ground station network and its potential to capitalize on U.S. government and commercial demand for ground station services. The funding will support expansion and operational scaling in a competitive market.",
+  "entities": [
+    {
+      "name": "Atlas Space Operations",
+      "type": "company",
+      "role": "target"
+    },
+    {
+      "name": "NewSpace Capital",
+      "type": "private equity firm",
+      "role": "lead investor"
+    },
+    {
+      "name": "Freedom Space Technologies",
+      "type": "subsidiary",
+      "role": "Atlas subsidiary"
+    },
+    {
+      "name": "Omni Federal",
+      "type": "company",
+      "role": "partner (defense contractor)"
+    },
+    {
+      "name": "U.S. Space Force",
+      "type": "government",
+      "role": "customer"
+    },
+    {
+      "name": "Viasat",
+      "type": "company",
+      "role": "partner"
+    },
+    {
+      "name": "Amazon",
+      "type": "company",
+      "role": "partner"
+    },
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "mentioned (portfolio company of NewSpace Capital)"
+    },
+    {
+      "name": "Simera Sense",
+      "type": "company",
+      "role": "mentioned (portfolio company of NewSpace Capital)"
+    },
+    {
+      "name": "Kayrros",
+      "type": "company",
+      "role": "mentioned (portfolio company of NewSpace Capital)"
+    },
+    {
+      "name": "Cailabs",
+      "type": "company",
+      "role": "mentioned (portfolio company of NewSpace Capital)"
+    }
+  ]
+}

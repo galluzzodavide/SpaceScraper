@@ -1,0 +1,57 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/u-s-space-force-taps-commercial-satellites-to-fill-demand-for-global-insights/",
+  "title": "U.S. Space Force taps commercial satellites to fill demand for global insights",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.8,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "U.S. Space Force (TacSRT program)",
+  "target": null,
+  "investors": [],
+  "amount": 8000000,
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "commercial satellite data and analytics services",
+    "TacSRT program contracts"
+  ],
+  "geography": "United States",
+  "summary": "The U.S. Space Force's TacSRT program has executed approximately $8 million in contracts over the past four months through its commercial satellite data marketplace. The program involves 30 vendors, including Iceye U.S., to provide unclassified intelligence and analytics to military and federal agencies. Congress allocated $50 million for commercial space services in 2024, with $10 million earmarked for Southern Command and $40 million for broader surveillance and reconnaissance.",
+  "why_it_matters": "This initiative demonstrates the growing reliance of the U.S. military on commercial satellite data providers like Iceye to enhance real-time intelligence capabilities. It also highlights the potential for expanded government contracts in the remote sensing industry, fostering direct engagement between commercial providers and end users.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "vendor",
+      "involvement": "direct",
+      "type": "company"
+    },
+    {
+      "name": "U.S. Space Force",
+      "role": "acquirer",
+      "involvement": "direct",
+      "type": "government"
+    },
+    {
+      "name": "TacSRT (Tactical Surveillance, Reconnaissance and Tracking)",
+      "role": "program",
+      "involvement": "direct",
+      "type": "initiative"
+    },
+    {
+      "name": "Umbra",
+      "role": "vendor",
+      "involvement": "direct",
+      "type": "company"
+    },
+    {
+      "name": "National Geospatial Intelligence Agency (NGA)",
+      "role": "stakeholder",
+      "involvement": "indirect",
+      "type": "government"
+    }
+  ]
+}

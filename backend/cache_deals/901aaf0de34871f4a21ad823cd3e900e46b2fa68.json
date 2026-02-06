@@ -1,0 +1,67 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/u-s-restores-satellite-imagery-support-to-ukraine-amid-ceasefire-tensions/",
+  "title": "U.S. restores satellite imagery support to Ukraine amid ceasefire tensions",
+  "published_date": "2024-03-18",
+  "section": "Military Space",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": [
+    "United States",
+    "Ukraine"
+  ],
+  "summary": "The U.S. has reinstated satellite imagery support to Ukraine via the Global Enhanced GEOINT Delivery (GEGD) system, reversing a temporary suspension. The system aggregates data from commercial providers, including ICEYE, to aid Ukraine's intelligence-gathering efforts amid the ongoing war with Russia.",
+  "why_it_matters": "The restoration of satellite imagery support highlights the strategic role of commercial satellite providers in military and intelligence operations, particularly in conflict zones. It also underscores the geopolitical significance of U.S.-Ukraine relations.",
+  "entities": [
+    {
+      "name": "National Geospatial Intelligence Agency (NGA)",
+      "type": "government",
+      "role": "provider"
+    },
+    {
+      "name": "Maxar Intelligence",
+      "type": "company",
+      "role": "contractor"
+    },
+    {
+      "name": "Planet",
+      "type": "company",
+      "role": "data provider"
+    },
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "data provider"
+    },
+    {
+      "name": "BlackSky",
+      "type": "company",
+      "role": "data provider"
+    },
+    {
+      "name": "Capella Space",
+      "type": "company",
+      "role": "data provider"
+    },
+    {
+      "name": "U.S. Department of Defense",
+      "type": "government",
+      "role": "user"
+    },
+    {
+      "name": "Ukraine",
+      "type": "government",
+      "role": "recipient"
+    }
+  ]
+}

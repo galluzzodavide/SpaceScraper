@@ -1,0 +1,99 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/spacex-launches-tenth-transporter-rideshare-mission/",
+  "title": "SpaceX launches tenth Transporter rideshare mission",
+  "published_date": "2024-03-04",
+  "section": "Launch",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "SpaceX launched its Transporter-10 rideshare mission carrying 53 payloads, including satellites from various companies such as Spire, Iceye, Satellogic, and others. The mission highlights the growing demand for rideshare launches but also raises concerns about space situational awareness and tracking challenges.",
+  "why_it_matters": "The article discusses the increasing popularity of SpaceX's rideshare missions and the associated challenges in tracking numerous satellites deployed simultaneously, which impacts space safety and operational efficiency.",
+  "entities": [
+    {
+      "name": "SpaceX",
+      "type": "company",
+      "role": "launch provider"
+    },
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Spire",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Satellogic",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Lynk Global",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Unseenlabs",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Loft Orbital",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Space Machines",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Atomos Space",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "True Anomaly",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Quantum Space",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Sidus Space",
+      "type": "company",
+      "role": "satellite operator"
+    },
+    {
+      "name": "Ball Aerospace",
+      "type": "company",
+      "role": "satellite developer"
+    },
+    {
+      "name": "BAE Systems",
+      "type": "company",
+      "role": "parent company"
+    },
+    {
+      "name": "Environmental Defense Fund (EDF)",
+      "type": "organization",
+      "role": "satellite mission sponsor"
+    }
+  ]
+}

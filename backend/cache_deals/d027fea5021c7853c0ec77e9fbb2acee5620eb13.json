@@ -1,0 +1,92 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/exolaunch-overtakes-300-satellites-deployed-in-orbit-with-spacex-transporter-8-rideshare-mission/",
+  "title": "Exolaunch overtakes 300 satellites deployed in orbit with SpaceX Transporter-8 rideshare mission",
+  "published_date": "2023-06-12",
+  "section": "Launch",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [],
+  "geography": [
+    "USA",
+    "Germany"
+  ],
+  "summary": "Exolaunch successfully deployed 32 satellites for 11 international customers, including ICEYE, on SpaceX’s Transporter-8 rideshare mission. The mission marked Exolaunch’s 300th satellite deployment and demonstrated its capabilities in mission management, integration, and deployment technologies.",
+  "why_it_matters": "The mission highlights Exolaunch’s growing role as a trusted provider of rideshare mission management and satellite deployment services, reinforcing its position in the NewSpace sector. ICEYE was among the customers but no concrete deal involving ICEYE was announced.",
+  "entities": [
+    {
+      "name": "Exolaunch",
+      "role": "Mission management and integration services provider",
+      "involvement": "Primary"
+    },
+    {
+      "name": "SpaceX",
+      "role": "Launch provider",
+      "involvement": "Primary"
+    },
+    {
+      "name": "ICEYE",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Spire",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Satellogic",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Kongsberg NanoAvionics",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Satlantis",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Swarm Technologies",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "University of Stuttgart",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Aerospacelab",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Muon Space",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Turion Space",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    },
+    {
+      "name": "Azista BST Aerospace",
+      "role": "Customer (satellite deployment)",
+      "involvement": "Secondary"
+    }
+  ]
+}

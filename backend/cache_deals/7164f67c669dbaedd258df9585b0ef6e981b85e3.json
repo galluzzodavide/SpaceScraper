@@ -1,0 +1,73 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/satellite-imaging-company-iceye-raises-93-million-in-latest-funding-round/",
+  "title": "Satellite imaging company Iceye raises $93 million in latest funding round",
+  "published_date": "2024-04-17",
+  "section": "Finance",
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "investment",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": "ICEYE",
+  "investors": [
+    "Solidium Oy",
+    "Move Capital Fund I",
+    "Blackwells Capital",
+    "Christo Georgiev",
+    "existing investors"
+  ],
+  "amount": 93000000,
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "SAR satellite constellation",
+    "satellite manufacturing facility in Irvine, California",
+    "R&D lab",
+    "mission operations center"
+  ],
+  "geography": [
+    "Finland",
+    "United States"
+  ],
+  "summary": "Finnish satellite company ICEYE has raised $93 million in a new funding round led by Finnish sovereign wealth fund Solidium Oy, with participation from other investors. The funds will be used to expand business operations, develop new products, and support growth toward free cash flow break-even.",
+  "why_it_matters": "This funding round underscores investor confidence in ICEYE's SAR satellite technology and commercial growth potential. It provides financial stability for expansion and product development, reinforcing ICEYE's position in the global satellite imaging market.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "target",
+      "type": "company"
+    },
+    {
+      "name": "Solidium Oy",
+      "role": "investor",
+      "type": "sovereign wealth fund"
+    },
+    {
+      "name": "Move Capital Fund I",
+      "role": "investor",
+      "type": "investment fund"
+    },
+    {
+      "name": "Blackwells Capital",
+      "role": "investor",
+      "type": "investment firm"
+    },
+    {
+      "name": "Christo Georgiev",
+      "role": "investor",
+      "type": "individual"
+    },
+    {
+      "name": "Rafal Modrzewski",
+      "role": "CEO and co-founder",
+      "type": "person"
+    },
+    {
+      "name": "Susan Repo",
+      "role": "CFO",
+      "type": "person"
+    }
+  ]
+}

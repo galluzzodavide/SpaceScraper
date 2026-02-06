@@ -1,0 +1,81 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/overseas-firms-on-a-journey-to-establish-themselves-as-u-s-entities/",
+  "title": "Overseas firms on a journey to establish themselves as U.S. entities",
+  "published_date": "2023-09-01",
+  "section": "Industry & Policy",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": [
+    "United States",
+    "Europe"
+  ],
+  "summary": "The article discusses the trend of overseas space and defense companies establishing U.S. subsidiaries to access the lucrative U.S. government market. It highlights examples like Exotrail, Iceye, Space Forge, Edgybees, and Aerospacelab, focusing on their strategies, challenges, and the regulatory environment for foreign-owned firms in the U.S. Iceye is mentioned as a Finland-based radar satellite operator with U.S. operations, but no concrete deal involving Iceye is described.",
+  "why_it_matters": "The article underscores the growing interest of foreign space companies in the U.S. market, driven by demand for commercial technologies in defense and intelligence. It highlights regulatory hurdles like FOCI mitigation and the cultural shift toward collaboration with non-U.S. firms. However, it does not describe a specific acquisition, investment, partnership, or contract involving Iceye or other companies.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "contextual mention",
+      "involvement": "mentioned as a Finland-based radar satellite operator with U.S. operations, but no concrete deal described"
+    },
+    {
+      "name": "Exotrail",
+      "type": "company",
+      "role": "example",
+      "involvement": "France-based company establishing U.S. subsidiary for government contracts"
+    },
+    {
+      "name": "Space Forge",
+      "type": "company",
+      "role": "example",
+      "involvement": "U.K.-based firm planning U.S. operations"
+    },
+    {
+      "name": "Edgybees",
+      "type": "company",
+      "role": "example",
+      "involvement": "Israel-based company establishing U.S. arm for defense market"
+    },
+    {
+      "name": "Aerospacelab",
+      "type": "company",
+      "role": "example",
+      "involvement": "Belgium-based satellite manufacturer forming U.S. subsidiary"
+    },
+    {
+      "name": "BAE Systems",
+      "type": "company",
+      "role": "example",
+      "involvement": "U.K.-based firm with U.S. operations under Special Security Agreement"
+    },
+    {
+      "name": "Airbus",
+      "type": "company",
+      "role": "example",
+      "involvement": "European firm with U.S. defense operations"
+    },
+    {
+      "name": "Mynaric",
+      "type": "company",
+      "role": "example",
+      "involvement": "German company supplying laser communications to U.S. military"
+    },
+    {
+      "name": "Albedo",
+      "type": "company",
+      "role": "customer",
+      "involvement": "U.S. remote-sensing startup mentioned as Aerospacelab's customer"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/dark-clouds-silver-linings-five-ways-war-in-ukraine-is-transforming-the-space-domain/",
+  "title": "Dark clouds, silver linings: Five ways war in Ukraine is transforming the space domain",
+  "published_date": "2022-12-01",
+  "section": "Military & Defense",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article discusses the broader geopolitical and industrial impacts of the war in Ukraine on the space sector, including increased reliance on commercial satellite services, shifts in launch dependencies, and investments in European space autonomy. ICEYE is mentioned as one of the companies providing synthetic aperture radar imagery for Ukraine, but no concrete deal involving ICEYE is described.",
+  "why_it_matters": "The war has accelerated trends in commercial space utilization and highlighted the strategic importance of space assets, but the article does not detail any specific corporate transaction or deal involving ICEYE or other entities.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "commercial provider",
+      "involvement": "mentioned as supplying synthetic aperture radar imagery for Ukraine"
+    },
+    {
+      "name": "Maxar",
+      "role": "commercial provider",
+      "involvement": "provided satellite imagery for Ukraine and media"
+    },
+    {
+      "name": "Capella Space",
+      "role": "commercial provider",
+      "involvement": "provided synthetic aperture radar imagery"
+    },
+    {
+      "name": "BlackSky",
+      "role": "commercial provider",
+      "involvement": "provided electro-optical imagery"
+    },
+    {
+      "name": "Planet",
+      "role": "commercial provider",
+      "involvement": "provided electro-optical imagery"
+    },
+    {
+      "name": "HawkEye 360",
+      "role": "commercial provider",
+      "involvement": "provided radio-frequency data"
+    },
+    {
+      "name": "Spire Global",
+      "role": "commercial provider",
+      "involvement": "provided radio-frequency data"
+    },
+    {
+      "name": "European Space Agency (ESA)",
+      "role": "government agency",
+      "involvement": "investing in European autonomy and IRIS2 constellation"
+    },
+    {
+      "name": "European Union",
+      "role": "government entity",
+      "involvement": "funding IRIS2 constellation"
+    },
+    {
+      "name": "OneWeb",
+      "role": "commercial provider",
+      "involvement": "resumed launches on Indian and SpaceX rockets"
+    },
+    {
+      "name": "SpaceX",
+      "role": "commercial provider",
+      "involvement": "provided launch services for OneWeb and ESA missions"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/demand-outstrips-radar-satellite-supply/",
+  "title": "Demand outstrips radar satellite supply",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.8,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "NASA",
+  "target": "ICEYE US",
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "SAR data",
+    "Commercial Smallsat Data Acquisition program"
+  ],
+  "geography": [
+    "United States"
+  ],
+  "summary": "NASA announced plans to integrate ICEYE US's SAR data into its Commercial Smallsat Data Acquisition program under a five-year indefinite-delivery, indefinite-quantity contract after evaluating its suitability for NASA Earth Science research.",
+  "why_it_matters": "This contract signifies growing recognition of commercial SAR data's value for civil government applications and Earth science research, expanding ICEYE's market beyond defense and national security.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "target",
+      "type": "company"
+    },
+    {
+      "name": "NASA",
+      "role": "acquirer",
+      "type": "government_agency"
+    },
+    {
+      "name": "ICEYE US",
+      "role": "target",
+      "type": "company"
+    },
+    {
+      "name": "Capella Space",
+      "role": "context",
+      "type": "company"
+    },
+    {
+      "name": "Synspective",
+      "role": "context",
+      "type": "company"
+    },
+    {
+      "name": "Asterra",
+      "role": "context",
+      "type": "company"
+    }
+  ]
+}

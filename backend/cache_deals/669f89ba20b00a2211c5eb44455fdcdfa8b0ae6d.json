@@ -1,0 +1,72 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-raises-additional-65-million/",
+  "title": "Iceye raises additional $65 million",
+  "published_date": "2023-12-18",
+  "section": "Finance",
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "investment",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": "ICEYE",
+  "investors": [
+    "Solidium Oy",
+    "BlackRock",
+    "Seraphim",
+    "Plio Limited",
+    "Christo Georgiev"
+  ],
+  "amount": 65000000,
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [
+    "SAR satellite constellation",
+    "ISR platform",
+    "SAR satellite manufacturing capabilities"
+  ],
+  "geography": [
+    "Finland",
+    "Global"
+  ],
+  "summary": "ICEYE has raised an additional $65 million in a Series E funding round extension, bringing the total raised to $503 million. The funding, a mix of debt and equity, includes participation from existing and new investors such as Solidium Oy, BlackRock, Seraphim, Plio Limited, and Christo Georgiev. The funds will support the expansion of ICEYE's SAR satellite constellation and its ISR platform.",
+  "why_it_matters": "This investment underscores the growing demand for space-based SAR technology in global defense and ISR markets. It enables ICEYE to accelerate the deployment of its satellite constellation and enhance its capabilities, positioning the company as a leader in SAR imagery and dedicated satellite solutions for government and commercial customers.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "target"
+    },
+    {
+      "name": "Solidium Oy",
+      "type": "investor",
+      "role": "investor"
+    },
+    {
+      "name": "BlackRock",
+      "type": "investor",
+      "role": "investor"
+    },
+    {
+      "name": "Seraphim",
+      "type": "investor",
+      "role": "investor"
+    },
+    {
+      "name": "Plio Limited",
+      "type": "investor",
+      "role": "investor"
+    },
+    {
+      "name": "Christo Georgiev",
+      "type": "individual",
+      "role": "investor"
+    },
+    {
+      "name": "Space42",
+      "type": "company",
+      "role": "partner"
+    }
+  ]
+}

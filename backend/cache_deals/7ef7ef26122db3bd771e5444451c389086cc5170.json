@@ -1,0 +1,29 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/spacex-launches-transporter-11-smallsat-rideshare-mission/",
+  "title": "SpaceX launches Transporter-11 smallsat rideshare mission",
+  "published_date": "2024-08-16",
+  "section": "Launch",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "SpaceX successfully launched the Transporter-11 rideshare mission, deploying over 100 satellites for commercial and government customers, including radar imaging companies like ICEYE. The mission highlights the growing demand for rideshare opportunities and SpaceX's expanding services in this sector.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "satellite operator",
+      "involvement": "payload customer"
+    }
+  ]
+}
