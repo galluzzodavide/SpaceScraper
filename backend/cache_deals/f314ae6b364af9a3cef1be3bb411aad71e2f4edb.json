@@ -1,0 +1,50 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/d-orbit-raises-124-million-in-first-tranche-of-series-d-funding/",
+  "title": "D-Orbit raises $124 million in first tranche of Series D funding",
+  "published_date": "2024-07-10",
+  "section": "Finance",
+  "is_relevant": true,
+  "relevance_score": 0.98,
+  "deal_type": "investment",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": "D-Orbit",
+  "investors": [
+    "Azimut Group"
+  ],
+  "amount": "128000000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['ION Satellite Carrier', 'orbital logistics infrastructure', 'General Expansion Architecture']",
+  "geography": [
+    "Europe",
+    "United States",
+    "Saudi Arabia"
+  ],
+  "summary": "D-Orbit has secured $128 million in the first tranche of its Series D funding round, led by Azimut Group. The investment includes $53 million in new funding and a $75 million buyout of an existing investor. The funds will be used for strategic acquisitions, expanding orbital logistics infrastructure, and scaling industrial capacity.",
+  "why_it_matters": "This investment strengthens D-Orbit's position in the space logistics sector, enabling expansion into new markets, development of new spacecraft, and consolidation of leadership in space infrastructure. It also supports D-Orbit's long-term goal of creating an interplanetary logistics infrastructure.",
+  "entities": [
+    {
+      "name": "D-Orbit",
+      "role": "target",
+      "type": "company"
+    },
+    {
+      "name": "Azimut Group",
+      "role": "investor",
+      "type": "company"
+    },
+    {
+      "name": "Planetek",
+      "role": "past_acquisition",
+      "type": "company"
+    },
+    {
+      "name": "European Space Agency",
+      "role": "partner",
+      "type": "organization"
+    }
+  ]
+}

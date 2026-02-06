@@ -1,0 +1,39 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/china-advances-plans-for-dual-solar-system-boundary-missions/",
+  "title": "China advances plans for dual solar system boundary missions",
+  "published_date": null,
+  "section": "Space Science",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "China",
+  "summary": "China has published detailed plans for dual missions to explore the boundaries of the solar system, targeting launches in 2033 and 2032. The missions aim to study heliospheric physics, planetary science, and astrophysics, leveraging Jupiter for gravitational assists and utilizing nuclear power for long-duration operations. The projects are nearing formal approval, with potential inclusion in China's 15th Five-year Plan (2026-2030).",
+  "why_it_matters": "The missions could drive advancements in space nuclear power, ultra-long-life spacecraft design, and deep space communications, positioning China as a leader in deep space exploration. However, no formal approval or concrete business deal involving AVIO or other commercial entities is described.",
+  "entities": [
+    {
+      "name": "China National Space Administration (CNSA)",
+      "role": "Government Space Agency",
+      "involvement": "Planning and potential execution of the missions"
+    },
+    {
+      "name": "Deep Space Exploration Laboratory (DSEL)",
+      "role": "Research Institution",
+      "involvement": "Key contributor to mission design and technology development"
+    },
+    {
+      "name": "Wu Weiren",
+      "role": "Senior Space Official",
+      "involvement": "Lead author of the mission design paper"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/vega-c-to-launch-brazilian-satellite/",
+  "title": "Vega C to launch Brazilian satellite",
+  "published_date": "2025-01-27",
+  "section": "Launch",
+  "is_relevant": true,
+  "relevance_score": 0.85,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": "35600000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['Amazonia-1B satellite launch on Vega C rocket']",
+  "geography": [
+    "Brazil",
+    "Italy",
+    "USA"
+  ],
+  "summary": "Brazil’s National Institute for Space Research (INPE) has contracted SpaceLaunch, a Texas-based launch broker, to launch the Amazonia-1B Earth observation satellite on a Vega C rocket in 2027. The contract is valued at $35.6 million. SpaceLaunch has an existing agreement with Avio for this launch, though INPE did not contract directly with Avio.",
+  "why_it_matters": "This contract highlights Avio’s growing role in marketing and managing Vega C launches, following the transition of launch services duties from Arianespace. It also underscores the use of launch brokers in securing institutional customers for European launch providers.",
+  "entities": [
+    {
+      "name": "Avio",
+      "role": "launch service provider (Vega C)",
+      "involvement": "indirect (via SpaceLaunch agreement)"
+    },
+    {
+      "name": "INPE (National Institute for Space Research)",
+      "role": "customer",
+      "involvement": "direct (contracted SpaceLaunch)"
+    },
+    {
+      "name": "SpaceLaunch",
+      "role": "launch broker",
+      "involvement": "direct (contracted by INPE, partner of Avio)"
+    },
+    {
+      "name": "Arianespace",
+      "role": "former launch service provider",
+      "involvement": "indirect (transitioning duties to Avio)"
+    }
+  ]
+}

@@ -8,8 +8,6 @@ from bs4 import BeautifulSoup
 from .models import ScrapeSettings, DealData
 
 # --- CONFIGURAZIONE CACHE ---
-# Usa Path(__file__).parent per garantire che la cartella sia creata 
-# dentro 'backend/cache_deals' indipendentemente da dove lanci il server.
 BASE_DIR = Path(__file__).parent
 CACHE_DIR = BASE_DIR / "cache_deals"
 CACHE_DIR.mkdir(exist_ok=True)
@@ -50,12 +48,10 @@ class SpaceScraperService:
 
     # --- METODI CACHE ---
     def get_cache_path(self, url: str) -> Path:
-        """Genera un nome file univoco basato sull'hash dell'URL"""
         file_hash = hashlib.sha1(url.encode("utf-8")).hexdigest()
         return CACHE_DIR / f"{file_hash}.json"
 
     def load_cached(self, url: str):
-        """Carica il JSON dalla cache se esiste"""
         p = self.get_cache_path(url)
         if p.exists():
             try:
@@ -65,7 +61,6 @@ class SpaceScraperService:
         return None
 
     def save_cached(self, url: str, data: dict):
-        """Salva il JSON nella cache"""
         p = self.get_cache_path(url)
         try:
             p.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -77,23 +72,44 @@ class SpaceScraperService:
         return re.sub(r"\s+", " ", s).strip() if s else ""
 
     def _sanitize_data(self, data: dict) -> dict:
-        """
-        Pulisce i dati per evitare che oggetti complessi (dict/list) rompano Pydantic.
-        Esempio: se stake_percent è un oggetto {'Bayanat': 54}, lo converte in stringa.
-        """
-        # Campi che nel modello Pydantic sono definiti come Optional[str] ma l'IA potrebbe restituire come oggetti
+        """Pulisce i dati per evitare crash Pydantic."""
         keys_to_fix = ['stake_percent', 'amount', 'valuation', 'key_assets', 'currency']
-        
         for key in keys_to_fix:
             if key in data:
                 val = data[key]
-                # Se è un dizionario o una lista, forza la conversione a stringa
                 if isinstance(val, (dict, list)):
-                    data[key] = str(val) # Converte {'A':1} in "{'A':1}"
-                # Se è un numero, converti in stringa per sicurezza (opzionale, Pydantic di solito lo fa)
+                    data[key] = str(val)
                 elif isinstance(val, (int, float)):
                     data[key] = str(val)
-                
+        return data
+
+    def verify_summary_relevance(self, data: dict) -> dict:
+        """
+        CONTROLLO EXTRA: Se 'why_it_matters' non menziona esplicitamente 
+        una delle target companies, forza is_relevant a False.
+        """
+        # Se è già irrilevante, non fare nulla
+        if not data.get('is_relevant'):
+            return data
+
+        why_matters = str(data.get('why_it_matters', '')).lower()
+        
+        # Se il campo è vuoto, lasciamo il beneficio del dubbio (o potremmo bocciarlo)
+        if not why_matters:
+            return data
+
+        found = False
+        for company in self.companies_list:
+            if company.lower() in why_matters:
+                found = True
+                break
+        
+        if not found:
+            # L'IA ha detto "Sì" ma non ha spiegato perché riguardo alla nostra target company
+            data['is_relevant'] = False
+            # Aggiungiamo una nota interna per capire perché è stato scartato (opzionale)
+            data['relevance_reason'] = "Target company not mentioned in summary"
+        
         return data
 
     def parse_article_text(self, html: str) -> str:
@@ -107,7 +123,6 @@ class SpaceScraperService:
         return "\n".join(body_parts)
 
     def contains_target_company(self, text: str) -> bool:
-        """Controllo base keywords per evitare chiamate inutili all'IA"""
         text_lower = text.lower()
         for company in self.companies_list:
             if company.lower() in text_lower:
@@ -179,12 +194,16 @@ class SpaceScraperService:
                 if cached_data:
                     self.add_log(f"Loaded from cache: {short_url}", "info")
                     
-                    # FIX: Puliamo anche i dati caricati dalla cache per evitare errori Pydantic
+                    # Clean & Double Check (anche su dati vecchi in cache)
                     cached_data = self._sanitize_data(cached_data)
+                    cached_data = self.verify_summary_relevance(cached_data) # <--- NUOVO CONTROLLO
 
-                    # ESTRAI is_relevant DALLA CACHE
                     if cached_data.get('is_relevant') is True:
                         results.append(cached_data)
+                    else:
+                        # Se prima era True e ora è False per il controllo del summary, lo logghiamo
+                        if cached_data.get('relevance_reason'):
+                             self.add_log(f"Filtered out (Summary check failed): {short_url}", "warning")
                     continue 
 
                 # 2. FETCH WEB
@@ -197,11 +216,9 @@ class SpaceScraperService:
                         self.add_log(f"Skipped (Text too short): {short_url}", "warning")
                         continue
                     
-                    # Filtro Pre-IA: Se l'azienda non è nel testo, è inutile analizzare
                     full_content = short_url + " " + text
                     if not self.contains_target_company(full_content):
                          self.add_log(f"Skipped (Target not mentioned): {short_url}", "warning")
-                         # Salviamo un placeholder in cache per non riprovare in futuro
                          dummy_result = {"is_relevant": False, "url": url, "deal_type": "none"}
                          self.save_cached(url, dummy_result)
                          continue
@@ -215,33 +232,34 @@ class SpaceScraperService:
                     self.add_log(f"Analyzing with AI: {short_url}...", "info")
                     deal_data = self.call_mistral(text, url)
                     
-                    # Arricchimento dati mancanti
+                    # Arricchimento
                     deal_data['url'] = url
                     if not deal_data.get('title'):
-                        # Tentativo di recupero titolo
                         soup = BeautifulSoup(resp.text, "html.parser")
                         h1 = soup.find('h1')
                         deal_data['title'] = h1.get_text().strip() if h1 else short_url
 
-                    # FIX: Puliamo i dati prima di salvare/usare
+                    # Clean & Double Check
                     deal_data = self._sanitize_data(deal_data)
+                    deal_data = self.verify_summary_relevance(deal_data) # <--- NUOVO CONTROLLO
 
-                    # 4. SALVATAGGIO IN CACHE (Qualsiasi sia il risultato)
+                    # 4. SALVATAGGIO IN CACHE
                     self.save_cached(url, deal_data)
 
-                    # 5. ESTRAZIONE E CONTROLLO RILEVANZA
-                    is_rel = deal_data.get('is_relevant', False)
-                    
-                    if is_rel:
+                    # 5. RISULTATO FINALE
+                    if deal_data.get('is_relevant', False):
                         self.add_log(f"✅ RELEVANT DEAL: {short_url}", "success")
                         results.append(deal_data)
                     else:
-                        self.add_log(f"Skipped (AI deemed irrelevant): {short_url}", "warning")
+                        msg = "Skipped (AI deemed irrelevant)"
+                        if deal_data.get('relevance_reason'):
+                            msg = "Skipped (Target missing in summary)"
+                        self.add_log(f"{msg}: {short_url}", "warning")
                         
                 except Exception as e:
                     self.add_log(f"AI Error: {str(e)}", "error")
                 
-                time.sleep(1) # Rispetto per il server
+                time.sleep(1)
 
             self.add_log(f"Analysis Completed. Found {len(results)} deals.", "success")
             self.update_status("Analysis Completed", total, total)
@@ -254,7 +272,6 @@ class SpaceScraperService:
             return []
 
     def call_mistral(self, text, url):
-        # Aggiungiamo istruzioni di focus per migliorare la precisione
         companies_str = ", ".join(self.companies_list)
         focus_instruction = (
             f"\n\nFOCUS SU: {companies_str}\n"

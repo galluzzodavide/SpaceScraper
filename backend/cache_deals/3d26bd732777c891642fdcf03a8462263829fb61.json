@@ -1,0 +1,54 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/next-chapter-in-space-defense-satellites-that-never-stop-moving/",
+  "title": "Next chapter in space defense: Satellites that never stop moving",
+  "published_date": "2023-09-25",
+  "section": "Military Space",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "United States",
+  "summary": "The article discusses the U.S. Space Force's evolving needs for dynamic space operations, including sustained maneuvering and refueling of satellites. It highlights the role of commercial firms in providing in-space servicing, assembly, and manufacturing (ISAM) capabilities, with a focus on military applications. The Space Force is exploring refueling and servicing infrastructure to support future satellite constellations like RG-XX, which will require refueling to enable sustained maneuvering.",
+  "why_it_matters": "The shift toward dynamic space operations and sustained maneuvering represents a significant evolution in military space strategy. Commercial ISAM providers, including companies like Northrop Grumman's SpaceLogistics, stand to benefit as the Space Force seeks to leverage commercial capabilities for satellite refueling, servicing, and logistics. This could drive demand for commercial space services and shape future military satellite architectures.",
+  "entities": [
+    {
+      "name": "U.S. Space Force",
+      "type": "government",
+      "role": "customer"
+    },
+    {
+      "name": "COSMIC (Consortium for Space Mobility and ISAM Capabilities)",
+      "type": "consortium",
+      "role": "facilitator"
+    },
+    {
+      "name": "Northrop Grumman (SpaceLogistics)",
+      "type": "company",
+      "role": "service provider"
+    },
+    {
+      "name": "Aerospace Corp.",
+      "type": "nonprofit",
+      "role": "consortium member"
+    },
+    {
+      "name": "U.S. Space Command",
+      "type": "government",
+      "role": "customer"
+    },
+    {
+      "name": "Space Systems Command",
+      "type": "government",
+      "role": "procurement"
+    }
+  ]
+}

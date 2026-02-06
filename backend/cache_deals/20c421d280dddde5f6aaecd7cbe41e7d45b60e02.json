@@ -1,0 +1,54 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/the-stealth-strategy-pays-off-uarx-space-emerges-as-europes-high-reliability-powerhouse/",
+  "title": "The stealth strategy pays off: UARX Space emerges as Europe’s high-reliability powerhouse",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "Europe",
+  "summary": "UARX Space, a Spanish space technology company, has emerged from stealth mode with a focus on high-reliability orbital systems, including in-orbit logistics, separation systems, and avionics. The company has achieved flight heritage, secured contracts, and received recognition from ESA, positioning itself as a key player in Europe's space ecosystem.",
+  "why_it_matters": "UARX Space's approach highlights the importance of technical rigor and flight heritage in the space industry, offering sovereign European capabilities and reducing reliance on third-party integrators. Its dual-use certification and partnerships underscore its strategic value for both commercial and defense sectors.",
+  "entities": [
+    {
+      "name": "UARX Space",
+      "type": "company",
+      "role": "primary"
+    },
+    {
+      "name": "Dawn Aerospace",
+      "type": "company",
+      "role": "partner"
+    },
+    {
+      "name": "Atmos Space Cargo GmbH",
+      "type": "company",
+      "role": "customer"
+    },
+    {
+      "name": "Orbital Paradigm",
+      "type": "company",
+      "role": "customer"
+    },
+    {
+      "name": "European Space Agency (ESA)",
+      "type": "organization",
+      "role": "partner/recognizer"
+    },
+    {
+      "name": "Spanish Ministry of Defense",
+      "type": "government",
+      "role": "certifier"
+    }
+  ]
+}

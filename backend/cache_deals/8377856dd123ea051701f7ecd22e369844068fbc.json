@@ -1,0 +1,79 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/d-orbit-sends-to-ion-vehicles-aloft-on-spacex-transporter-15/",
+  "title": "D-Orbit sends to ION vehicles aloft on SpaceX Transporter-15",
+  "published_date": "2023-11-28",
+  "section": "Launch",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "Italy, Global",
+  "summary": "D-Orbit launched two ION orbital transfer vehicles on SpaceX's Transporter-15 rideshare mission, carrying over 200 payloads from various companies and institutions, including an optical intersatellite link mission in collaboration with Stellar Project and ESA. The mission focused on satellite communications, Earth observation, and technology demonstration.",
+  "why_it_matters": "The launch demonstrates D-Orbit's growing role in the space sector as a provider of orbital transfer services, enabling diverse payloads to reach orbit efficiently. However, the article does not describe a concrete business deal involving D-Orbit.",
+  "entities": [
+    {
+      "name": "D-Orbit",
+      "role": "Launch service provider",
+      "involvement": "primary"
+    },
+    {
+      "name": "SpaceX",
+      "role": "Launch provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Stellar Project",
+      "role": "Partner for OISL mission",
+      "involvement": "secondary"
+    },
+    {
+      "name": "European Space Agency (ESA)",
+      "role": "Collaborator for OISL mission",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Spire",
+      "role": "Payload provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Spaceium",
+      "role": "Payload provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Pale Blue",
+      "role": "Payload provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Aalto University",
+      "role": "Payload provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Planetek",
+      "role": "Payload provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "AIKO",
+      "role": "Payload provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "StardustMe",
+      "role": "Payload provider",
+      "involvement": "secondary"
+    }
+  ]
+}

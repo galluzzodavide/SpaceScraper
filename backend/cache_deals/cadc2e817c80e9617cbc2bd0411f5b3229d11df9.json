@@ -1,0 +1,29 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/firefly-to-upgrade-alpha-rocket-to-improve-reliability/",
+  "title": "Firefly to upgrade Alpha rocket to improve reliability",
+  "published_date": "2025-01-13",
+  "section": "Launch",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": null,
+  "summary": "Firefly Aerospace announced plans to upgrade its Alpha launch vehicle to a Block 2 version starting with Flight 8, focusing on improved reliability, safety, and performance. The upgrades include stretched stages, in-house avionics, and enhanced thermal protection systems. The company did not disclose specific payload performance improvements but emphasized quality and manufacturability enhancements.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "Firefly Aerospace",
+      "role": "company",
+      "involvement": "primary"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/golden-dome-is-forcing-the-pentagon-to-confront-missile-defense-economics/",
+  "title": "Golden Dome is forcing the Pentagon to confront missile defense economics",
+  "published_date": "2024-01-23",
+  "section": "Military Space",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "United States",
+  "summary": "The article discusses the Pentagon's Golden Dome missile defense program, focusing on the economic challenges of scaling missile defense systems to counter advanced threats. It highlights the need for lower-cost interceptors, directed-energy technologies, and industrial base investments to improve magazine depth and affordability. The program is classified, and details about its architecture and funding allocations are limited.",
+  "why_it_matters": "Golden Dome represents a strategic shift in U.S. missile defense, emphasizing cost-effective solutions and industrial scalability to counter modern threats like hypersonic missiles. The program's success could redefine homeland defense economics and industrial partnerships, but its secrecy and funding transparency remain contentious.",
+  "entities": [
+    {
+      "name": "U.S. Department of Defense",
+      "type": "government",
+      "role": "program_owner"
+    },
+    {
+      "name": "Golden Dome",
+      "type": "program",
+      "role": "missile_defense_initiative"
+    },
+    {
+      "name": "Gen. Michael Guetlein",
+      "type": "individual",
+      "role": "program_director"
+    },
+    {
+      "name": "Lockheed Martin",
+      "type": "company",
+      "role": "contractor"
+    },
+    {
+      "name": "L3Harris Technologies",
+      "type": "company",
+      "role": "contractor"
+    },
+    {
+      "name": "Missile Defense Agency",
+      "type": "government_agency",
+      "role": "procurement_participant"
+    },
+    {
+      "name": "Space Development Agency",
+      "type": "government_agency",
+      "role": "collaborator"
+    },
+    {
+      "name": "U.S. Space Force",
+      "type": "military_branch",
+      "role": "procurement_participant"
+    },
+    {
+      "name": "U.S. Army",
+      "type": "military_branch",
+      "role": "procurement_participant"
+    },
+    {
+      "name": "U.S. Navy",
+      "type": "military_branch",
+      "role": "procurement_participant"
+    }
+  ]
+}

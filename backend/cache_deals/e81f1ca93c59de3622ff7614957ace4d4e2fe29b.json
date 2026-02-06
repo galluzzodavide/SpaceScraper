@@ -1,0 +1,39 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/spacexs-ipo-will-make-space-investment-far-less-niche/",
+  "title": "SpaceX’s IPO will make space investment far less niche",
+  "published_date": "2026-01-01",
+  "section": "Opinion",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article discusses the evolving landscape of space investing, highlighting the potential impact of a SpaceX IPO on the industry. It notes that space is increasingly seen as critical infrastructure, with investments broadening geographically. Avio is mentioned as one of the non-U.S. companies returning to an index due to growing investor engagement, but no concrete deal involving Avio is described.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "SpaceX",
+      "role": "potential IPO candidate",
+      "involvement": "central focus of discussion"
+    },
+    {
+      "name": "Avio",
+      "role": "launch provider",
+      "involvement": "mentioned as part of broader market trends"
+    },
+    {
+      "name": "Telesat",
+      "role": "communications company",
+      "involvement": "mentioned as part of broader market trends"
+    }
+  ]
+}

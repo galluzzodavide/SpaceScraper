@@ -1,0 +1,39 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/d-orbit-and-mhackeroni-conduct-in-orbit-cybersecurity-competition/",
+  "title": "D-Orbit and mHackeroni conduct in-orbit cybersecurity competition",
+  "published_date": "2023-11-06",
+  "section": "Cybersecurity",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "Europe",
+  "summary": "D-Orbit and Italian cybersecurity team mHackeroni organized CTRL+Space, Europe’s first in-orbit Capture-the-Flag (CTF) cybersecurity competition involving D-Orbit’s ION Satellite Carrier. The event, supported by ESA, aimed to identify vulnerabilities in satellite systems in a controlled environment.",
+  "why_it_matters": "The event highlights the growing importance of cybersecurity in the space sector and demonstrates collaboration between industry and ethical hackers to address vulnerabilities in satellite systems.",
+  "entities": [
+    {
+      "name": "D-Orbit",
+      "role": "organizer",
+      "type": "company"
+    },
+    {
+      "name": "mHackeroni",
+      "role": "organizer",
+      "type": "team"
+    },
+    {
+      "name": "European Space Agency (ESA)",
+      "role": "supporter",
+      "type": "agency"
+    }
+  ]
+}
