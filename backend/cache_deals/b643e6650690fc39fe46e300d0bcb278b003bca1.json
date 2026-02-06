@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/germanys-space-defense-strategy-marks-a-turning-point-private-investors-must-now-respond/",
+  "title": "Germany’s space defense strategy marks a turning point; private investors must now respond",
+  "published_date": null,
+  "section": "Opinion",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "Germany/Europe",
+  "summary": "Germany has published its first national space security strategy, committing €35 billion by 2030 to protect space infrastructure and enhance defense capabilities. The strategy emphasizes the need for private-sector innovation and investment in dual-use technologies, highlighting companies like ICEYE, Cailabs, and FibreCoat as key players. The article calls for private investors to support these companies to strengthen Europe's space-based defense.",
+  "why_it_matters": "The article underscores the critical role of space in defense and modern infrastructure, urging private investment to match Germany's public commitment. It signals a shift toward faster, more innovative procurement in space defense, with a focus on dual-use technologies.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "key player in European space intelligence (SAR satellites)",
+      "involvement": "mentioned as a critical company for Germany's space defense strategy"
+    },
+    {
+      "name": "Cailabs",
+      "role": "optical communications pioneer",
+      "involvement": "mentioned as a key company for secure data transmission"
+    },
+    {
+      "name": "FibreCoat",
+      "role": "advanced materials developer",
+      "involvement": "mentioned for EMP-resistant satellite protection"
+    },
+    {
+      "name": "Germany",
+      "role": "government",
+      "involvement": "announced €35 billion investment in space defense by 2030"
+    },
+    {
+      "name": "NewSpace Capital",
+      "role": "investment firm",
+      "involvement": "author's affiliation; calls for private investment in space"
+    }
+  ]
+}

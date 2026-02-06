@@ -11,7 +11,7 @@
   display: flex;
   gap: 20px;
   padding: 20px;
-  max-width: 1600px;
+  max-width: 100%;
   margin: 0 auto;
   align-items: flex-start;
 
@@ -20,163 +20,112 @@
   }
 }
 
-/* Pannello Sinistro (Config) */
+/* Configurazione */
 .config-card {
   width: 350px;
   flex-shrink: 0;
-  
-  .form-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-top: 15px;
-  }
+  .form-grid { display: flex; flex-direction: column; gap: 15px; padding-top: 15px; }
   .full-width { width: 100%; }
   .row { display: flex; gap: 10px; align-items: center; }
-  
-  .time-estimate {
-    padding: 10px;
-    background: #f5f5f5;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 1.2;
-    min-width: 80px;
-    font-size: 12px;
-  }
+  .time-estimate { padding: 10px; background: #f5f5f5; border-radius: 4px; text-align: center; font-size: 12px; }
 }
 
-/* Pannello Destro */
+/* Area Risultati */
 .results-area {
   flex-grow: 1;
+  width: 0; /* TRUCCO CSS: Permette al flex-child di scrollare correttamente */
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
 }
 
-/* Progress Bar Card */
+/* Progress Bar */
 .progress-card {
-    .progress-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
+    .progress-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
     .status-text { font-weight: 500; color: #555; }
-    .counter-badge {
-        background: #e3f2fd; color: #1976d2;
-        padding: 4px 10px; border-radius: 12px;
-        font-size: 12px; font-weight: bold;
-    }
+    .counter-badge { background: #e3f2fd; color: #1976d2; padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 12px; }
 }
 
-/* ========================================= */
-/* LIVE FEED TERMINAL STYLE (COLORI LOG)    */
-/* ========================================= */
+/* Live Feed */
 .logs-card {
-    background: #1e1e1e; /* Sfondo scuro */
-    color: #e0e0e0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 350px; /* Altezza fissa */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-
-    .logs-header {
-        background: #2d2d2d;
-        padding: 10px 16px;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #aaa;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #333;
-    }
-
-    .logs-list {
-        flex: 1;
-        overflow-y: auto; /* Abilita scroll */
-        padding: 12px;
-        font-family: 'Consolas', 'Monaco', monospace;
-        font-size: 13px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-
-        &::-webkit-scrollbar { width: 8px; }
-        &::-webkit-scrollbar-track { background: #1e1e1e; }
-        &::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
-    }
-
-    .log-item {
-        display: flex;
-        gap: 12px;
-        animation: slideIn 0.2s ease-out;
-        line-height: 1.4;
-
-        .log-time {
-            color: #666;
-            min-width: 65px;
-            font-size: 11px;
-            padding-top: 1px;
-        }
-
-        .log-msg { word-break: break-word; }
-
-        /* --- COLORI FONDAMENTALI --- */
-        &.info { color: #bdbdbd; }           /* INFO: Grigio chiaro */
-        &.success { color: #69f0ae; font-weight: bold;} /* SUCCESS: Verde Neon */
-        &.warning { color: #ffd740; }        /* WARNING: Giallo Oro */
-        &.error { color: #ff5252; }          /* ERROR: Rosso */
-    }
-
-    .log-placeholder {
-        color: #555;
-        font-style: italic;
-        text-align: center;
-        margin-top: 40px;
-    }
+    background: #1e1e1e; color: #e0e0e0; height: 300px; border-radius: 8px; display: flex; flex-direction: column;
+    .logs-header { background: #2d2d2d; padding: 10px; font-size: 12px; text-transform: uppercase; color: #aaa; display: flex; align-items: center; }
+    .logs-list { flex: 1; overflow-y: auto; padding: 10px; font-family: monospace; font-size: 13px; display: flex; flex-direction: column; gap: 5px; }
+    .log-item { display: flex; gap: 10px; .log-time { color: #666; min-width: 60px; } }
+    .log-item.info { color: #bdbdbd; }
+    .log-item.success { color: #69f0ae; font-weight: bold; }
+    .log-item.warning { color: #ffd740; }
+    .log-item.error { color: #ff5252; }
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(-10px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* Tabella Risultati */
+/* ========================================= */
+/* TABELLA CON SLIDER ORIZZONTALE           */
+/* ========================================= */
 .table-container {
   background: white;
   border-radius: 8px;
-  overflow: hidden;
-  
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Occupa tutto lo spazio disponibile */
+
   .table-header {
       padding: 15px 20px;
       border-bottom: 1px solid #eee;
       h2 { margin: 0; font-size: 18px; color: #333; }
   }
-  table { width: 100%; }
+
+  /* WRAPPER SCROLLABILE */
+  .table-scroll-wrapper {
+      width: 100%;
+      overflow-x: auto; /* Scroll orizzontale */
+      padding-bottom: 15px;
+      background: white;
+  }
+
+  table { 
+      width: 100%;
+      min-width: 3000px; /* FORZA LARGHEZZA ENORME per attivare scroll */
+      border-collapse: collapse;
+  }
   
-  .deal-link {
-      text-decoration: none; color: #3f51b5; font-weight: 500;
-      &:hover { text-decoration: underline; }
+  td.mat-cell, th.mat-header-cell {
+      padding: 12px;
+      font-size: 13px;
+      white-space: normal;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      line-height: 1.4;
   }
+
+  th.mat-header-cell {
+      color: #333;
+      font-weight: 600;
+      background: #fafafa;
+      border-bottom: 2px solid #ddd;
+      text-transform: uppercase;
+      font-size: 12px;
+  }
+
+  /* Badge */
   .status-badge {
-      font-size: 11px; text-transform: uppercase;
-      font-weight: bold; color: #666;
-      &.announced { color: #1976d2; }
-      &.completed { color: #388e3c; }
-      &.rumor { color: #f57c00; }
+      font-size: 10px; text-transform: uppercase; padding: 3px 8px; border-radius: 12px; background: #eee;
+      &.announced { background: #e3f2fd; color: #1565c0; }
+      &.completed { background: #e8f5e9; color: #2e7d32; }
+      &.rumor { background: #fff3e0; color: #ef6c00; }
   }
+
+  /* Larghezze Colonne */
+  .mat-column-published_date { min-width: 100px; }
+  .mat-column-title { min-width: 250px; font-weight: 500; }
+  .mat-column-summary { min-width: 400px; color: #444; }
+  .mat-column-why_it_matters { min-width: 300px; font-style: italic; }
+  .mat-column-entities { min-width: 250px; }
+  .mat-column-key_assets { min-width: 250px; }
+  .mat-column-investors { min-width: 200px; }
+  /* Tutte le altre */
+  .mat-column-source, .mat-column-section, .mat-column-amount, .mat-column-valuation { min-width: 120px; }
 }
 
-/* Empty State */
-.empty-state {
-    text-align: center; padding: 60px; color: #999;
-    background: #fafafa; border-radius: 8px; border: 1px dashed #ccc;
-    
-    mat-icon { margin-bottom: 10px; }
-    h3 { margin: 10px 0 5px 0; color: #666; }
-    p { margin: 0; font-size: 14px; }
-}
+.empty-state { text-align: center; padding: 50px; color: #999; background: #fafafa; border: 1px dashed #ccc; border-radius: 8px; }

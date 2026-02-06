@@ -1,0 +1,54 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-unveils-guaranteed-imagery-service-as-satellite-firms-vie-for-defense-customers/",
+  "title": "Iceye unveils guaranteed imagery service as satellite firms vie for defense customers",
+  "published_date": "null",
+  "section": "null",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": [],
+  "geography": null,
+  "summary": "Iceye has introduced a new 'tactical access' program offering priority use of its SAR satellites to government and defense customers, ensuring on-demand imagery. The service targets agencies with high imagery requirements and short decision timelines, reflecting growing demand for commercial satellite intelligence in defense and conflict zones. Iceye is also expanding its sovereign satellite sales to governments, including Finland, Poland, and Japan, while competing in a market increasingly focused on multimodal intelligence and sovereign control.",
+  "why_it_matters": "The article highlights the growing competition in the commercial satellite imagery market, driven by defense and government demand for assured access to intelligence data. Iceye's new service and sovereign satellite sales strategy position it as a key player in this evolving sector, which is shifting toward subscription-based models, multimodal data integration, and sovereign control of satellite assets.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "company",
+      "involvement": "primary"
+    },
+    {
+      "name": "Quilty Space",
+      "role": "market research firm",
+      "involvement": "context"
+    },
+    {
+      "name": "Novaspace",
+      "role": "consulting firm",
+      "involvement": "context"
+    },
+    {
+      "name": "Finland",
+      "role": "government customer",
+      "involvement": "context"
+    },
+    {
+      "name": "Poland",
+      "role": "government customer",
+      "involvement": "context"
+    },
+    {
+      "name": "Japan",
+      "role": "government customer",
+      "involvement": "context"
+    }
+  ]
+}

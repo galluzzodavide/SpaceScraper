@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone } from '@angular/core'; // <--- 1. Import NgZone
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
@@ -35,7 +35,6 @@ import { interval, Subscription, switchMap, catchError, of } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   
-  // Questo testo è il DEFAULT. Se l'utente lo cambia nell'HTML, vale quello dell'utente.
   settings: ScrapeSettings = {
     target_companies: 'ICEYE',
     source: 'SpaceNews',
@@ -76,10 +75,16 @@ Il JSON prodotto deve essere sempre valido.`
   deals: Deal[] = [];
   status: ScrapeStatus | null = null;
   statusSub: Subscription | null = null;
-  displayedColumns: string[] = ['date', 'title', 'type', 'parties', 'amount', 'status'];
+
+  // Colonne complete per lo scroll orizzontale
+  displayedColumns: string[] = [
+    'published_date', 'source', 'title', 'section', 'deal_type', 'deal_status', 
+    'acquirer', 'target', 'investors', 'amount', 'currency', 'valuation', 
+    'stake_percent', 'key_assets', 'geography', 'entities', 'summary', 'why_it_matters'
+  ];
+
   estimatedTime = '0 sec';
 
-  // 2. INIETTIAMO NgZone + ChangeDetectorRef
   constructor(private api: ApiService, private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
 
   ngOnInit() {
@@ -124,13 +129,11 @@ Il JSON prodotto deve essere sempre valido.`
     });
   }
 
-  // --- POLLING BLINDATO CON NGZONE ---
   startPolling() {
     this.stopPolling();
 
-    // Eseguiamo il timer FUORI da Angular per non appesantire...
     this.ngZone.runOutsideAngular(() => {
-        
+        // Polling ogni 1 secondo
         this.statusSub = interval(1000).pipe(
             switchMap(() => this.api.getStatus().pipe(
                 catchError(err => {
@@ -139,22 +142,25 @@ Il JSON prodotto deve essere sempre valido.`
                 })
             ))
         ).subscribe((s) => {
-            // ...ma quando arrivano i dati, RIENTRIAMO in Angular per aggiornare la UI
             this.ngZone.run(() => {
                 if (s) {
                     this.status = s;
-                    this.cdr.detectChanges(); // Forza aggiornamento immediato
+                    this.cdr.detectChanges(); 
+
+                    // --- MODIFICA CRUCIALE PER REALTIME ---
+                    // Se abbiamo processato qualcosa, AGGIORNA SUBITO LA TABELLA
+                    // Non aspettare la fine dell'analisi!
+                    if (s.processed_articles > 0 || this.deals.length !== s.total_articles) {
+                         this.loadResults(); 
+                    }
+                    // --------------------------------------
 
                     if (!s.is_running) {
-                        if (s.processed_articles > 0 || s.total_articles > 0) {
-                            this.loadResults();
-                        }
                         this.stopPolling();
                     }
                 }
             });
         });
-
     });
   }
 
@@ -167,10 +173,13 @@ Il JSON prodotto deve essere sempre valido.`
 
   loadResults() {
     this.api.getResults().subscribe(data => {
-      this.ngZone.run(() => { // Sicurezza anche qui
-          this.deals = data;
-          this.deals.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
-          this.cdr.detectChanges();
+      this.ngZone.run(() => {
+          // Controlliamo se i dati sono cambiati per evitare flicker inutile
+          if (JSON.stringify(data) !== JSON.stringify(this.deals)) {
+              this.deals = data;
+              this.deals.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
+              this.cdr.detectChanges();
+          }
       });
     });
   }

@@ -1,0 +1,79 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/novaspace-recognizes-2025-excellence-award-winners-in-satellite-connectivity-earth-observation-and-startup-challenge-at-world-space-business-week/",
+  "title": "Novaspace recognizes 2025 Excellence Award winners in satellite connectivity, earth observation and startup challenge at World Space Business Week",
+  "published_date": "2025-09-19",
+  "section": "Awards",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "Novaspace recognized the 2025 winners of its Annual Excellence Awards and WSBW Startup Challenge during World Space Business Week. ICEYE was awarded the Leading EO Business Award for its advancements in SAR technology and commercial growth, but no concrete business deal involving ICEYE was described.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "Award recipient",
+      "involvement": "Mentioned as winner of Leading EO Business Award, no direct involvement in a business deal"
+    },
+    {
+      "name": "SES",
+      "role": "Award recipient",
+      "involvement": "Honored for merger with Intelsat (Strategic Transaction Award)"
+    },
+    {
+      "name": "Intelsat",
+      "role": "Mentioned in merger",
+      "involvement": "Part of merger with SES"
+    },
+    {
+      "name": "MDA",
+      "role": "Award recipient",
+      "involvement": "Global Satellite Business Award winner"
+    },
+    {
+      "name": "KT SAT",
+      "role": "Award recipient",
+      "involvement": "Regional Satellite Business Award winner"
+    },
+    {
+      "name": "Starlink",
+      "role": "Award recipient",
+      "involvement": "Universal Broadband Award winner"
+    },
+    {
+      "name": "CNES",
+      "role": "Award recipient",
+      "involvement": "Sustainable Development & Business Award winner"
+    },
+    {
+      "name": "OroraTech",
+      "role": "Award recipient",
+      "involvement": "New EO Operator Award winner"
+    },
+    {
+      "name": "Firefly Aerospace",
+      "role": "Award recipient",
+      "involvement": "Pioneer Space Business Award winner"
+    },
+    {
+      "name": "Space Solar",
+      "role": "Startup Challenge finalist",
+      "involvement": "Developing space-based solar power"
+    },
+    {
+      "name": "UNIVITY",
+      "role": "Startup Challenge finalist",
+      "involvement": "Creating VLEO telecom constellation"
+    }
+  ]
+}
