@@ -1,0 +1,44 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-to-provide-radar-imaging-satellite-for-bae-systems-new-multi-sensor-satellite-constellation/",
+  "title": "ICEYE to provide radar imaging satellite for BAE Systems’ new multi-sensor satellite constellation",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[\"ICEYE's Synthetic Aperture Radar (SAR) technology\", \"BAE Systems' Azalea™ multi-sensor satellite cluster\"]",
+  "geography": "Global (with focus on UK sovereign space capability)",
+  "summary": "ICEYE is partnering with BAE Systems to provide advanced SAR technology for BAE Systems' Azalea™ multi-sensor satellite constellation, which will launch in 2024. The constellation will combine SAR, optical, and RF data with on-board machine learning to deliver real-time intelligence for defense and commercial applications. BAE Systems is also a strategic investor in ICEYE, having participated in its $136M Series D funding round earlier this year.",
+  "why_it_matters": "This partnership strengthens the collaboration between ICEYE and BAE Systems, enhancing the UK's sovereign space capabilities and demonstrating the growing role of commercial satellite technology in defense and intelligence. The integration of ICEYE's SAR technology into the Azalea™ cluster highlights the increasing demand for persistent, high-resolution Earth monitoring.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "provider",
+      "type": "company"
+    },
+    {
+      "name": "BAE Systems",
+      "role": "partner/investor",
+      "type": "company"
+    },
+    {
+      "name": "Rafal Modrzewski",
+      "role": "CEO and Co-founder of ICEYE",
+      "type": "person"
+    },
+    {
+      "name": "Dave Armstrong",
+      "role": "Group Managing Director of BAE Systems’ Digital Intelligence business",
+      "type": "person"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/fcc-directing-more-satellite-constellations-to-mitigate-effects-on-astronomy/",
+  "title": "FCC directing more satellite constellations to mitigate effects on astronomy",
+  "published_date": "2023-09-20",
+  "section": "Policy",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": null,
+  "summary": "The FCC has updated licenses for Iceye and Planet to include provisions requiring coordination with the National Science Foundation (NSF) to mitigate the impact of their satellites on ground-based astronomy. This follows similar agreements with SpaceX, OneWeb, and Amazon.",
+  "why_it_matters": "The article highlights regulatory measures to address the growing concern of satellite constellations interfering with astronomical observations, but it does not describe a concrete business deal involving ICEYE.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "satellite operator",
+      "involvement": "license update"
+    },
+    {
+      "name": "Planet",
+      "role": "satellite operator",
+      "involvement": "license update"
+    },
+    {
+      "name": "SpaceX",
+      "role": "satellite operator",
+      "involvement": "coordination agreement"
+    },
+    {
+      "name": "OneWeb",
+      "role": "satellite operator",
+      "involvement": "coordination agreement"
+    },
+    {
+      "name": "Amazon",
+      "role": "satellite operator",
+      "involvement": "coordination agreement"
+    },
+    {
+      "name": "Federal Communications Commission (FCC)",
+      "role": "regulator",
+      "involvement": "license updates and conditions"
+    },
+    {
+      "name": "National Science Foundation (NSF)",
+      "role": "scientific organization",
+      "involvement": "coordination and mitigation efforts"
+    }
+  ]
+}

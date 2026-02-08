@@ -1,0 +1,61 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/maxar-signs-agreement-with-umbra-for-direct-access-to-radar-imaging-satellites/",
+  "title": "Maxar signs agreement with Umbra for direct access to radar imaging satellites",
+  "published_date": "2023-02-14",
+  "section": "Commercial Space",
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['dedicated access to Umbra’s radar imaging constellation', 'integration of Umbra’s SAR data into Maxar’s Earth intelligence products', 'assured access to Umbra’s next two satellites (satellites six and seven)']",
+  "geography": [
+    "United States"
+  ],
+  "summary": "Maxar has signed a non-exclusive, multi-year contract with Umbra to gain dedicated access to Umbra’s synthetic aperture radar (SAR) satellites. The partnership allows Maxar to task Umbra’s satellites directly and integrate SAR data into its Earth intelligence portfolio, complementing its high-resolution optical imagery. The agreement is driven by growing demand for multi-source intelligence capabilities, particularly since the Ukraine crisis. Combined optical-SAR products are expected to be available in Q2 2023 and fully integrated by 2024.",
+  "why_it_matters": "This partnership enhances Maxar’s capabilities in Earth intelligence by combining high-resolution optical and SAR data, addressing increasing demand from intelligence agencies and military commands for multi-source intelligence. It also strengthens Umbra’s commercial business case and positions it as a key SAR provider alongside competitors like Capella Space and ICEYE.",
+  "entities": [
+    {
+      "name": "Maxar",
+      "role": "acquirer_partner",
+      "type": "company"
+    },
+    {
+      "name": "Umbra",
+      "role": "target_partner",
+      "type": "company"
+    },
+    {
+      "name": "Capella Space",
+      "role": "mentioned",
+      "type": "company"
+    },
+    {
+      "name": "ICEYE",
+      "role": "mentioned",
+      "type": "company"
+    },
+    {
+      "name": "Tony Frazier",
+      "role": "Maxar executive",
+      "type": "person"
+    },
+    {
+      "name": "David Langan",
+      "role": "Umbra co-founder and CEO",
+      "type": "person"
+    },
+    {
+      "name": "Gabe Dominocielo",
+      "role": "Umbra co-founder and president",
+      "type": "person"
+    }
+  ]
+}

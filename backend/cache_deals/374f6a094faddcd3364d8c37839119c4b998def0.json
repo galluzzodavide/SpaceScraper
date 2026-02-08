@@ -1,0 +1,55 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/space-forge-names-manager-for-u-s-manufacturing-operations/",
+  "title": "Space Forge names manager for U.S. manufacturing operations",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": {
+    "primary": "United States",
+    "secondary": [
+      "United Kingdom",
+      "Finland"
+    ]
+  },
+  "summary": "Space Forge has appointed Andrew Parlock as managing director for U.S. manufacturing operations. Parlock previously worked at Iceye, where he helped attract U.S. defense and intelligence customers. Space Forge plans to develop advanced materials for semiconductor manufacturing and ForgeStar reusable satellites in the U.S.",
+  "why_it_matters": "The appointment signals Space Forge's expansion into the U.S. market, leveraging Parlock's experience in the space industry, including his prior role at Iceye. However, no concrete deal involving ICEYE is described.",
+  "entities": [
+    {
+      "name": "Space Forge",
+      "type": "company",
+      "role": "primary"
+    },
+    {
+      "name": "Andrew Parlock",
+      "type": "individual",
+      "role": "employee"
+    },
+    {
+      "name": "Iceye",
+      "type": "company",
+      "role": "past employer"
+    },
+    {
+      "name": "Northrop Grumman",
+      "type": "company",
+      "role": "past employer"
+    },
+    {
+      "name": "Joshua Western",
+      "type": "individual",
+      "role": "CEO of Space Forge"
+    }
+  ]
+}

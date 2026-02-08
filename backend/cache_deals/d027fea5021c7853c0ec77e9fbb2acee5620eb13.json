@@ -1,0 +1,42 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/exolaunch-overtakes-300-satellites-deployed-in-orbit-with-spacex-transporter-8-rideshare-mission/",
+  "title": "Exolaunch overtakes 300 satellites deployed in orbit with SpaceX Transporter-8 rideshare mission",
+  "published_date": "2023-06-12",
+  "section": "Launch",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": [
+    "USA",
+    "Germany"
+  ],
+  "summary": "Exolaunch successfully deployed 32 satellites on SpaceX’s Transporter-8 mission, including four satellites for ICEYE, as part of its mission management and integration services. The launch marks a milestone for Exolaunch, bringing its total deployed satellites to over 300.",
+  "why_it_matters": "The article highlights Exolaunch’s growing role as a mission management and integration services provider in the NewSpace sector, but it does not describe a concrete business deal involving ICEYE or other companies beyond satellite deployment services.",
+  "entities": [
+    {
+      "name": "Exolaunch",
+      "role": "Mission management and integration services provider",
+      "involvement": "primary"
+    },
+    {
+      "name": "ICEYE",
+      "role": "Satellite operator and customer of Exolaunch",
+      "involvement": "secondary"
+    },
+    {
+      "name": "SpaceX",
+      "role": "Launch provider",
+      "involvement": "secondary"
+    }
+  ]
+}

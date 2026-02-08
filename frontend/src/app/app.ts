@@ -17,10 +17,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonToggleModule } from '@angular/material/button-toggle'; 
+import { MatGridListModule } from '@angular/material/grid-list'; 
 
 import { ApiService } from './services/api.service';
 import { Deal, ScrapeSettings, ScrapeStatus } from './models/deal.model';
 import { interval, Subscription, switchMap, catchError, of } from 'rxjs';
+import { PROMPT_TEMPLATES, PromptTemplate } from './prompts';
 
 @Component({
   selector: 'app-root',
@@ -30,13 +32,19 @@ import { interval, Subscription, switchMap, catchError, of } from 'rxjs';
     MatToolbarModule, MatButtonModule, MatTableModule, MatIconModule,
     MatProgressBarModule, MatChipsModule, MatCardModule, MatFormFieldModule,
     MatInputModule, MatSelectModule, MatExpansionModule, MatTooltipModule,
-    MatButtonToggleModule
+    MatButtonToggleModule, MatGridListModule
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
   
+  viewMode: 'dashboard' | 'template-selection' = 'dashboard';
+  
+  templates = PROMPT_TEMPLATES;
+  selectedTemplateName: string = ''; 
+  selectedTemplateId: string = ''; // Used for dynamic HTML logic
+
   settings: ScrapeSettings = {
     target_companies: 'ICEYE',
     source: 'SpaceNews',
@@ -44,55 +52,39 @@ export class AppComponent implements OnInit, OnDestroy {
     api_key: '', 
     min_year: 2020,
     max_pages: 1,
-    system_prompt: `Sei un estrattore specializzato di informazioni finanziarie e industriali dal testo di news nel settore space. 
-Il tuo obiettivo è determinare se l'articolo descrive un evento aziendale concreto tra: acquisizioni, merger, investimenti, IPO, partnership strategiche o grandi contratti commerciali.
-
-Devi restituire SOLO un JSON sintatticamente valido con ESATTAMENTE le seguenti chiavi: source, url, title, published_date, section, is_relevant, relevance_score, deal_type, deal_status, acquirer, target, investors, amount, currency, valuation, stake_percent, key_assets, geography, summary, why_it_matters, entities.
-
-REGOLE GENERALI:
-- Usa esclusivamente doppi apici per stringhe JSON.
-- Non aggiungere testo prima o dopo il JSON.
-- Non inserire commenti.
-- Se un'informazione non è presente nel testo, usa null o [].
-- Non inventare dati o numeri.
-
-DEFINIZIONE DI RILEVANZA:
-- is_relevant deve essere true SOLO se l'articolo descrive un evento aziendale reale e concreto.
-- Se non esiste un evento aziendale concreto, imposta:
-  is_relevant=false, deal_type='none', deal_status='unknown', entities=[].
-
-CAMPO deal_type:
-- Valori ammessi: acquisition, merger, investment, partnership, contract, ipo, other, none.
-
-CAMPO deal_status:
-- Valori ammessi: rumor, announced, completed, unknown.
-
-CAMPI ECONOMICI:
-- amount, valuation e stake_percent solo se esplicitamente indicati nel testo.
-- Non stimare o dedurre valori mancanti.
-
-Il JSON prodotto deve essere sempre valido.`
+    system_prompt: '' 
   };
 
-  // --- CORREZIONE NOMI VARIABILI ---
-  allDeals: Deal[] = [];       // Master list con tutti i dati
-  filteredDeals: Deal[] = [];  // Lista filtrata usata nell'HTML (dataSource)
-  selectedType: string = 'ALL'; // Variabile usata nel [(value)] del toggle group
-  // ---------------------------------
+  allDeals: Deal[] = [];       
+  filteredDeals: Deal[] = [];  
+  selectedType: string = 'ALL'; 
 
-  // Usiamo 'deals' solo come alias per evitare errori residui se referenziato altrove, 
-  // ma la logica principale userà filteredDeals
   get deals() { return this.filteredDeals; }
 
   status: ScrapeStatus | null = null;
   statusSub: Subscription | null = null;
 
-  displayedColumns: string[] = [
-    'relevance_score', 
-    'published_date', 'source', 'title', 'section', 'deal_type', 'deal_status', 
-    'acquirer', 'target', 'investors', 'amount', 'currency', 'valuation', 
-    'stake_percent', 'key_assets', 'geography', 'entities', 'summary', 'why_it_matters'
+  // --- COLUMN DEFINITIONS ---
+
+  // 1. Financial Profile (Standard)
+  financialColumns: string[] = [
+    'relevance_score', 'published_date', 'source', 'title', 
+    'deal_type', 'deal_status', 'acquirer', 'target', 
+    'amount', 'valuation', 'stake_percent', // Economic fields
+    'summary'
   ];
+
+  // 2. Technical Profile (No money, focus on specs & impact)
+  technicalColumns: string[] = [
+    'relevance_score', 'published_date', 'source', 'title', 
+    'deal_type', 'deal_status', 'target', 
+    'key_assets',   // Will map to "Tech Specs"
+    'why_it_matters', // Will map to "Tech Impact"
+    'summary'
+  ];
+
+  // The actual variable used by mat-table
+  displayedColumns: string[] = this.financialColumns; 
 
   estimatedTime = '0 sec';
 
@@ -100,10 +92,36 @@ Il JSON prodotto deve essere sempre valido.`
 
   ngOnInit() {
     this.calculateTime();
+    
+    // Default: Financial Controller
+    const defaultTemplate = this.templates.find(t => t.id === 'financial-controller') || this.templates[0];
+    this.selectTemplate(defaultTemplate, false); 
   }
 
   ngOnDestroy() {
     this.stopPolling();
+  }
+
+  changeTemplate() {
+      this.viewMode = 'template-selection';
+  }
+
+  selectTemplate(template: PromptTemplate, navigateToDashboard: boolean = true) {
+      this.selectedTemplateId = template.id;
+      this.selectedTemplateName = template.name;
+      this.settings.system_prompt = template.content;
+      
+      // --- DYNAMIC COLUMN SWITCHING ---
+      if (template.id === 'technical-controller') {
+          this.displayedColumns = this.technicalColumns;
+      } else {
+          // Default for Financial and others
+          this.displayedColumns = this.financialColumns;
+      }
+      
+      if (navigateToDashboard) {
+          this.viewMode = 'dashboard';
+      }
   }
 
   calculateTime() {
@@ -118,7 +136,6 @@ Il JSON prodotto deve essere sempre valido.`
       return; 
     }
     
-    // Reset
     this.allDeals = []; 
     this.filteredDeals = []; 
     
@@ -145,7 +162,6 @@ Il JSON prodotto deve essere sempre valido.`
 
   startPolling() {
     this.stopPolling();
-
     this.ngZone.runOutsideAngular(() => {
         this.statusSub = interval(1000).pipe(
             switchMap(() => this.api.getStatus().pipe(
@@ -186,20 +202,15 @@ Il JSON prodotto deve essere sempre valido.`
           if (JSON.stringify(data) !== JSON.stringify(this.allDeals)) {
               this.allDeals = data;
               this.allDeals.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
-              
-              // Applica il filtro corrente sui nuovi dati
               this.applyFilter(this.selectedType);
-              
               this.cdr.detectChanges();
           }
       });
     });
   }
 
-  // --- LOGICA FILTRO (Rinominata applyFilter per matchare HTML) ---
   applyFilter(type: string) {
       this.selectedType = type;
-      
       if (type === 'ALL') {
           this.filteredDeals = [...this.allDeals];
       } else {
@@ -209,7 +220,6 @@ Il JSON prodotto deve essere sempre valido.`
       }
   }
 
-  // --- LOGICA COLORE SCORE ---
   getScoreClass(score: any): string {
       const val = parseFloat(score);
       if (isNaN(val)) return '';

@@ -1,0 +1,58 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/japans-ihi-expands-constellation-plans-with-satvu-thermal-imaging-partnership/",
+  "title": "Japan’s IHI expands constellation plans with SatVu thermal imaging partnership",
+  "published_date": "2024-09-11",
+  "section": "Earth Observation",
+  "is_relevant": false,
+  "relevance_score": 0.9,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['thermal imaging satellites', 'SAR and other sensors for Earth observation constellation', 'domestic satellite manufacturing capabilities in Japan']",
+  "geography": [
+    "Japan",
+    "United Kingdom"
+  ],
+  "summary": "Japan’s IHI has signed a Memorandum of Understanding with UK-based SatVu to explore adding thermal imaging satellites to its planned sovereign Earth observation constellation. The partnership aims to evaluate applications of thermal data in Japan, define requirements for a high-resolution thermal constellation, and explore domestic manufacturing and operation. IHI is also collaborating with ICEYE for SAR satellites, with plans to launch the constellation starting in 2026.",
+  "why_it_matters": "This partnership strengthens Japan’s sovereign Earth observation capabilities, aligning with national security and economic priorities amid rising geopolitical tensions. It also highlights international collaboration under the UK-Japan Hiroshima Accord and expands IHI’s multi-sensor constellation strategy.",
+  "entities": [
+    {
+      "name": "IHI",
+      "type": "company",
+      "role": "partner",
+      "involvement": "leading the constellation development and partnership"
+    },
+    {
+      "name": "SatVu",
+      "type": "company",
+      "role": "partner",
+      "involvement": "providing thermal imaging satellite technology and expertise"
+    },
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "partner",
+      "involvement": "collaborating on SAR satellite development (mentioned as context)"
+    },
+    {
+      "name": "Surrey Satellite Technology Limited (SSTL)",
+      "type": "company",
+      "role": "partner",
+      "involvement": "potential platform provider for IHI’s constellation (mentioned as context)"
+    },
+    {
+      "name": "UK-Japan Hiroshima Accord",
+      "type": "agreement",
+      "role": "context",
+      "involvement": "framework for closer cooperation on space-based Earth observation"
+    }
+  ],
+  "relevance_reason": "Target company not mentioned in summary"
+}

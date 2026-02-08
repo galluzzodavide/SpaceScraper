@@ -1,0 +1,64 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/maxar-executive-renews-warning-that-budget-cuts-threaten-commercial-remote-sensing-industry/",
+  "title": "Maxar executive renews warning that budget cuts threaten commercial remote-sensing industry",
+  "published_date": "2024-09-11",
+  "section": "Military & Defense",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "United States",
+  "summary": "Maxar Intelligence and other commercial satellite imagery providers, including ICEYE US, warn that proposed U.S. government budget cuts for commercial electro-optical and synthetic aperture radar imagery could undermine national security operations and industry progress. The industry is urging lawmakers to restore funding to maintain capabilities and competitiveness.",
+  "why_it_matters": "The article highlights industry concerns over potential budget cuts affecting commercial satellite imagery procurement, which could impact national security and the viability of companies like ICEYE US. However, it does not describe a concrete deal involving ICEYE or other entities.",
+  "entities": [
+    {
+      "name": "Maxar Intelligence",
+      "type": "company",
+      "role": "participant"
+    },
+    {
+      "name": "ICEYE US",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "Planet",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "BlackSky",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "Capella Space",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "KSAT",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "U.S. Government",
+      "type": "government",
+      "role": "counterparty"
+    },
+    {
+      "name": "National Reconnaissance Office",
+      "type": "government",
+      "role": "counterparty"
+    }
+  ]
+}

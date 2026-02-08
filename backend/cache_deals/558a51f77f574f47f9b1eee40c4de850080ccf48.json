@@ -1,0 +1,85 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/overseas-firms-on-a-journey-to-establish-themselves-as-u-s-entities/",
+  "title": "Overseas firms on a journey to establish themselves as U.S. entities",
+  "published_date": "2023-09-01",
+  "section": "Business",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": [
+    "United States",
+    "Finland",
+    "France",
+    "United Kingdom",
+    "Israel",
+    "Belgium"
+  ],
+  "summary": "The article discusses how overseas space and defense companies, including ICEYE, are establishing U.S. subsidiaries to access the lucrative U.S. government market. It highlights challenges like FOCI mitigation and the growing openness of U.S. agencies to foreign firms, but does not describe a concrete deal involving ICEYE or other companies.",
+  "why_it_matters": "The trend reflects a shift in U.S. policy toward greater collaboration with foreign space companies, particularly from allied nations, to meet demand for advanced technologies. However, no specific acquisition, investment, or partnership deal is detailed.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "mentioned as a Finland-based radar satellite operator with U.S. operations, but no concrete deal described"
+    },
+    {
+      "name": "Exotrail",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "France-based company establishing U.S. subsidiary for government contracts"
+    },
+    {
+      "name": "Space Forge",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "U.K.-based firm planning U.S. operations"
+    },
+    {
+      "name": "Edgybees",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "Israel-based company establishing U.S. presence"
+    },
+    {
+      "name": "Aerospacelab",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "Belgium-based company forming U.S. subsidiary"
+    },
+    {
+      "name": "BAE Systems",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "U.K.-based firm with U.S. operations under Special Security Agreement"
+    },
+    {
+      "name": "Airbus",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "European firm with U.S. defense operations"
+    },
+    {
+      "name": "Mynaric",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "German company supplying U.S. defense contractors"
+    },
+    {
+      "name": "Albedo",
+      "role": "contextual mention",
+      "type": "company",
+      "involvement": "U.S. customer of Aerospacelab"
+    }
+  ]
+}

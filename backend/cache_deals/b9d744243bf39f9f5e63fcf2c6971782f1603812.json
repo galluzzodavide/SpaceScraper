@@ -1,0 +1,44 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/radar-imaging/",
+  "title": "Radar satellite companies sharpen focus on military market",
+  "published_date": null,
+  "section": "military-space",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": null,
+  "summary": "The article discusses the growing demand for synthetic aperture radar (SAR) satellite technology, particularly for military and defense applications. It highlights advancements by companies like Iceye, Umbra Space, and Capella Space, focusing on their technological capabilities and market positioning. Iceye announced new imaging features for its SAR satellites, but no concrete business deals (acquisitions, mergers, investments, partnerships, or contracts) involving Iceye or other companies are described.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "Iceye",
+      "role": "SAR satellite operator",
+      "involvement": "mentioned for technological advancements and market position"
+    },
+    {
+      "name": "Umbra Space",
+      "role": "SAR satellite operator",
+      "involvement": "mentioned for market position and international expansion"
+    },
+    {
+      "name": "Capella Space",
+      "role": "SAR satellite operator",
+      "involvement": "mentioned for market position"
+    },
+    {
+      "name": "Center for Strategic and International Studies (CSIS)",
+      "role": "research organization",
+      "involvement": "published report on SAR market"
+    }
+  ]
+}

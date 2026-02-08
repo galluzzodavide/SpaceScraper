@@ -1,0 +1,69 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/astronomers-raise-interference-concerns-from-ast-spacemobile-satellite/",
+  "title": "Astronomers raise interference concerns from AST SpaceMobile satellite",
+  "published_date": "2023-10-02",
+  "section": "Policy & Politics",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": null,
+  "summary": "Astronomers have raised concerns about the brightness and potential radio interference of AST SpaceMobile's BlueWalker 3 satellite, which has become one of the brightest objects in the night sky. The company is collaborating with NASA and astronomy groups to mitigate these issues, while the NSF is finalizing coordination agreements with other satellite operators like Amazon, OneWeb, Iceye, and Planet.",
+  "why_it_matters": "The article highlights growing concerns about the impact of large, bright commercial satellites on astronomy, emphasizing the need for coordination between satellite operators and the scientific community to mitigate interference.",
+  "entities": [
+    {
+      "name": "AST SpaceMobile",
+      "type": "company",
+      "role": "operator"
+    },
+    {
+      "name": "NASA",
+      "type": "organization",
+      "role": "collaborator"
+    },
+    {
+      "name": "NSF (National Science Foundation)",
+      "type": "organization",
+      "role": "regulator"
+    },
+    {
+      "name": "IAU CPS (International Astronomical Union Centre for the Protection of the Dark and Quiet Sky from Satellite Constellation Interference)",
+      "type": "organization",
+      "role": "research"
+    },
+    {
+      "name": "Iceye",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "Planet",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "OneWeb",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "Amazon",
+      "type": "company",
+      "role": "mentioned"
+    },
+    {
+      "name": "SpaceX",
+      "type": "company",
+      "role": "mentioned"
+    }
+  ]
+}

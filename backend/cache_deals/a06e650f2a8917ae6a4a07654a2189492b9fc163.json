@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-ukraine-sar/",
+  "title": "Iceye to provide SAR satellite capability to Ukraine under charity contract",
+  "published_date": "2022-08-18",
+  "section": "Earth Observation",
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "Ukrainian government",
+  "target": "ICEYE",
+  "investors": [
+    "Serhiy Prytula Charity Foundation"
+  ],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['full capability of one SAR satellite', \"access to other satellites in ICEYE's constellation\"]",
+  "geography": [
+    "Ukraine",
+    "Global"
+  ],
+  "summary": "ICEYE has announced an agreement with the Serhiy Prytula Charity Foundation to transfer the full capability of one SAR satellite and access to its constellation to the Ukrainian government. The deal will provide Ukraine with frequently updated satellite imagery for critical locations, supporting its defense efforts against the Russian invasion.",
+  "why_it_matters": "This contract highlights ICEYE's role in providing critical Earth observation data to sovereign governments, particularly in conflict zones. It also underscores the strategic value of SAR technology for national security and defense applications.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "provider"
+    },
+    {
+      "name": "Serhiy Prytula Charity Foundation",
+      "type": "organization",
+      "role": "intermediary/funder"
+    },
+    {
+      "name": "Ukrainian government",
+      "type": "government",
+      "role": "recipient"
+    },
+    {
+      "name": "Ukrainian Armed Forces",
+      "type": "military",
+      "role": "end user"
+    }
+  ]
+}

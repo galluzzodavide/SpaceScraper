@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/germanys-space-defense-strategy-marks-a-turning-point-private-investors-must-now-respond/",
+  "title": "Germany’s space defense strategy marks a turning point; private investors must now respond",
+  "published_date": null,
+  "section": "Opinion",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "Germany/Europe",
+  "summary": "Germany has published its first national space security strategy, committing €35 billion by 2030 to protect space infrastructure. The strategy highlights threats from Russia and China and calls for private investment in dual-use space technologies, mentioning companies like ICEYE, Cailabs, and FibreCoat as key players. The article urges private investors to support these firms to strengthen Europe's space-based defense capabilities.",
+  "why_it_matters": "The article underscores the strategic importance of space for defense and economic security, signaling a shift in Germany's approach to space procurement and the need for private investment to support innovation in the sector. However, it does not describe a concrete deal involving ICEYE or other companies.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "mentioned",
+      "involvement": "contextual (no direct deal described)"
+    },
+    {
+      "name": "Cailabs",
+      "role": "mentioned",
+      "involvement": "contextual (no direct deal described)"
+    },
+    {
+      "name": "FibreCoat",
+      "role": "mentioned",
+      "involvement": "contextual (no direct deal described)"
+    },
+    {
+      "name": "Germany",
+      "role": "government",
+      "involvement": "strategy announcement"
+    },
+    {
+      "name": "NewSpace Capital",
+      "role": "investment firm",
+      "involvement": "author affiliation"
+    }
+  ]
+}

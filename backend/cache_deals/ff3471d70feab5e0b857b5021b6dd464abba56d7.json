@@ -1,0 +1,44 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/u-s-space-force-taps-commercial-satellites-to-fill-demand-for-global-insights/",
+  "title": "U.S. Space Force taps commercial satellites to fill demand for global insights",
+  "published_date": null,
+  "section": "Military Space",
+  "is_relevant": true,
+  "relevance_score": 0.8,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "U.S. Space Force",
+  "target": null,
+  "investors": [],
+  "amount": "8000000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['commercial satellite data and analytic services', 'Tactical Surveillance, Reconnaissance and Tracking (TacSRT) program']",
+  "geography": "United States",
+  "summary": "The U.S. Space Force has executed around $8 million in contracts through its commercial satellite data marketplace over the past four months. The TacSRT program, managed by the Space Systems Command, leverages data from 30 commercial vendors, including Iceye U.S., to provide unclassified intelligence to military commands worldwide. The program received $50 million in funding from Congress for 2024.",
+  "why_it_matters": "This initiative demonstrates the growing reliance of the U.S. military on commercial satellite data providers, offering a new revenue stream for companies like Iceye. It also highlights efforts to improve the timeliness and accessibility of intelligence for deployed military personnel.",
+  "entities": [
+    {
+      "name": "U.S. Space Force",
+      "role": "acquirer",
+      "type": "government"
+    },
+    {
+      "name": "Iceye U.S.",
+      "role": "vendor",
+      "type": "company"
+    },
+    {
+      "name": "Umbra",
+      "role": "vendor",
+      "type": "company"
+    },
+    {
+      "name": "Space Systems Command",
+      "role": "program_manager",
+      "type": "government"
+    }
+  ]
+}

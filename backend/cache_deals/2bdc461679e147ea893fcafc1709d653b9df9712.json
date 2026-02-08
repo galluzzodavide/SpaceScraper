@@ -1,0 +1,74 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/u-s-military-increases-reliance-on-commercial-industry-for-space-intelligence/",
+  "title": "U.S. military increases reliance on commercial industry for space intelligence",
+  "published_date": "2023-12-11",
+  "section": "Military Space",
+  "is_relevant": true,
+  "relevance_score": 0.8,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['Commercial Integration Cell (CIC)', 'classified information sharing at top-secret level', 'electromagnetic interference tracking', 'Earth observation and radar satellite data']",
+  "geography": "United States",
+  "summary": "The U.S. military has expanded its Commercial Integration Cell (CIC) to include 15 commercial satellite companies, including ICEYE US, to enhance space-based intelligence sharing and threat detection. The CIC facilitates classified information exchange between the military and private sector, improving national security operations.",
+  "why_it_matters": "This expansion underscores the growing strategic partnership between the U.S. military and commercial space companies, particularly in Earth observation and radar satellite capabilities. ICEYE US's inclusion highlights its role in providing critical intelligence for national security.",
+  "entities": [
+    {
+      "name": "ICEYE US",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "U.S. Space Command",
+      "role": "government",
+      "type": "military"
+    },
+    {
+      "name": "Blacksky",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Kratos",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "LeoLabs",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Telesat",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Hawkeye 360",
+      "role": "prospective partner",
+      "type": "company"
+    },
+    {
+      "name": "Exoanalytic Solutions",
+      "role": "prospective partner",
+      "type": "company"
+    },
+    {
+      "name": "National Reconnaissance Office",
+      "role": "government",
+      "type": "agency"
+    },
+    {
+      "name": "National Geospatial Intelligence Agency",
+      "role": "government",
+      "type": "agency"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/old-space-meets-new-space-a-decade-later-and-beyond/",
+  "title": "Old Space meets New Space: A decade later and beyond",
+  "published_date": "2025-08-19",
+  "section": "Opinion",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article reflects on the evolution of the space industry over the past decade, highlighting the convergence of 'old space' (legacy contractors like Boeing and Lockheed Martin) and 'new space' (companies like SpaceX, Blue Origin, and ICEYE). It discusses industry growth, collaboration, challenges, and future prospects, including lunar missions, space tourism, and AI integration. ICEYE is mentioned as a company that has revolutionized small satellite radar imaging systems, but no concrete deal involving ICEYE is described.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "new space company",
+      "involvement": "mentioned as a revolutionary small satellite radar imaging provider"
+    },
+    {
+      "name": "SpaceX",
+      "role": "new space company",
+      "involvement": "mentioned for Starship, Starlink, and Artemis program involvement"
+    },
+    {
+      "name": "Boeing",
+      "role": "old space company",
+      "involvement": "mentioned for SLS rocket, Starliner capsule, and Artemis program"
+    },
+    {
+      "name": "NASA",
+      "role": "government agency",
+      "involvement": "mentioned for Artemis program and Commercial Crew program"
+    },
+    {
+      "name": "York Space",
+      "role": "new space company",
+      "involvement": "mentioned for affordable satellite buses"
+    },
+    {
+      "name": "Phantom Space Corporation",
+      "role": "new space company",
+      "involvement": "mentioned as the company of the article's author"
+    }
+  ]
+}

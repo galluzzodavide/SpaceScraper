@@ -1,0 +1,65 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-satlantis-tandem4eo/",
+  "title": "Iceye, Satlantis announce plans for Tandem4EO constellation",
+  "published_date": "2023-09-14",
+  "section": "Earth Observation",
+  "is_relevant": false,
+  "relevance_score": 0.95,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['Tandem4EO constellation (4 satellites: 2 Iceye SAR satellites + 2 Satlantis optical satellites)', 'Bistatic SAR interferometry capability', 'High-resolution optical imagery (<1m/pixel)', 'Manufacturing and research facilities in Jumilla, Spain (Iceye) and Bilbao, Spain (Satlantis)']",
+  "geography": [
+    "Spain",
+    "Europe",
+    "Finland"
+  ],
+  "summary": "Iceye and Satlantis announced plans to collaborate on the Tandem4EO constellation, comprising four satellites (two Iceye SAR satellites and two Satlantis optical satellites) flying in formation to provide high-resolution radar and optical imagery. The partnership aims to enhance Earth observation capabilities, support Spain's New Space sector, and enable applications like interferometry, disaster monitoring, and infrastructure development.",
+  "why_it_matters": "This partnership strengthens Europe's Earth observation capabilities by combining SAR and optical imagery, fosters growth in Spain's New Space ecosystem, and demonstrates the potential of public-private collaboration in the aerospace sector. The Tandem4EO constellation could provide unique insights for environmental monitoring, security, and infrastructure development.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "partner",
+      "involvement": "Providing 2 SAR satellites, bistatic formation technology, and manufacturing facilities in Spain."
+    },
+    {
+      "name": "Satlantis",
+      "type": "company",
+      "role": "partner",
+      "involvement": "Providing 2 optical satellites with <1m resolution and headquarters in Bilbao, Spain."
+    },
+    {
+      "name": "Rafal Modrzewski",
+      "type": "person",
+      "role": "CEO and co-founder of ICEYE",
+      "involvement": "Quoted in the announcement."
+    },
+    {
+      "name": "Juan Tomás Hernani",
+      "type": "person",
+      "role": "CEO of Satlantis",
+      "involvement": "Quoted in the announcement."
+    },
+    {
+      "name": "Spain",
+      "type": "country",
+      "role": "geography",
+      "involvement": "Hosts manufacturing facilities and benefits from the New Space initiative."
+    },
+    {
+      "name": "European Union",
+      "type": "region",
+      "role": "geography",
+      "involvement": "Downstream Earth observation applications target."
+    }
+  ],
+  "relevance_reason": "Target company not mentioned in summary"
+}

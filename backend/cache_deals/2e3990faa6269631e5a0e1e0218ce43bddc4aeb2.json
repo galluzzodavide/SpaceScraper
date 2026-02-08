@@ -1,0 +1,64 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/u-s-space-command-expands-intelligence-sharing-program-with-commercial-firms/",
+  "title": "U.S. Space Command expands intelligence-sharing program with commercial firms",
+  "published_date": "2023-11-06",
+  "section": "Military Space",
+  "is_relevant": true,
+  "relevance_score": 0.8,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "United States",
+  "summary": "U.S. Space Command announced the expansion of its Commercial Integration Cell (CIC) program, adding five new companies, including ICEYE, to enhance intelligence-sharing and coordination on space threats and satellite anomalies. The program now includes a broader range of commercial space capabilities, such as space domain awareness specialists.",
+  "why_it_matters": "This partnership underscores the growing integration of commercial space capabilities into military operations, improving threat detection and response coordination between the U.S. government and private sector. ICEYE's inclusion highlights its role as a key provider of radar satellite data for space domain awareness.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "U.S. Space Command",
+      "role": "government",
+      "type": "organization"
+    },
+    {
+      "name": "Blacksky",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Kratos",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "LeoLabs",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Telesat",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Hawkeye 360",
+      "role": "future_partner",
+      "type": "company"
+    },
+    {
+      "name": "Exoanalytic Solutions",
+      "role": "future_partner",
+      "type": "company"
+    }
+  ]
+}

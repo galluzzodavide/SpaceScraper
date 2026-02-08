@@ -1,0 +1,106 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/aac-starts-work-on-maritime-domain-awareness-constellation/",
+  "title": "AAC Clyde Space starts work on maritime domain awareness constellation",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.8,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [
+    {
+      "name": "European Space Agency",
+      "role": "funder"
+    },
+    {
+      "name": "U.K. Space Agency",
+      "role": "funder"
+    }
+  ],
+  "amount": "32200000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['INFLECION constellation', 'VHF Data Exchange System', 'Signal Intelligence', 'Synthetic Aperture Radar technologies']",
+  "geography": [
+    "Europe",
+    "United Kingdom"
+  ],
+  "summary": "AAC Clyde Space is developing a $32.2 million maritime domain awareness constellation called INFLECION, funded by the European Space Agency and the U.K. Space Agency. The constellation will integrate communications and remote sensing technologies, including SAR, and involves multiple partners, including Iceye UK. The project aims to enhance maritime security and operational efficiency, with commercial services expected by 2028.",
+  "why_it_matters": "This partnership strengthens AAC Clyde Space's position in the space-data-as-a-service market and highlights the growing role of public-private collaborations in addressing maritime industry challenges. Iceye UK's involvement underscores the increasing adoption of SAR technology in commercial and security applications.",
+  "entities": [
+    {
+      "name": "AAC Clyde Space",
+      "role": "lead contractor",
+      "involvement": "primary"
+    },
+    {
+      "name": "Iceye UK",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "European Space Agency",
+      "role": "funder",
+      "involvement": "secondary"
+    },
+    {
+      "name": "U.K. Space Agency",
+      "role": "funder",
+      "involvement": "secondary"
+    },
+    {
+      "name": "AST Marine",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Bright Ascension",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Craft Prospect",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Horizon Technologies",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Omanos Analytics",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Nash Maritime",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Plymouth Marine Laboratory",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Saab UK",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Heriot Watt University",
+      "role": "partner",
+      "involvement": "secondary"
+    },
+    {
+      "name": "University of Strathclyde",
+      "role": "partner",
+      "involvement": "secondary"
+    }
+  ]
+}

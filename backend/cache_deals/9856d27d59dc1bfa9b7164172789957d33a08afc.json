@@ -1,0 +1,67 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/us-halts-satellite-imagery-support-to-ukraine-in-major-policy-shift/",
+  "title": "US halts satellite imagery support to Ukraine in major policy shift",
+  "published_date": "2024-03-07",
+  "section": "Policy",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": [
+    "United States",
+    "Ukraine"
+  ],
+  "summary": "The U.S. Trump administration has suspended satellite imagery support to Ukraine via the National Geospatial Intelligence Agency's (NGA) commercial platform, which included imagery from providers like ICEYE. The decision is part of a broader policy shift to halt intelligence sharing and military aid to Ukraine. Ukrainian officials are seeking alternative imagery sources.",
+  "why_it_matters": "The suspension impacts Ukraine's battlefield awareness and highlights the role of commercial satellite imagery in modern warfare. It also signals a diplomatic shift by the U.S. administration.",
+  "entities": [
+    {
+      "name": "National Geospatial Intelligence Agency (NGA)",
+      "type": "government",
+      "role": "provider"
+    },
+    {
+      "name": "Maxar Intelligence",
+      "type": "company",
+      "role": "contractor"
+    },
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "imagery provider"
+    },
+    {
+      "name": "Planet",
+      "type": "company",
+      "role": "imagery provider"
+    },
+    {
+      "name": "Blacksky",
+      "type": "company",
+      "role": "imagery provider"
+    },
+    {
+      "name": "Capella Space",
+      "type": "company",
+      "role": "imagery provider"
+    },
+    {
+      "name": "Ukraine",
+      "type": "government",
+      "role": "recipient"
+    },
+    {
+      "name": "U.S. Government",
+      "type": "government",
+      "role": "decision-maker"
+    }
+  ]
+}

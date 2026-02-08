@@ -1,0 +1,57 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-to-develop-sar-constellation-for-uae/",
+  "title": "Iceye to develop SAR constellation for UAE",
+  "published_date": "2023-05-17",
+  "section": "Commercial Space",
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['five-satellite SAR constellation', 'ground segment', 'mission control center (computers, antennas, software)']",
+  "geography": {
+    "primary": "United Arab Emirates",
+    "secondary": "Finland"
+  },
+  "summary": "Iceye announced a partnership with UAE-based Bayanat and Yahsat to develop a five-satellite synthetic aperture radar (SAR) constellation for the UAE. Iceye will provide satellites, ground services, and mission control infrastructure, with the first satellite launch scheduled for Q1 2024. Bayanat will gain access to Iceye's existing constellation in the interim to support geospatial analysis and AI development in the UAE.",
+  "why_it_matters": "This partnership strengthens the UAE's sovereign Earth-observation capabilities, supports economic growth, and positions the UAE as a leader in the MENA space sector. For Iceye, it expands its market presence and demonstrates its SAR technology's commercial viability.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "provider",
+      "type": "company"
+    },
+    {
+      "name": "Bayanat",
+      "role": "customer/partner",
+      "type": "company"
+    },
+    {
+      "name": "Yahsat",
+      "role": "partner",
+      "type": "company"
+    },
+    {
+      "name": "Hasan AlHosani",
+      "role": "CEO of Bayanat",
+      "type": "person"
+    },
+    {
+      "name": "Rafal Modrzewski",
+      "role": "CEO and co-founder of Iceye",
+      "type": "person"
+    },
+    {
+      "name": "Ali Al Hashemi",
+      "role": "Group CEO of Yahsat",
+      "type": "person"
+    }
+  ]
+}

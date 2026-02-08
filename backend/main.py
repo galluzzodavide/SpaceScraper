@@ -10,19 +10,20 @@ from .scraper_service import SpaceScraperService, current_status
 
 load_dotenv()
 
-# --- FILTRO LOG PER ZITTIRE IL POLLING ---
-# Questa classe nasconde i log che contengono "/api/status"
+# --- FILTRO LOG PER ZITTIRE IL POLLING (CORRETTO) ---
 class EndpointFilter(logging.Filter):
     def filter(self, record: logging.LogRecord) -> bool:
-        return "/api/status" not in record.getMessage()
+        message = record.getMessage()
+        # Filtriamo ENTRAMBI gli endpoint di polling per sicurezza
+        return "/api/status" not in message and "/api/results" not in message
+
+# --- APPLICAZIONE IMMEDIATA (FUORI DA STARTUP) ---
+# Lo facciamo qui, a livello globale, per essere sicuri che Uvicorn lo recepisca subito
+logging.getLogger("uvicorn.access").addFilter(EndpointFilter())
 
 app = FastAPI()
 
-# Applichiamo il filtro all'avvio
-@app.on_event("startup")
-async def startup_event():
-    # Recupera il logger di Uvicorn e aggiunge il filtro
-    logging.getLogger("uvicorn.access").addFilter(EndpointFilter())
+# Rimosso startup_event inutile per il logging
 
 # Configurazione CORS
 app.add_middleware(

@@ -1,0 +1,54 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/in-navy-experiment-commercial-satellites-serve-as-key-weapons-against-drug-traffickers/",
+  "title": "In Navy experiment, commercial satellites serve as key weapons against drug traffickers",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.8,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "U.S. Navy (Naval Surface Warfare Center)",
+  "target": "Royce Geospatial Consultants",
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['ICEYE SAR satellites', 'Planet electro-optical satellites', 'Royce Geo AI platform for satellite imagery collection', 'Acoustic sensor network']",
+  "geography": "United States",
+  "summary": "The U.S. Navy, through the Office of Naval Research, conducted an experiment using commercial satellite data, including ICEYE's SAR satellites, to detect and identify drug-trafficking vessels. Royce Geospatial Consultants won a contract from the Naval Surface Warfare Center to continue these experiments in support of the Navy's Joint Interagency Task Force South.",
+  "why_it_matters": "This contract demonstrates the growing reliance of military and defense agencies on commercial space assets, particularly SAR satellites like those operated by ICEYE, to enhance real-time intelligence and operational efficiency in tracking illicit activities.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "satellite data provider",
+      "involvement": "direct"
+    },
+    {
+      "name": "Royce Geospatial Consultants",
+      "role": "contractor",
+      "involvement": "direct"
+    },
+    {
+      "name": "U.S. Navy (Naval Surface Warfare Center)",
+      "role": "acquirer/contracting authority",
+      "involvement": "direct"
+    },
+    {
+      "name": "Planet",
+      "role": "satellite data provider",
+      "involvement": "direct"
+    },
+    {
+      "name": "Office of Naval Research",
+      "role": "sponsor",
+      "involvement": "indirect"
+    },
+    {
+      "name": "Joint Interagency Task Force South",
+      "role": "end user",
+      "involvement": "indirect"
+    }
+  ]
+}

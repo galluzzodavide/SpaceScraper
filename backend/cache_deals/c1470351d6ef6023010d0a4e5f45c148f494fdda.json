@@ -1,0 +1,69 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/spacex-launches-ninth-dedicated-rideshare-mission/",
+  "title": "SpaceX launches ninth dedicated rideshare mission",
+  "published_date": "2023-11-11",
+  "section": "Launch",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "SpaceX successfully launched its ninth dedicated smallsat rideshare mission, Transporter-9, carrying over 110 satellites for various customers, including Planet, Spire, Iceye, Umbra, and Foxconn. The mission highlights the growing demand for low-cost rideshare launches but also sparks debate about its impact on the small launch vehicle market.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "SpaceX",
+      "role": "launch provider",
+      "involvement": "primary"
+    },
+    {
+      "name": "ICEYE",
+      "role": "satellite operator",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Umbra",
+      "role": "satellite operator",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Planet",
+      "role": "satellite operator",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Spire",
+      "role": "satellite operator",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Foxconn",
+      "role": "satellite operator",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Exolaunch",
+      "role": "rideshare broker",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Momentus",
+      "role": "rideshare broker",
+      "involvement": "secondary"
+    },
+    {
+      "name": "D-Orbit",
+      "role": "rideshare broker",
+      "involvement": "secondary"
+    }
+  ]
+}

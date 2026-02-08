@@ -1,0 +1,44 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceyes-four-new-generation-3-satellites-launch-with-spacexs-transporter-8-introducing-high-resolution-spot-fine-image-product/",
+  "title": "ICEYE’s four new Generation-3 satellites launch with SpaceX’s Transporter-8, introducing high-resolution Spot Fine image product",
+  "published_date": "2023-06-12",
+  "section": "Satellite Technology",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['four new Generation-3 SAR satellites', 'Spot Fine imaging mode', 'ICEYE US subsidiary']",
+  "geography": "USA",
+  "summary": "ICEYE successfully launched four new Generation-3 SAR satellites on SpaceX’s Transporter-8 mission, introducing a high-resolution Spot Fine image product. The satellites enhance ICEYE’s persistent monitoring capabilities with improved image quality and faster data downlink speeds.",
+  "why_it_matters": "The launch expands ICEYE’s SAR constellation, enabling higher-resolution imagery and better monitoring capabilities for industries like insurance, natural catastrophe response, maritime, and national security. The new Spot Fine product improves detection of smaller features on the ground.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "operator",
+      "involvement": "primary"
+    },
+    {
+      "name": "SpaceX",
+      "role": "launch provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "Exolaunch",
+      "role": "deployment provider",
+      "involvement": "secondary"
+    },
+    {
+      "name": "ICEYE US",
+      "role": "subsidiary",
+      "involvement": "secondary"
+    }
+  ]
+}

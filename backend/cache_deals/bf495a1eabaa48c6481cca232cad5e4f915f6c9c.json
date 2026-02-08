@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/satellite-startups-race-to-enhance-wildfire-detection-and-response/",
+  "title": "Satellite startups race to enhance wildfire detection and response",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article discusses the emergence of Earth monitoring satellites aimed at improving wildfire detection and response. Companies like Muon Space and Iceye are developing technologies, including multispectral sensors and SAR, to provide near real-time data. Challenges include data analysis bottlenecks and procurement delays. Iceye US is mentioned for its role in advocating better coordination between satellite providers and emergency agencies.",
+  "why_it_matters": "The development of satellite-based wildfire detection technologies is critical due to the increasing scale and frequency of wildfires driven by climate change. However, the article does not describe a concrete business deal involving ICEYE or other companies.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "satellite operator",
+      "involvement": "mentioned as part of industry context"
+    },
+    {
+      "name": "Muon Space",
+      "role": "satellite startup",
+      "involvement": "developing FireSat constellation"
+    },
+    {
+      "name": "Earth Fire Alliance",
+      "role": "nonprofit",
+      "involvement": "collaborating with Muon Space"
+    },
+    {
+      "name": "OroraTech",
+      "role": "satellite startup",
+      "involvement": "expanding wildfire monitoring capabilities"
+    },
+    {
+      "name": "National Reconnaissance Office",
+      "role": "government agency",
+      "involvement": "evaluating Muon Space's sensors"
+    }
+  ]
+}

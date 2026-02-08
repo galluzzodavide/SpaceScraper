@@ -2,7 +2,34 @@
   <span>SpaceScraper Deal Intelligence</span>
 </mat-toolbar>
 
-<div class="dashboard-container">
+<div class="template-selection-container" *ngIf="viewMode === 'template-selection'">
+  
+  <div class="selection-header">
+    <h1>Select Analysis Strategy</h1>
+    <p>Choose the AI persona that best fits your current research goal.</p>
+  </div>
+
+  <div class="template-grid">
+    <mat-card *ngFor="let t of templates" class="template-card" (click)="selectTemplate(t)">
+      <mat-card-header>
+        <div mat-card-avatar class="template-icon">
+          <mat-icon>{{ t.icon }}</mat-icon>
+        </div>
+        <mat-card-title>{{ t.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ t.description }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary">SELECT</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>
+
+
+<div class="dashboard-container" *ngIf="viewMode === 'dashboard'">
 
   <mat-card class="config-card">
     <mat-card-header>
@@ -61,8 +88,16 @@
           <mat-expansion-panel-header>
             <mat-panel-title>Advanced: System Prompt</mat-panel-title>
           </mat-expansion-panel-header>
+          
+          <div style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+             <span style="font-size: 11px; color: #666; font-style: italic;">Current Strategy: <strong>{{ selectedTemplateName }}</strong></span>
+             <button mat-stroked-button color="primary" size="small" (click)="changeTemplate()">
+                <mat-icon>swap_horiz</mat-icon> Change Strategy
+             </button>
+          </div>
+
           <mat-form-field appearance="outline" class="full-width">
-            <textarea matInput rows="15" [(ngModel)]="settings.system_prompt" style="font-size: 11px; line-height: 1.3;"></textarea>
+            <textarea matInput rows="15" [(ngModel)]="settings.system_prompt" style="font-size: 11px; line-height: 1.3;" readonly></textarea>
           </mat-form-field>
         </mat-expansion-panel>
 
@@ -81,7 +116,6 @@
   <div class="results-area">
     
     <div class="status-container" *ngIf="status && status.is_running">
-        
         <mat-card class="progress-card">
             <mat-card-content>
                 <div class="progress-header">
@@ -117,7 +151,7 @@
       
       <div class="table-header">
           <div style="display:flex; align-items:center; gap:10px;">
-             <h2>Found Deals ({{filteredDeals.length}})</h2>
+             <h2>Found Results ({{filteredDeals.length}})</h2>
              <span style="color:#888; font-size:12px;">of {{allDeals.length}} total</span>
           </div>
 
@@ -218,7 +252,9 @@
             </ng-container>
 
             <ng-container matColumnDef="key_assets">
-              <th mat-header-cell *matHeaderCellDef> Key Assets </th>
+              <th mat-header-cell *matHeaderCellDef> 
+                 {{ selectedTemplateId === 'technical-controller' ? 'Tech Specs' : 'Key Assets' }} 
+              </th>
               <td mat-cell *matCellDef="let deal"> {{ formatData(deal.key_assets) }} </td>
             </ng-container>
 
@@ -240,7 +276,9 @@
             </ng-container>
 
             <ng-container matColumnDef="why_it_matters">
-              <th mat-header-cell *matHeaderCellDef> Why it Matters </th>
+              <th mat-header-cell *matHeaderCellDef> 
+                 {{ selectedTemplateId === 'technical-controller' ? 'Tech Impact' : 'Why it Matters' }} 
+              </th>
               <td mat-cell *matCellDef="let deal"> {{ deal.why_it_matters }} </td>
             </ng-container>
 

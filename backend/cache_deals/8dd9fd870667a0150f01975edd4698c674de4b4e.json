@@ -1,0 +1,59 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/spacex-launches-fourth-bandwagon-rideshare-mission/",
+  "title": "SpaceX launches fourth Bandwagon rideshare mission",
+  "published_date": "2023-11-02",
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": null,
+  "summary": "SpaceX launched its fourth Bandwagon rideshare mission, carrying 18 satellites, including SAR satellites for South Korea, a technology demonstration satellite for Vast, weather satellites for Tomorrow.io, and three SAR satellites for Iceye as part of Space42's Foresight Constellation. The mission also included Starcloud's first AI data center satellite.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "satellite operator",
+      "involvement": "launched three SAR satellites as part of Space42's Foresight Constellation"
+    },
+    {
+      "name": "SpaceX",
+      "role": "launch provider",
+      "involvement": "conducted the Bandwagon-4 rideshare mission"
+    },
+    {
+      "name": "Space42",
+      "role": "Emirati company",
+      "involvement": "customer for ICEYE's Foresight Constellation"
+    },
+    {
+      "name": "Vast",
+      "role": "commercial space station developer",
+      "involvement": "launched Haven-Demo satellite for technology testing"
+    },
+    {
+      "name": "Tomorrow.io",
+      "role": "commercial weather satellite operator",
+      "involvement": "launched two weather satellites"
+    },
+    {
+      "name": "Starcloud",
+      "role": "startup",
+      "involvement": "launched first AI data center satellite"
+    },
+    {
+      "name": "Rendezvous Robotics",
+      "role": "startup",
+      "involvement": "partnering with Starcloud for self-assembling spacecraft technology"
+    }
+  ]
+}

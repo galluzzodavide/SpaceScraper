@@ -1,0 +1,58 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/yahsat-orders-leo-satellites-from-airbus/",
+  "title": "Yahsat orders LEO satellites from Airbus",
+  "published_date": "2024-06-10",
+  "section": "Satellite Telecommunications",
+  "is_relevant": false,
+  "relevance_score": 0.8,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "Yahsat",
+  "target": "Airbus",
+  "investors": [],
+  "amount": "1100000000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[\"pair of LEO satellites based on Airbus' Arrow platform\", 'Al Yah 4 and Al Yah 5 GEO satellites (procurement contract)']",
+  "geography": [
+    "UAE",
+    "Europe"
+  ],
+  "summary": "Yahsat has ordered a pair of LEO satellites from Airbus as part of a broader $1.1 billion program for its next two geostationary broadband spacecraft. The LEO satellites will be based on Airbus' Arrow platform. Additionally, Yahsat has a procurement contract with Airbus for Al Yah 4 and Al Yah 5 GEO satellites, scheduled for launch in 2027 and 2028. ICEYE is mentioned in the context of a prior order for SAR satellites by Yahsat and Bayanat.",
+  "why_it_matters": "This contract signifies Yahsat's expansion into multi-orbit satellite solutions, including LEO and GEO, and reinforces Airbus' role as a key supplier. The deal also highlights Yahsat's strategic focus on Earth observation and direct-to-device connectivity markets.",
+  "entities": [
+    {
+      "name": "Yahsat",
+      "role": "acquirer/buyer",
+      "type": "company"
+    },
+    {
+      "name": "Airbus",
+      "role": "supplier",
+      "type": "company"
+    },
+    {
+      "name": "ICEYE",
+      "role": "supplier (prior contract)",
+      "type": "company"
+    },
+    {
+      "name": "Bayanat",
+      "role": "partner (prior contract with ICEYE)",
+      "type": "company"
+    },
+    {
+      "name": "Astrocast",
+      "role": "investment target",
+      "type": "company"
+    },
+    {
+      "name": "UAE government",
+      "role": "customer",
+      "type": "government"
+    }
+  ],
+  "relevance_reason": "Target company not mentioned in summary"
+}

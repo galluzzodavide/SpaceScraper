@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/2026-will-clarify-europes-new-priorities-for-space/",
+  "title": "2026 will clarify Europe’s new priorities for space",
+  "published_date": "2026-01-01",
+  "section": "Analysis",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "Europe",
+  "summary": "The article discusses Europe's evolving priorities in the space sector for 2026, including launcher competitions, defense budgets, exploration commitments, and the progress of key companies like ICEYE, D-Orbit, and The Exploration Company. ICEYE is mentioned as pivoting toward defense and military markets but no concrete deal is described.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "contextual mention",
+      "involvement": "pivoting toward defense and military markets"
+    },
+    {
+      "name": "D-Orbit",
+      "role": "contextual mention",
+      "involvement": "Series C funding and acquisition of Planetek in 2025"
+    },
+    {
+      "name": "The Exploration Company",
+      "role": "contextual mention",
+      "involvement": "contender for reusable cargo capsule"
+    },
+    {
+      "name": "Isar Aerospace",
+      "role": "contextual mention",
+      "involvement": "launcher test flight"
+    },
+    {
+      "name": "PLD Space",
+      "role": "contextual mention",
+      "involvement": "contender for European Launcher Challenge"
+    }
+  ]
+}

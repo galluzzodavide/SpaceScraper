@@ -1,0 +1,64 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/op-ed-britain-has-all-the-attributes-to-create-a-world-leading-space-economy/",
+  "title": "Op-ed | Britain has all the attributes to create a world-leading space economy",
+  "published_date": null,
+  "section": "Opinion",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "United Kingdom",
+  "summary": "The article discusses the growth of the global space sector and the UK's significant role in it, highlighting investments, government support, and key companies like OneWeb and ICEYE. It emphasizes the UK's strengths in research, capital accessibility, and a dynamic industrial base but does not describe a specific corporate event involving ICEYE or other companies.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "mentioned",
+      "involvement": "portfolio company of Seraphim Space"
+    },
+    {
+      "name": "Seraphim Space",
+      "role": "investor",
+      "involvement": "UK-based space technology investor supporting over 100 companies"
+    },
+    {
+      "name": "OneWeb",
+      "role": "mentioned",
+      "involvement": "UK-based satellite communications company"
+    },
+    {
+      "name": "Hawkeye 360",
+      "role": "mentioned",
+      "involvement": "portfolio company of Seraphim Space"
+    },
+    {
+      "name": "Astroscale",
+      "role": "mentioned",
+      "involvement": "portfolio company of Seraphim Space"
+    },
+    {
+      "name": "Be Zero Carbon",
+      "role": "mentioned",
+      "involvement": "raised $50 million for climate data solutions"
+    },
+    {
+      "name": "All.Space",
+      "role": "mentioned",
+      "involvement": "portfolio company developing ground terminals for communications"
+    },
+    {
+      "name": "UK Space Agency",
+      "role": "mentioned",
+      "involvement": "government agency supporting space activities"
+    }
+  ]
+}

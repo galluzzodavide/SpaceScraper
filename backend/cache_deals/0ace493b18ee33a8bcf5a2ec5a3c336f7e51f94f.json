@@ -1,0 +1,50 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/blacksky-and-iceye-join-group-creating-earths-digital-twin/",
+  "title": "BlackSky and Iceye join group creating Earth’s digital twin",
+  "published_date": "2023-09-08",
+  "section": "Commercial Space",
+  "is_relevant": false,
+  "relevance_score": 0.9,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['BlackSky high-resolution visual imagery', 'Iceye synthetic aperture radar data', 'Aechelon’s three-dimensional global database (Skybeam)', 'Niantic Spatial’s 3D scanning and simulation technology']",
+  "geography": "Global (with initial test in United States)",
+  "summary": "BlackSky and Iceye have partnered with Aechelon Technology and Niantic Spatial to create Project Orbion, a digital twin of Earth. The project aims to merge satellite imagery and data from multiple sources into a frequently updated geospatial model. BlackSky and Iceye will contribute high-resolution visual imagery and synthetic aperture radar data, respectively, to Aechelon’s Skybeam database. The first test will involve providing 3D scanning and simulation technology to the U.S. Coast Guard Aviation Training Center.",
+  "why_it_matters": "This partnership establishes a collaborative framework for integrating diverse geospatial data sources into a unified, frequently updated digital twin of Earth. It has applications in wildfire monitoring, military targeting, and mission-critical training, potentially setting new standards for geospatial data sharing and communication.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "Partner",
+      "involvement": "Contributing synthetic aperture radar data to Project Orbion"
+    },
+    {
+      "name": "BlackSky",
+      "role": "Partner",
+      "involvement": "Providing high-resolution visual imagery and API access for satellite tasking and analytics"
+    },
+    {
+      "name": "Aechelon Technology",
+      "role": "Partner",
+      "involvement": "Leading the project with its Skybeam 3D global database and AI-driven visualization tools"
+    },
+    {
+      "name": "Niantic Spatial",
+      "role": "Partner",
+      "involvement": "Providing 3D scanning and simulation technology for the project"
+    },
+    {
+      "name": "United States Coast Guard Aviation Training Center",
+      "role": "Customer/Test Partner",
+      "involvement": "First test site for Project Orbion’s 3D scanning and simulation technology"
+    }
+  ],
+  "relevance_reason": "Target company not mentioned in summary"
+}

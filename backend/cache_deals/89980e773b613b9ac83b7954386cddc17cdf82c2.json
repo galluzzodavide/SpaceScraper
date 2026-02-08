@@ -1,0 +1,58 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/bae-systems-developing-multi-sensor-satellite-cluster-for-military-intelligence/",
+  "title": "BAE Systems developing multi-sensor satellite cluster for military intelligence",
+  "published_date": "2023-09-07",
+  "section": "Satellite & Defense",
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": "BAE Systems",
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['Azalea satellite cluster (4 satellites: 1 SAR from ICEYE, 3 optical/RF sensors)', 'Synthetic aperture radar (SAR) technology from ICEYE', 'Optical cameras (1-meter resolution)', 'RF tracking sensors', 'Chip-scale atomic clocks', 'Ka-band inter-satellite links', 'Software-defined radios']",
+  "geography": [
+    "United Kingdom",
+    "Finland",
+    "Global (satellite coverage)"
+  ],
+  "summary": "BAE Systems is developing the Azalea satellite cluster, a multi-sensor constellation for military and disaster response intelligence. The project involves a partnership with Finnish satellite operator ICEYE, which is providing a SAR satellite. The cluster will include three additional satellites with optical and RF sensors, aiming for deployment in 2024 via SpaceX. The system is designed to provide high-resolution imagery, RF tracking, and adaptable mission capabilities.",
+  "why_it_matters": "This partnership strengthens BAE Systems' space-based intelligence capabilities and expands ICEYE's market reach into defense and sovereign applications. The Azalea cluster represents a significant advancement in multi-sensor satellite technology, offering enhanced geolocation, adaptability, and data collection for military and disaster response needs. The project also highlights the growing trend of integrating commercial space technologies into defense strategies.",
+  "entities": [
+    {
+      "name": "BAE Systems",
+      "role": "Prime contractor and integrator",
+      "type": "Corporation"
+    },
+    {
+      "name": "ICEYE",
+      "role": "Partner and SAR satellite provider",
+      "type": "Corporation"
+    },
+    {
+      "name": "In-Space Missions",
+      "role": "Subsidiary (acquired by BAE Systems)",
+      "type": "Corporation"
+    },
+    {
+      "name": "SpaceX",
+      "role": "Potential launch provider",
+      "type": "Corporation"
+    },
+    {
+      "name": "Doug Liddle",
+      "role": "CEO of In-Space Missions",
+      "type": "Individual"
+    },
+    {
+      "name": "Elizabeth Seward",
+      "role": "Head of Space Strategy at BAE Systems",
+      "type": "Individual"
+    }
+  ]
+}

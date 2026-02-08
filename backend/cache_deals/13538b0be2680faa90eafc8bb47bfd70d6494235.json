@@ -1,0 +1,48 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/bae-systems-brings-south-koreas-hanwha-into-intelligence-gathering-constellation/",
+  "title": "BAE Systems brings South Korea’s Hanwha into intelligence-gathering constellation",
+  "published_date": "2024-06-10",
+  "section": "Defense & Intelligence",
+  "is_relevant": false,
+  "relevance_score": 0.8,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['Synthetic Aperture Radar (SAR) technology', 'Ultra-wideband radio frequency (RF) technology', 'Azalea intelligence, surveillance, and reconnaissance (ISR) constellation']",
+  "geography": [
+    "United Kingdom",
+    "South Korea"
+  ],
+  "summary": "BAE Systems and Hanwha Systems have announced a partnership to explore integrating Hanwha’s SAR technology with BAE’s RF technology for the Azalea ISR constellation. This collaboration follows a prior agreement with ICEYE, which is still contributing a SAR satellite for the initial cluster. Financial details were not disclosed.",
+  "why_it_matters": "This partnership strengthens defense and commercial space collaboration between the UK and South Korea, expanding capabilities in multi-sensor satellite systems for military and disaster response applications. It also highlights the growing international interest in SAR and RF technologies for ISR constellations.",
+  "entities": [
+    {
+      "name": "BAE Systems",
+      "role": "acquirer/partner",
+      "type": "corporation"
+    },
+    {
+      "name": "Hanwha Systems",
+      "role": "partner",
+      "type": "corporation"
+    },
+    {
+      "name": "ICEYE",
+      "role": "partner (prior agreement)",
+      "type": "corporation"
+    },
+    {
+      "name": "SpaceX",
+      "role": "launch provider",
+      "type": "corporation"
+    }
+  ],
+  "relevance_reason": "Target company not mentioned in summary"
+}

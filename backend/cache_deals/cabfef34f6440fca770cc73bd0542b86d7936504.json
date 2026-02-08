@@ -1,0 +1,74 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/217194-2/",
+  "title": "Sabbagh leaves E-Space to lead incoming UAE satcoms and geospatial champion",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "merger",
+  "deal_status": "announced",
+  "acquirer": "Space42 (proposed merged entity)",
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": "4000000000",
+  "stake_percent": null,
+  "key_assets": "[\"Yahsat's satellite infrastructure (broadband, video broadcasting, backhaul, mobile voice and data services)\", \"Bayanat's geospatial analytics and AI algorithms for SAR data\", 'Five SAR satellites ordered from Iceye']",
+  "geography": "Middle East and Africa (MENA)",
+  "summary": "Yahsat and Bayanat, two UAE-based companies, have announced plans to merge into a new entity called Space42, valued at approximately $4 billion. The merger aims to create the MENA region's first AI-powered space technology company, combining Yahsat's satellite infrastructure with Bayanat's geospatial analytics and AI capabilities. Shareholders of Bayanat and Yahsat would own 54% and 46% of Space42, respectively, pending regulatory and shareholder approvals. The deal is expected to close in the second half of 2024.",
+  "why_it_matters": "This merger represents a significant consolidation in the MENA space and satellite industry, creating a regional leader in AI-powered space technology. It also highlights the growing importance of AI in satellite data analytics and the strategic role of state-backed entities like Mubadala in shaping the sector. The involvement of Iceye through a prior SAR satellite contract underscores the merged entity's focus on advanced Earth observation capabilities.",
+  "entities": [
+    {
+      "name": "Yahsat",
+      "type": "company",
+      "role": "merging party"
+    },
+    {
+      "name": "Bayanat",
+      "type": "company",
+      "role": "merging party"
+    },
+    {
+      "name": "Space42",
+      "type": "company",
+      "role": "proposed merged entity"
+    },
+    {
+      "name": "Mubadala",
+      "type": "investor",
+      "role": "parent company of Yahsat and partial owner of G42"
+    },
+    {
+      "name": "G42",
+      "type": "company",
+      "role": "majority owner of Bayanat"
+    },
+    {
+      "name": "Iceye",
+      "type": "company",
+      "role": "contractor (SAR satellites order)"
+    },
+    {
+      "name": "E-Space",
+      "type": "company",
+      "role": "former employer of Karim Michel Sabbagh"
+    },
+    {
+      "name": "Karim Michel Sabbagh",
+      "type": "person",
+      "role": "proposed Managing Director of Space42"
+    },
+    {
+      "name": "Mansoor Al Mansoori",
+      "type": "person",
+      "role": "proposed Chair of Space42"
+    },
+    {
+      "name": "Bakheet Al Katheeri",
+      "type": "person",
+      "role": "proposed Vice Chairman of Space42"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/finlands-iceye-secures-japanese-contract-as-it-advances-international-expansion-new-satellite-ranges/",
+  "title": "Finland’s Iceye secures Japanese contract as it advances international expansion, new satellite ranges",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "IHI Corporation",
+  "target": "ICEYE",
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['four SAR satellites', 'associated image acquisition system', 'option for 20 additional satellites']",
+  "geography": [
+    "Japan",
+    "Finland",
+    "Poland"
+  ],
+  "summary": "ICEYE, a Finnish SAR constellation operator, has signed a contract with Japan’s IHI Corporation to develop an Earth observation satellite constellation for security, civilian, and commercial use. The deal includes four satellites and an image acquisition system, with an option for 20 more satellites. The first satellites are expected to begin operations in April 2026.",
+  "why_it_matters": "This contract marks a significant step in ICEYE’s international expansion, particularly in the Asian market, and reinforces its position as a leading provider of SAR satellite technology. The deal also highlights ICEYE’s growing portfolio beyond SAR, including plans for optical and SIGINT satellites.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "target",
+      "type": "company"
+    },
+    {
+      "name": "IHI Corporation",
+      "role": "acquirer",
+      "type": "company"
+    },
+    {
+      "name": "Witold Witkowicz",
+      "role": "CEO of ICEYE Poland",
+      "type": "person"
+    }
+  ]
+}

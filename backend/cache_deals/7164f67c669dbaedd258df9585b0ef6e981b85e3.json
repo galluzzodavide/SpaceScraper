@@ -1,0 +1,68 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/satellite-imaging-company-iceye-raises-93-million-in-latest-funding-round/",
+  "title": "Satellite imaging company Iceye raises $93 million in latest funding round",
+  "published_date": "2024-04-17",
+  "section": "Finance",
+  "is_relevant": true,
+  "relevance_score": 0.98,
+  "deal_type": "investment",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": "ICEYE",
+  "investors": [
+    "Solidium Oy",
+    "Move Capital Fund I",
+    "Blackwells Capital",
+    "Christo Georgiev",
+    "existing investors"
+  ],
+  "amount": "93000000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['SAR satellite constellation', 'satellite manufacturing facility in Irvine, California', 'R&D lab', 'mission operations center']",
+  "geography": [
+    "Finland",
+    "United States"
+  ],
+  "summary": "Finnish satellite company ICEYE has raised $93 million in a new funding round led by Finnish sovereign wealth fund Solidium Oy, with participation from other investors. The funds will be used to expand business operations, develop new products and services, and support the company's growth trajectory toward free cash flow break-even.",
+  "why_it_matters": "This funding round underscores investor confidence in ICEYE's SAR satellite technology and commercial potential. The investment will enable ICEYE to accelerate its expansion, product development, and satellite deployment, reinforcing its position in the global satellite imaging market.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "target"
+    },
+    {
+      "name": "Solidium Oy",
+      "type": "investor",
+      "role": "lead investor"
+    },
+    {
+      "name": "Move Capital Fund I",
+      "type": "investor",
+      "role": "participant"
+    },
+    {
+      "name": "Blackwells Capital",
+      "type": "investor",
+      "role": "participant"
+    },
+    {
+      "name": "Christo Georgiev",
+      "type": "investor",
+      "role": "participant"
+    },
+    {
+      "name": "Rafal Modrzewski",
+      "type": "person",
+      "role": "CEO and co-founder of ICEYE"
+    },
+    {
+      "name": "Susan Repo",
+      "type": "person",
+      "role": "CFO of ICEYE"
+    }
+  ]
+}

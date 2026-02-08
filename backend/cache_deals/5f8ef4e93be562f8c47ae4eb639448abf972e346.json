@@ -1,0 +1,59 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/speed-risk-and-the-future-of-national-security-space/",
+  "title": "Speed, risk and the future of national security space",
+  "published_date": null,
+  "section": "Podcast/Transcript",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "Panel discussion at the Spacepower conference exploring how commercial space capabilities are reshaping national security, civil space, and military decision-making. The conversation includes perspectives from CEOs of SkyFi, Intuitive Machines, and Advanced Space on speed, innovation, dual-use technologies, and acquisition reform. ICEYE is mentioned as an example of commercial Earth observation capabilities but no concrete deal or event involving ICEYE is described.",
+  "why_it_matters": "The discussion highlights the growing role of commercial space companies in national security and the challenges of integrating commercial innovation into government acquisition cycles. However, no specific corporate event (e.g., acquisition, investment, partnership) is reported.",
+  "entities": [
+    {
+      "name": "SkyFi",
+      "role": "Earth intelligence company",
+      "involvement": "Panel participant"
+    },
+    {
+      "name": "Intuitive Machines",
+      "role": "Cislunar access company",
+      "involvement": "Panel participant"
+    },
+    {
+      "name": "Advanced Space",
+      "role": "Space technology company",
+      "involvement": "Panel participant"
+    },
+    {
+      "name": "ICEYE",
+      "role": "Commercial Earth observation company",
+      "involvement": "Mentioned as example"
+    },
+    {
+      "name": "Planet",
+      "role": "Commercial Earth observation company",
+      "involvement": "Mentioned as example"
+    },
+    {
+      "name": "Umbra",
+      "role": "Commercial Earth observation company",
+      "involvement": "Mentioned as example"
+    },
+    {
+      "name": "Innoflight",
+      "role": "Space avionics supplier",
+      "involvement": "Mentioned in sponsor section"
+    }
+  ]
+}

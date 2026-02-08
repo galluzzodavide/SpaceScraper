@@ -1,0 +1,55 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/rideshare-industry-adapting-to-a-changing-smallsat-market/",
+  "title": "Rideshare industry adapting to a changing smallsat market",
+  "published_date": "2023-08-01",
+  "section": "Commercial Space",
+  "is_relevant": false,
+  "relevance_score": 0.7,
+  "deal_type": "acquisition",
+  "deal_status": "completed",
+  "acquirer": "Firefly Aerospace",
+  "target": "Spaceflight",
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[\"Spaceflight's payload processing facility\", \"Spaceflight's workforce\", \"Spaceflight's existing contracts\"]",
+  "geography": "United States",
+  "summary": "Firefly Aerospace acquired Spaceflight, a major rideshare aggregator, to enhance its end-to-end space transportation services. The acquisition includes Spaceflight's payload processing facility and workforce, but Firefly will no longer aggregate payloads on non-Firefly launch vehicles.",
+  "why_it_matters": "This acquisition consolidates the rideshare market and shifts Firefly Aerospace's strategy toward vertical integration, potentially impacting smallsat launch service dynamics and customer options.",
+  "entities": [
+    {
+      "name": "Firefly Aerospace",
+      "role": "acquirer",
+      "type": "company"
+    },
+    {
+      "name": "Spaceflight",
+      "role": "target",
+      "type": "company"
+    },
+    {
+      "name": "ICEYE",
+      "role": "contextual_mention",
+      "type": "company"
+    },
+    {
+      "name": "SpaceX",
+      "role": "contextual_mention",
+      "type": "company"
+    },
+    {
+      "name": "Mitsui & Co.",
+      "role": "previous_investor",
+      "type": "company"
+    },
+    {
+      "name": "Yamasa Co.",
+      "role": "previous_investor",
+      "type": "company"
+    }
+  ],
+  "relevance_reason": "Target company not mentioned in summary"
+}

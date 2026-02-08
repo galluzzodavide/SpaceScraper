@@ -1,0 +1,58 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/ukraine-and-partner-countries-to-raise-funds-for-imagery-satellites-to-lessen-reliance-on-the-u-s/",
+  "title": "Ukraine and partner countries to raise funds for imagery satellites to lessen reliance on the U.S.",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": [
+    "Ukraine",
+    "Nordic countries",
+    "Eastern Europe"
+  ],
+  "summary": "A consortium of Ukrainian, Nordic, and Eastern European companies plans to raise over 100 million euros to build a constellation of 70+ imagery satellites (Intermarsat) to reduce reliance on U.S. satellite intelligence. The project aims to secure private funding by 2026 and achieve full operational capability by the end of the decade. ICEYE is mentioned as a key ally providing SAR satellite data to Ukraine during the war, but it is not directly involved in this fundraising or constellation project.",
+  "why_it_matters": "The initiative reflects a strategic shift in Eastern Europe toward achieving space-based intelligence autonomy amid geopolitical tensions. While ICEYE is cited as a contributor to Ukraine's defense efforts, this article does not describe a concrete deal involving ICEYE.",
+  "entities": [
+    {
+      "name": "Ukrainian Aerospace Clusters’ Alliance",
+      "role": "Project leader",
+      "involvement": "Organizing fundraising and project development"
+    },
+    {
+      "name": "Eugen Rokytsky",
+      "role": "CEO of Ukrainian Aerospace Clusters’ Alliance",
+      "involvement": "Project spokesperson"
+    },
+    {
+      "name": "ICEYE",
+      "role": "SAR satellite operator",
+      "involvement": "Provided satellite data to Ukraine during the war (contextual mention)"
+    },
+    {
+      "name": "Endurosat",
+      "role": "Satellite manufacturer",
+      "involvement": "Potential contributor (contextual mention)"
+    },
+    {
+      "name": "NanoAvionics",
+      "role": "Satellite manufacturer",
+      "involvement": "Potential contributor (contextual mention)"
+    },
+    {
+      "name": "TRL Space",
+      "role": "Satellite developer",
+      "involvement": "Running crowdfunding campaign for EO satellite (contextual mention)"
+    }
+  ]
+}

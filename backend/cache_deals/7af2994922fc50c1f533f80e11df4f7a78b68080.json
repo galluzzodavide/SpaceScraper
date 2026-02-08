@@ -1,0 +1,47 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-to-allow-customers-to-directly-task-the-companys-imaging-satellites/",
+  "title": "Iceye to allow customers to directly task the company’s imaging satellites",
+  "published_date": "2024-05-06",
+  "section": "Commercial Remote Sensing",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": [
+    "Finland",
+    "United States"
+  ],
+  "summary": "Iceye, a Finnish SAR satellite operator, announced the release of APIs to allow customers to directly task its satellites and access archived imagery. This capability is part of a growing trend in commercial remote sensing to enable dynamic imaging adjustments. The company has undergone security reviews to ensure appropriate use of SAR data.",
+  "why_it_matters": "The move reflects the increasing demand for real-time, customer-controlled satellite tasking in commercial remote sensing, enhancing responsiveness for applications like disaster response and infrastructure monitoring.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "satellite operator",
+      "type": "company"
+    },
+    {
+      "name": "Eric Jensen",
+      "role": "CEO of Iceye US",
+      "type": "person"
+    },
+    {
+      "name": "United Arab Emirates",
+      "role": "exclusive national customer",
+      "type": "government"
+    },
+    {
+      "name": "U.S. government",
+      "role": "potential customer",
+      "type": "government"
+    }
+  ]
+}

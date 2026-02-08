@@ -1,0 +1,68 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/maxar-technologies/",
+  "title": "Maxar Technologies awarded $44 million contract renewal by U.S. National Geospatial-Intelligence Agency",
+  "published_date": "2023-09-01",
+  "section": "Commercial Space",
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": "Maxar Technologies",
+  "target": null,
+  "investors": [],
+  "amount": "44000000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['Global Enhanced GEOINT Delivery (G-EGD) program', 'high-resolution commercial imagery', 'SAR data integration (Capella Space, ICEYE, Umbra, PredaSAR)']",
+  "geography": "United States",
+  "summary": "Maxar Technologies has been awarded a $44 million contract renewal (Option Year 3) by the U.S. National Geospatial-Intelligence Agency (NGA) for the Global Enhanced GEOINT Delivery (G-EGD) program. The contract includes continued provision of high-resolution commercial imagery and integration of SAR data from providers like ICEYE, Capella Space, Umbra, and PredaSAR.",
+  "why_it_matters": "This contract renewal underscores Maxar's role as a key provider of geospatial intelligence to the U.S. government, particularly in integrating commercial SAR data (including ICEYE) into the G-EGD platform. It highlights the growing importance of SAR data for national security and humanitarian missions, as well as Maxar's expanding capabilities in this domain.",
+  "entities": [
+    {
+      "name": "Maxar Technologies",
+      "type": "company",
+      "role": "contractor",
+      "tickers": [
+        "NYSE:MAXR",
+        "TSX:MAXR"
+      ]
+    },
+    {
+      "name": "U.S. National Geospatial-Intelligence Agency (NGA)",
+      "type": "government",
+      "role": "contracting authority"
+    },
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "SAR data provider"
+    },
+    {
+      "name": "Capella Space",
+      "type": "company",
+      "role": "SAR data provider"
+    },
+    {
+      "name": "Umbra",
+      "type": "company",
+      "role": "SAR data provider"
+    },
+    {
+      "name": "PredaSAR (Terran Orbital Company)",
+      "type": "company",
+      "role": "SAR data provider"
+    },
+    {
+      "name": "Planet Labs PBC",
+      "type": "company",
+      "role": "imagery provider (contextual)"
+    },
+    {
+      "name": "BlackSky",
+      "type": "company",
+      "role": "imagery provider (contextual)"
+    }
+  ]
+}

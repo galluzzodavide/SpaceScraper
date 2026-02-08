@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/europes-space-funding-gap-threatens-industry-potential/",
+  "title": "Europe’s space funding gap threatens industry potential",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "Europe",
+  "summary": "Europe faces a funding gap in the space industry, particularly for growth-stage companies, despite strong early-stage investment activity. The U.S. averages significantly higher investment volumes, and European firms like ICEYE often seek foreign capital to scale. NewSpace Capital, which has invested in ICEYE, highlights the need for more domestic growth capital and institutional support.",
+  "why_it_matters": "The article underscores structural challenges in Europe's space funding ecosystem, which could hinder the commercialization and scaling of space ventures, including companies like ICEYE. It calls for greater institutional investment to retain value within Europe.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "target",
+      "involvement": "mentioned as a portfolio company of NewSpace Capital, but no concrete deal described"
+    },
+    {
+      "name": "NewSpace Capital",
+      "role": "investor",
+      "involvement": "discussed past investments and funding challenges, but no new deal announced"
+    },
+    {
+      "name": "European Space Policy Institute (ESPI)",
+      "role": "research",
+      "involvement": "provided data on investment trends"
+    },
+    {
+      "name": "European Investment Fund",
+      "role": "research",
+      "involvement": "conducted survey on VC outlook"
+    },
+    {
+      "name": "Kayrros",
+      "role": "target",
+      "involvement": "mentioned as a portfolio company of NewSpace Capital"
+    }
+  ]
+}

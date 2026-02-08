@@ -1,0 +1,58 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/lockheed-martin-teams-with-iceye-to-advance-ai-enabled-targeting/",
+  "title": "Lockheed Martin teams with Iceye to advance AI-enabled targeting",
+  "published_date": "2023-11-20",
+  "section": "Military Space",
+  "is_relevant": false,
+  "relevance_score": 0.95,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['AI-powered target recognition technologies', 'Iceye’s synthetic aperture radar (SAR) imagery', 'Lockheed Martin’s automated target recognition (ATR) algorithms', 'Finland’s F-35 tactical aviation program integration']",
+  "geography": [
+    "Finland",
+    "United States"
+  ],
+  "summary": "Lockheed Martin has partnered with Iceye, a Finnish Earth observation company, to develop AI-powered target recognition technologies for Finland’s military. The collaboration leverages Iceye’s SAR imagery and Lockheed Martin’s ATR algorithms to enhance space-based intelligence and analytics for Finland’s F-35 program. The technology aims to provide near real-time actionable intelligence for mobile ISR systems.",
+  "why_it_matters": "This partnership highlights the growing integration of commercial space capabilities into military applications, particularly in AI-driven intelligence and reconnaissance. It also underscores the strategic collaboration between U.S. defense contractors and European space companies to enhance NATO allies' defense capabilities.",
+  "entities": [
+    {
+      "name": "Lockheed Martin",
+      "type": "company",
+      "role": "partner",
+      "involvement": "provider of AI algorithms and integration with Finland’s F-35 program"
+    },
+    {
+      "name": "Iceye",
+      "type": "company",
+      "role": "partner",
+      "involvement": "provider of SAR imagery and consortium leadership"
+    },
+    {
+      "name": "Finnish military",
+      "type": "government",
+      "role": "end user",
+      "involvement": "integration of ATR algorithms into ISR systems"
+    },
+    {
+      "name": "Finland",
+      "type": "country",
+      "role": "geography",
+      "involvement": "host nation for the technology deployment"
+    },
+    {
+      "name": "National Institute of Standards and Technology (NIST)",
+      "type": "organization",
+      "role": "collaborator",
+      "involvement": "development of AI system resilience standards"
+    }
+  ],
+  "relevance_reason": "Target company not mentioned in summary"
+}

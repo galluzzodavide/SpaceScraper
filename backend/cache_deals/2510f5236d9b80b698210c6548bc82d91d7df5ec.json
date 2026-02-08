@@ -1,0 +1,59 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/mission-success-space-industry-for-ukraine-initiative-reaches-new-heights/",
+  "title": "Mission success: Space Industry for Ukraine initiative reaches new heights",
+  "published_date": "2022-11-01",
+  "section": "Industry & Policy",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": "Ukraine",
+  "summary": "The Space Industry for Ukraine (SIFU) initiative, led by HawkEye 360 and the National Security Space Association, raised $895,000 from 23 space companies to provide humanitarian aid to Ukraine. ICEYE was one of the donors, contributing to projects such as medical rehabilitation, evacuation support, and aid delivery. The initiative has assisted over 247,000 refugees and delivered over two million pounds of aid.",
+  "why_it_matters": "The initiative demonstrates the space industry's ability to mobilize resources for humanitarian efforts, fostering collaboration among companies and NGOs to address critical needs in Ukraine. However, it does not represent a concrete business deal involving ICEYE or other companies.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "donor",
+      "involvement": "contributed to SIFU initiative"
+    },
+    {
+      "name": "HawkEye 360",
+      "role": "initiator",
+      "involvement": "co-led SIFU initiative"
+    },
+    {
+      "name": "National Security Space Association (NSSA)",
+      "role": "initiator",
+      "involvement": "co-led SIFU initiative"
+    },
+    {
+      "name": "Capella Space",
+      "role": "donor",
+      "involvement": "contributed to SIFU initiative"
+    },
+    {
+      "name": "Maxar Technologies",
+      "role": "donor",
+      "involvement": "contributed to SIFU initiative"
+    },
+    {
+      "name": "Rocket Lab",
+      "role": "donor",
+      "involvement": "contributed to SIFU initiative"
+    },
+    {
+      "name": "Viasat",
+      "role": "donor",
+      "involvement": "contributed to SIFU initiative"
+    }
+  ]
+}

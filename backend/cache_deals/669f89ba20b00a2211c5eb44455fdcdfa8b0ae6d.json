@@ -1,0 +1,68 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-raises-additional-65-million/",
+  "title": "Iceye raises additional $65 million",
+  "published_date": "2023-12-18",
+  "section": "Finance",
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "investment",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": "ICEYE",
+  "investors": [
+    "Solidium Oy",
+    "BlackRock",
+    "Seraphim",
+    "Plio Limited",
+    "Christo Georgiev"
+  ],
+  "amount": "65000000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['SAR satellite constellation', 'ISR platform', 'satellite manufacturing capabilities']",
+  "geography": [
+    "Finland",
+    "Global"
+  ],
+  "summary": "ICEYE has raised an additional $65 million in a Series E funding round extension, bringing the total raised to $503 million. The funding, a mix of debt and equity, will support the expansion of its SAR satellite constellation and ISR platform. Investors include Solidium Oy, BlackRock, Seraphim, Plio Limited, and Christo Georgiev.",
+  "why_it_matters": "This funding round underscores ICEYE's growth in the global defense and ISR markets, enabling further expansion of its SAR satellite capabilities and supporting its strategic partnerships, such as the one with Space42 in the UAE.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "target",
+      "type": "company"
+    },
+    {
+      "name": "Solidium Oy",
+      "role": "investor",
+      "type": "sovereign wealth fund"
+    },
+    {
+      "name": "BlackRock",
+      "role": "investor",
+      "type": "investment firm"
+    },
+    {
+      "name": "Seraphim",
+      "role": "investor",
+      "type": "venture capital"
+    },
+    {
+      "name": "Plio Limited",
+      "role": "investor",
+      "type": "company"
+    },
+    {
+      "name": "Christo Georgiev",
+      "role": "investor",
+      "type": "individual"
+    },
+    {
+      "name": "Space42",
+      "role": "partner",
+      "type": "company"
+    }
+  ]
+}

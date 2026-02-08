@@ -1,0 +1,51 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/newspace-capital-joins-the-european-space-agency-investor-network/",
+  "title": "NewSpace Capital joins the European Space Agency Investor Network",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [
+    "NewSpace Capital"
+  ],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "Europe",
+  "summary": "NewSpace Capital, a global private equity firm, has joined the European Space Agency’s (ESA) Investor Network to support growth-stage space companies. The collaboration aims to strengthen ties between investors and the space tech ecosystem, with NewSpace Capital focusing on areas like earth observation, navigation, and satellite communications. ICEYE is mentioned as one of NewSpace Capital’s investees but is not directly involved in the deal described.",
+  "why_it_matters": "The partnership between NewSpace Capital and ESA’s Investor Network highlights the growing role of private investment in scaling space technology companies. While this move could indirectly benefit ICEYE and other portfolio companies, the article does not describe a concrete deal involving ICEYE.",
+  "entities": [
+    {
+      "name": "NewSpace Capital",
+      "type": "investor",
+      "role": "member of ESA Investor Network"
+    },
+    {
+      "name": "European Space Agency (ESA)",
+      "type": "organization",
+      "role": "initiator of Investor Network"
+    },
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "portfolio company of NewSpace Capital (mentioned in context)"
+    },
+    {
+      "name": "Kayrros",
+      "type": "company",
+      "role": "portfolio company of NewSpace Capital"
+    },
+    {
+      "name": "Cailabs",
+      "type": "company",
+      "role": "portfolio company of NewSpace Capital"
+    }
+  ]
+}

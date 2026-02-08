@@ -1,0 +1,76 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/earth-observation-camera-maker-raises-15-million-for-european-expansion/",
+  "title": "Earth observation camera maker raises $15 million for European expansion",
+  "published_date": null,
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [
+    {
+      "name": "NewSpace Capital",
+      "role": "lead investor"
+    },
+    {
+      "name": "Knife Capital",
+      "role": "investor"
+    }
+  ],
+  "amount": "15000000",
+  "currency": "USD",
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['system assembly facilities in Europe', 'higher-resolution cubesat products', 'xScape100 product range', 'short-wave infrared camera technology', 'AI-enabled camera control electronics']",
+  "geography": [
+    "Europe",
+    "South Africa"
+  ],
+  "summary": "Simera Sense, a Belgian camera maker specializing in Earth observation payloads, has raised nearly $15 million in a funding round led by NewSpace Capital and backed by Knife Capital. The funds will be used to expand production capacity in Europe, develop higher-resolution products, and grow its development team. The company collaborates with European satellite manufacturers and supports ESA's Phi-Sat-2 mission.",
+  "why_it_matters": "The funding enables Simera Sense to scale production and accelerate the development of advanced Earth observation technologies, supporting the growing demand for high-resolution satellite imagery and AI-enabled data processing in space.",
+  "entities": [
+    {
+      "name": "Simera Sense",
+      "type": "company",
+      "role": "target"
+    },
+    {
+      "name": "NewSpace Capital",
+      "type": "investor",
+      "role": "lead investor"
+    },
+    {
+      "name": "Knife Capital",
+      "type": "investor",
+      "role": "investor"
+    },
+    {
+      "name": "Iceye",
+      "type": "company",
+      "role": "contextual mention"
+    },
+    {
+      "name": "AAC Clyde Space",
+      "type": "company",
+      "role": "customer"
+    },
+    {
+      "name": "Open Cosmos",
+      "type": "company",
+      "role": "customer"
+    },
+    {
+      "name": "OHB Systems",
+      "type": "company",
+      "role": "customer"
+    },
+    {
+      "name": "European Space Agency",
+      "type": "institution",
+      "role": "partner"
+    }
+  ]
+}

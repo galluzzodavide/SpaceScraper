@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/space-set-to-keep-people-safer-during-emergencies/",
+  "title": "Space set to keep people safer during emergencies",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.9,
+  "deal_type": "partnership",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['synthetic aperture radar technology', 'ICEYE’s satellite constellation', 'ESA’s Civil Security from Space programme']",
+  "geography": [
+    "Europe",
+    "Finland",
+    "Spain",
+    "Poland"
+  ],
+  "summary": "ESA has partnered with ICEYE under its Civil Security from Space programme to improve early warning systems for floods and wildfires using ICEYE’s synthetic aperture radar satellite technology. The three-year project, named 'Crisis observations and management from space,' aims to enhance global disaster response capabilities by providing near-real-time data for emergency teams.",
+  "why_it_matters": "This partnership highlights the growing role of space-based technologies in civil security and disaster management, demonstrating how satellite data can improve crisis response, safeguard communities, and build resilience against natural hazards. It also underscores ICEYE’s leadership in synthetic aperture radar technology and ESA’s commitment to leveraging space for societal benefits.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "partner"
+    },
+    {
+      "name": "European Space Agency (ESA)",
+      "type": "organization",
+      "role": "partner"
+    },
+    {
+      "name": "Rafal Modrzewski",
+      "type": "person",
+      "role": "CEO and Co-Founder of ICEYE"
+    },
+    {
+      "name": "Josef Aschbacher",
+      "type": "person",
+      "role": "Director General of ESA"
+    }
+  ]
+}

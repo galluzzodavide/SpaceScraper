@@ -1,0 +1,36 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/iceye-announces-framework-contract-with-emsa-to-enhance-maritime-operations-through-radar-satellite-imagery/",
+  "title": "ICEYE announces framework contract with EMSA to enhance maritime operations through radar satellite imagery",
+  "published_date": null,
+  "section": null,
+  "is_relevant": true,
+  "relevance_score": 0.95,
+  "deal_type": "contract",
+  "deal_status": "announced",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "['SAR imagery data', \"ICEYE's SAR satellite constellation\"]",
+  "geography": [
+    "Europe"
+  ],
+  "summary": "ICEYE has signed a multi-year framework contract with the European Maritime Safety Agency (EMSA) to provide SAR imagery data. The contract aims to enhance EMSA's maritime operations, including disaster response, pollution monitoring, and enforcement of EU maritime regulations, leveraging ICEYE's radar satellite capabilities.",
+  "why_it_matters": "This contract underscores ICEYE's leadership in SAR satellite technology and its growing role in supporting critical maritime operations for European authorities. It highlights the increasing reliance on private space companies for real-time, all-weather Earth observation data to improve operational efficiency and regulatory enforcement.",
+  "entities": [
+    {
+      "name": "ICEYE",
+      "type": "company",
+      "role": "provider"
+    },
+    {
+      "name": "European Maritime Safety Agency (EMSA)",
+      "type": "organization",
+      "role": "customer"
+    }
+  ]
+}

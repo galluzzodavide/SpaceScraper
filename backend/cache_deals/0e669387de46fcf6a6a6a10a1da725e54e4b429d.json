@@ -1,0 +1,50 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/kuva-space-establishes-u-s-arm-in-fairfax-virginia/",
+  "title": "Kuva Space establishes U.S. arm in Fairfax, Virginia",
+  "published_date": "2024-02-07",
+  "section": null,
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": {
+    "involved_regions": [
+      "United States",
+      "Finland"
+    ],
+    "headquarters": "Finland"
+  },
+  "summary": "Finnish startup Kuva Space announced plans to establish Kuva Space US in Fairfax, Virginia, led by former Iceye US CEO Jerry Welsh. The move aims to position the company closer to U.S. government customers, including the intelligence community and maritime security services. Kuva Space raised 16.6 million euros in a Series A funding round last year and plans to launch hyperspectral imaging satellites in 2024.",
+  "why_it_matters": "Kuva Space's expansion into the U.S. highlights the growing interest of Earth observation companies in accessing the U.S. defense and intelligence markets. The company's focus on hyperspectral capabilities aligns with government interest in advanced remote sensing technologies.",
+  "entities": [
+    {
+      "name": "Kuva Space",
+      "role": "company",
+      "involvement": "primary"
+    },
+    {
+      "name": "Jerry Welsh",
+      "role": "executive",
+      "involvement": "secondary"
+    },
+    {
+      "name": "National Reconnaissance Office (NRO)",
+      "role": "potential customer",
+      "involvement": "contextual"
+    },
+    {
+      "name": "ICEYE",
+      "role": "company",
+      "involvement": "contextual"
+    }
+  ]
+}

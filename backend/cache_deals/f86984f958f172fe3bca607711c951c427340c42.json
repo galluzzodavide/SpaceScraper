@@ -1,0 +1,59 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/money-is-pouring-into-defense-but-dual-use-is-the-real-sweet-spot/",
+  "title": "Money is pouring into defense, but dual-use is the real sweet spot",
+  "published_date": null,
+  "section": "Opinion",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": null,
+  "geography": null,
+  "summary": "The article discusses the increasing focus of space companies on defense contracts due to rising defense budgets, particularly in NATO countries. It highlights the strategic importance of commercial space companies in filling gaps for government defense agencies, citing examples like ICEYE, FibreCoat, Simera Sense, and Cailabs. The author emphasizes the benefits of dual-use technologies (civil and defense applications) for space companies to diversify revenue streams and enhance resilience. However, the article does not describe a concrete business event involving ICEYE or other companies.",
+  "why_it_matters": null,
+  "entities": [
+    {
+      "name": "ICEYE",
+      "role": "example of dual-use space company",
+      "involvement": "mentioned as a successful case study"
+    },
+    {
+      "name": "FibreCoat",
+      "role": "example of dual-use space company",
+      "involvement": "mentioned as a successful case study"
+    },
+    {
+      "name": "Simera Sense",
+      "role": "example of dual-use space company",
+      "involvement": "mentioned as a successful case study"
+    },
+    {
+      "name": "Cailabs",
+      "role": "example of dual-use space company",
+      "involvement": "mentioned as a successful case study"
+    },
+    {
+      "name": "NewSpace Capital",
+      "role": "investment firm",
+      "involvement": "author's affiliation"
+    },
+    {
+      "name": "SpaceX",
+      "role": "example of dual-use space company",
+      "involvement": "mentioned as a successful case study"
+    },
+    {
+      "name": "Starlink",
+      "role": "example of dual-use space company",
+      "involvement": "mentioned as a successful case study"
+    }
+  ]
+}

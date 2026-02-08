@@ -1,0 +1,49 @@
+{
+  "source": "SpaceNews",
+  "url": "https://spacenews.com/u-s-army-signs-agreement-to-test-space-data-from-hawkeye-360-satellites/",
+  "title": "U.S. Army signs agreement to test space data from HawkEye 360 satellites",
+  "published_date": "2023-08-25",
+  "section": "Military Space",
+  "is_relevant": false,
+  "relevance_score": 0,
+  "deal_type": "none",
+  "deal_status": "unknown",
+  "acquirer": null,
+  "target": null,
+  "investors": [],
+  "amount": null,
+  "currency": null,
+  "valuation": null,
+  "stake_percent": null,
+  "key_assets": "[]",
+  "geography": "United States",
+  "summary": "The U.S. Army has signed a two-year cooperative research and development agreement (CRADA) with HawkEye 360 to evaluate the use of the company's radio-frequency (RF) data and analytics for surveillance operations. The agreement does not commit the Army to purchasing services but allows for testing and demonstration of RF data applications in military exercises.",
+  "why_it_matters": "This agreement highlights the growing interest of the U.S. military in leveraging commercial space data for tactical operations. While it does not guarantee future contracts, successful demonstrations could lead to procurement of RF data services from HawkEye 360 or other providers.",
+  "entities": [
+    {
+      "name": "HawkEye 360",
+      "role": "provider",
+      "type": "company"
+    },
+    {
+      "name": "U.S. Army Space and Missile Defense Command",
+      "role": "evaluator",
+      "type": "government"
+    },
+    {
+      "name": "SpaceLink",
+      "role": "mentioned",
+      "type": "company"
+    },
+    {
+      "name": "Iceye",
+      "role": "mentioned",
+      "type": "company"
+    },
+    {
+      "name": "Capella Space",
+      "role": "mentioned",
+      "type": "company"
+    }
+  ]
+}
