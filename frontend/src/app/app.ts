@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core'; // Aggiunto OnDestroy
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,12 +18,26 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonToggleModule } from '@angular/material/button-toggle'; 
-import { MatGridListModule } from '@angular/material/grid-list'; 
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { ApiService } from './services/api.service';
-import { Deal, ScrapeSettings, ScrapeStatus } from './models/deal.model';
-import { interval, Subscription, switchMap, catchError, of } from 'rxjs';
+import { Deal, ScrapeSettings, SourceType } from './models/deal.model';
 import { PROMPT_TEMPLATES, PromptTemplate } from './prompts';
+
+// --- DEFINIZIONE SORGENTI DISPONIBILI ---
+const ALL_SOURCES = [
+    // FINANCIAL SOURCES
+    { name: SourceType.SPACENEWS, category: 'Financial', label: 'SpaceNews (Business)' },
+    { name: SourceType.SNAPI, category: 'Financial', label: 'SNAPI (Aggregator)' },
+    { name: SourceType.SPACEWORKS, category: 'Financial', label: 'SpaceWorks (Benchmark)' },
+    { name: SourceType.EURO_SPACEFLIGHT, category: 'Financial', label: 'European Spaceflight (EU)' },
+    
+    // TECHNICAL SOURCES
+    { name: SourceType.VIA_SATELLITE, category: 'Technical', label: 'Via Satellite (Tech)' },
+    { name: SourceType.NASA_TECHPORT, category: 'Technical', label: 'NASA TechPort (R&D)' }
+];
 
 @Component({
   selector: 'app-root',
@@ -30,182 +45,210 @@ import { PROMPT_TEMPLATES, PromptTemplate } from './prompts';
   imports: [
     CommonModule, HttpClientModule, FormsModule,
     MatToolbarModule, MatButtonModule, MatTableModule, MatIconModule,
-    MatProgressBarModule, MatChipsModule, MatCardModule, MatFormFieldModule,
+    MatProgressBarModule, MatProgressSpinnerModule, 
+    MatChipsModule, MatCardModule, MatFormFieldModule,
     MatInputModule, MatSelectModule, MatExpansionModule, MatTooltipModule,
-    MatButtonToggleModule, MatGridListModule
+    MatButtonToggleModule, MatGridListModule, MatSnackBarModule,
+    MatCheckboxModule 
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
   
-  viewMode: 'dashboard' | 'template-selection' = 'dashboard';
+  viewMode: 'dashboard' | 'template-selection' = 'template-selection';
   
   templates = PROMPT_TEMPLATES;
   selectedTemplateName: string = ''; 
-  selectedTemplateId: string = ''; // Used for dynamic HTML logic
+  selectedTemplateId: string = ''; 
+
+  displayedSources: any[] = [];
 
   settings: ScrapeSettings = {
     target_companies: 'ICEYE',
-    source: 'SpaceNews',
+    sources: [], 
     ai_model: 'mistral-large-latest',
     api_key: '', 
-    min_year: 2020,
+    min_year: 2024,
     max_pages: 1,
-    system_prompt: '' 
+    system_prompt: '',
+    force_rescan: false
   };
 
   allDeals: Deal[] = [];       
   filteredDeals: Deal[] = [];  
   selectedType: string = 'ALL'; 
-
+  
   get deals() { return this.filteredDeals; }
 
-  status: ScrapeStatus | null = null;
-  statusSub: Subscription | null = null;
+  // --- STATO CARICAMENTO ---
+  isRunning = false;
+  statusMessage = 'Ready';
+  estimatedTime = '0 sec';
+  
+  // Variabili per la progress bar
+  progressValue = 0;
+  private progressInterval: any; // Riferimento al timer
 
-  // --- COLUMN DEFINITIONS ---
-
-  // 1. Financial Profile (Standard)
+  // --- DEFINIZIONE COLONNE ---
   financialColumns: string[] = [
     'relevance_score', 'published_date', 'source', 'title', 
-    'deal_type', 'deal_status', 'acquirer', 'target', 
-    'amount', 'valuation', 'stake_percent', // Economic fields
-    'summary'
+    'deal_type', 'deal_status', 'amount', 'investors', 'summary'
   ];
 
-  // 2. Technical Profile (No money, focus on specs & impact)
   technicalColumns: string[] = [
-    'relevance_score', 'published_date', 'source', 'title', 
-    'deal_type', 'deal_status', 'target', 
-    'key_assets',   // Will map to "Tech Specs"
-    'why_it_matters', // Will map to "Tech Impact"
+    'relevance_score', 'source', 'title', 
+    'technology_readiness_level', 
+    'key_assets',                 
+    'amount',                     
+    'mission_type',               
     'summary'
   ];
 
-  // The actual variable used by mat-table
   displayedColumns: string[] = this.financialColumns; 
 
-  estimatedTime = '0 sec';
+  constructor(
+    private api: ApiService, 
+    private cdr: ChangeDetectorRef, // Fondamentale per aggiornare la UI durante il timer
+    private snackBar: MatSnackBar
+  ) {}
 
-  constructor(private api: ApiService, private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.calculateTime();
-    
-    // Default: Financial Controller
-    const defaultTemplate = this.templates.find(t => t.id === 'financial-controller') || this.templates[0];
-    this.selectTemplate(defaultTemplate, false); 
+  // Pulizia timer se il componente viene distrutto
+  ngOnDestroy() {
+      if (this.progressInterval) clearInterval(this.progressInterval);
   }
 
-  ngOnDestroy() {
-    this.stopPolling();
+  toggleSource(sourceName: string, isChecked: boolean) {
+    if (isChecked) {
+      if (!this.settings.sources.includes(sourceName)) {
+        this.settings.sources.push(sourceName);
+      }
+    } else {
+      if (this.settings.sources.length > 1) {
+        this.settings.sources = this.settings.sources.filter(s => s !== sourceName);
+      } else {
+        this.showNotification("Seleziona almeno una fonte!", "info");
+        setTimeout(() => {
+             this.settings.sources = [...this.settings.sources];
+             this.cdr.detectChanges();
+        }, 0);
+      }
+    }
+    this.calculateTime();
+  }
+
+  isSourceSelected(sourceName: string): boolean {
+    return this.settings.sources.includes(sourceName);
   }
 
   changeTemplate() {
       this.viewMode = 'template-selection';
   }
 
-  selectTemplate(template: PromptTemplate, navigateToDashboard: boolean = true) {
+  selectTemplate(template: PromptTemplate) {
       this.selectedTemplateId = template.id;
       this.selectedTemplateName = template.name;
       this.settings.system_prompt = template.content;
       
-      // --- DYNAMIC COLUMN SWITCHING ---
-      if (template.id === 'technical-controller') {
-          this.displayedColumns = this.technicalColumns;
-      } else {
-          // Default for Financial and others
+      if (this.selectedTemplateId === 'financial-controller') {
+          this.displayedSources = ALL_SOURCES.filter(s => s.category === 'Financial');
           this.displayedColumns = this.financialColumns;
+          this.settings.sources = [SourceType.SPACENEWS];
+      } else if (this.selectedTemplateId === 'technical-controller') {
+          this.displayedSources = ALL_SOURCES.filter(s => s.category === 'Technical');
+          this.displayedColumns = this.technicalColumns;
+          this.settings.sources = [SourceType.VIA_SATELLITE];
+      } else {
+          this.displayedSources = ALL_SOURCES;
+          this.displayedColumns = this.financialColumns;
+          this.settings.sources = [SourceType.SPACENEWS];
       }
-      
-      if (navigateToDashboard) {
-          this.viewMode = 'dashboard';
-      }
+
+      this.calculateTime();
+      this.viewMode = 'dashboard';
   }
 
   calculateTime() {
-    const totalSecs = this.settings.max_pages * 20 * 2; 
+    const totalSecs = this.settings.max_pages * 10 * this.settings.sources.length; 
     const mins = Math.floor(totalSecs / 60);
-    this.estimatedTime = `${mins} min ${totalSecs % 60} sec`;
+    this.estimatedTime = mins > 0 ? `${mins} min ${totalSecs % 60} sec` : `${totalSecs} sec`;
   }
 
+  // --- LOGICA DI CARICAMENTO E PROGRESSO SIMULATO ---
   startAnalysis() {
     if (!this.settings.api_key || this.settings.api_key.trim() === '') {
-      alert("ERRORE: Devi inserire una Mistral API Key per procedere!");
+      this.showNotification("ERRORE: Devi inserire una Mistral API Key!", "error");
       return; 
     }
     
+    this.isRunning = true;
+    this.progressValue = 0; 
+    this.statusMessage = `Avvio analisi (${this.selectedTemplateName})...`;
     this.allDeals = []; 
     this.filteredDeals = []; 
+
+    // AVVIO SIMULAZIONE PROGRESSO
+    // Poiché il backend non invia aggiornamenti parziali, simuliamo l'avanzamento
+    // per dare feedback visivo all'utente.
+    if (this.progressInterval) clearInterval(this.progressInterval);
     
-    this.status = { 
-        is_running: true, 
-        total_articles: 0, 
-        processed_articles: 0, 
-        current_status: 'Initializing...', 
-        logs: [],
-        last_update: ''
-    };
+    this.progressInterval = setInterval(() => {
+        // Incrementa lentamente fino al 90%, poi aspetta
+        if (this.progressValue < 90) {
+            // Incremento variabile per sembrare "naturale"
+            const increment = Math.random() * 2; 
+            this.progressValue += increment;
+            
+            // Aggiorna messaggi in base alla % per renderlo vivo
+            if (this.progressValue > 20 && this.progressValue < 40) this.statusMessage = "Scaricamento dati dalle fonti...";
+            if (this.progressValue > 40 && this.progressValue < 70) this.statusMessage = "Analisi AI in corso...";
+            if (this.progressValue > 70) this.statusMessage = "Finalizzazione risultati...";
+            
+            // IMPORTANTE: Forza l'aggiornamento della UI
+            this.cdr.detectChanges();
+        }
+    }, 800); // Ogni 800ms
     
+    // CHIAMATA API REALE
     this.api.startScrape(this.settings).subscribe({
-      next: (res) => {
-        this.startPolling();
+      next: (results) => {
+        // Quando arriva la risposta, fermiamo il timer e andiamo al 100%
+        clearInterval(this.progressInterval);
+        this.progressValue = 100;
+        this.statusMessage = 'Elaborazione completata!';
+        
+        this.allDeals = results;
+        this.allDeals.sort((a, b) => {
+            const dateA = a.published_date ? new Date(a.published_date).getTime() : 0;
+            const dateB = b.published_date ? new Date(b.published_date).getTime() : 0;
+            return dateB - dateA;
+        });
+        this.applyFilter('ALL');
+        this.cdr.detectChanges();
+        
+        // Piccolo delay per far vedere il 100% pieno prima di nascondere la barra
+        setTimeout(() => {
+            this.isRunning = false;
+            this.cdr.detectChanges();
+            
+            if (results.length > 0) this.showNotification(`Analisi completata: trovati ${results.length} risultati.`, "success");
+            else this.showNotification("Nessun risultato trovato.", "info");
+        }, 800);
       },
       error: (err) => {
-        console.error("Errore avvio:", err);
-        alert("Errore di connessione! Guarda la console.");
-        this.status = null;
+        clearInterval(this.progressInterval);
+        console.error(err);
+        this.progressValue = 0;
+        
+        setTimeout(() => {
+            this.isRunning = false;
+            this.statusMessage = 'Errore';
+            this.showNotification("Errore durante l'analisi. Controlla la console.", "error");
+            this.cdr.detectChanges();
+        }, 500);
       }
-    });
-  }
-
-  startPolling() {
-    this.stopPolling();
-    this.ngZone.runOutsideAngular(() => {
-        this.statusSub = interval(1000).pipe(
-            switchMap(() => this.api.getStatus().pipe(
-                catchError(err => {
-                    console.warn("Polling glitch:", err);
-                    return of(null);
-                })
-            ))
-        ).subscribe((s) => {
-            this.ngZone.run(() => {
-                if (s) {
-                    this.status = s;
-                    this.cdr.detectChanges(); 
-
-                    if (s.processed_articles > 0 || this.allDeals.length !== s.total_articles) {
-                         this.loadResults(); 
-                    }
-
-                    if (!s.is_running) {
-                        this.stopPolling();
-                    }
-                }
-            });
-        });
-    });
-  }
-
-  stopPolling() {
-    if (this.statusSub) {
-        this.statusSub.unsubscribe();
-        this.statusSub = null;
-    }
-  }
-
-  loadResults() {
-    this.api.getResults().subscribe(data => {
-      this.ngZone.run(() => {
-          if (JSON.stringify(data) !== JSON.stringify(this.allDeals)) {
-              this.allDeals = data;
-              this.allDeals.sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
-              this.applyFilter(this.selectedType);
-              this.cdr.detectChanges();
-          }
-      });
     });
   }
 
@@ -215,7 +258,8 @@ export class AppComponent implements OnInit, OnDestroy {
           this.filteredDeals = [...this.allDeals];
       } else {
           this.filteredDeals = this.allDeals.filter(d => 
-              d.deal_type && d.deal_type.toLowerCase().includes(type.toLowerCase())
+              (d.deal_type && d.deal_type.toLowerCase().includes(type.toLowerCase())) ||
+              (d.mission_type && d.mission_type.toLowerCase().includes(type.toLowerCase()))
           );
       }
   }
@@ -235,8 +279,14 @@ export class AppComponent implements OnInit, OnDestroy {
     if (typeof input === 'object') {
         if (input.name) return input.name;
         if (input.company) return input.company;
-        return Object.values(input)[0] as string || JSON.stringify(input);
+        if (input.amount && input.currency) return `${input.amount} ${input.currency}`;
+        const firstVal = Object.values(input).find(v => typeof v === 'string');
+        return (firstVal as string) || JSON.stringify(input);
     }
     return String(input);
+  }
+
+  private showNotification(message: string, type: 'success' | 'error' | 'info') {
+      this.snackBar.open(message, 'Chiudi', { duration: 4000, panelClass: type === 'error' ? ['mat-toolbar', 'mat-warn'] : undefined });
   }
 }

@@ -1,31 +1,33 @@
 import logging
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from typing import List
 from dotenv import load_dotenv
+from celery.result import AsyncResult
 
-# Importa i modelli e il servizio
-from .models import DealData, ScrapeSettings, ScrapeStatus
-from .scraper_service import SpaceScraperService, current_status
+# FIX IMPORT: USIAMO IMPORT ASSOLUTI
+from models import ScrapeSettings
+from worker import execute_scrape_task
+from database import engine, Base
 
 load_dotenv()
 
-# --- FILTRO LOG PER ZITTIRE IL POLLING (CORRETTO) ---
+# --- 0. INIZIALIZZAZIONE DATABASE ---
+# Crea le tabelle automaticamente se non esistono.
+# NOTA: Poiché abbiamo modificato i modelli, se la tabella esiste già 
+# potrebbe non aggiornarsi automaticamente senza cancellare il volume (che hai già fatto).
+Base.metadata.create_all(bind=engine)
+
+# --- 1. FILTRO LOG ---
 class EndpointFilter(logging.Filter):
     def filter(self, record: logging.LogRecord) -> bool:
         message = record.getMessage()
-        # Filtriamo ENTRAMBI gli endpoint di polling per sicurezza
-        return "/api/status" not in message and "/api/results" not in message
+        return "/api/tasks" not in message and "/api/results" not in message
 
-# --- APPLICAZIONE IMMEDIATA (FUORI DA STARTUP) ---
-# Lo facciamo qui, a livello globale, per essere sicuri che Uvicorn lo recepisca subito
 logging.getLogger("uvicorn.access").addFilter(EndpointFilter())
 
 app = FastAPI()
 
-# Rimosso startup_event inutile per il logging
-
-# Configurazione CORS
+# --- 2. CONFIGURAZIONE CORS ---
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -34,50 +36,54 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-last_results = []
-
-def run_scraper_task(settings: ScrapeSettings):
-    global last_results
-    try:
-        service = SpaceScraperService(settings)
-        last_results = service.scrape()
-    except Exception as e:
-        print(f"Errore critico task: {e}")
-        current_status["is_running"] = False
-        current_status["message"] = f"Error: {str(e)}"
-        if "logs" in current_status:
-             current_status["logs"].insert(0, {
-                 "timestamp": "", 
-                 "message": f"Critical Error: {str(e)}", 
-                 "type": "error"
-             })
-
-@app.post("/api/start-scrape")
-async def start_scrape(settings: ScrapeSettings, background_tasks: BackgroundTasks):
-    if current_status["is_running"]:
-        return {"message": "Scraper is already running"}
-    
-    global last_results
-    last_results = [] 
-    
-    background_tasks.add_task(run_scraper_task, settings)
-    return {"message": "Scraper started successfully"}
-
-@app.get("/api/status", response_model=ScrapeStatus)
-async def get_status():
-    return {
-        "is_running": current_status["is_running"],
-        "total_articles": current_status["total"],
-        "processed_articles": current_status["processed"],
-        "current_status": current_status["message"],
-        "last_update": current_status["last_update"],
-        "logs": current_status.get("logs", []) 
-    }
-
-@app.get("/api/results", response_model=List[DealData])
-async def get_results():
-    return last_results
-
 @app.get("/")
 def read_root():
-    return {"status": "SpaceScraper Backend Ready"}
+    return {"status": "SpaceScraper Distributed Backend Ready"}
+
+# --- 3. ENDPOINT: AVVIO TASK (PRODUCER) ---
+@app.post("/api/start-scrape")
+async def start_scrape(settings: ScrapeSettings):
+    """
+    Riceve la richiesta con LE MULTIPLE SORGENTI, la valida e la invia alla coda Redis.
+    """
+    try:
+        # --- MODIFICA FONDAMENTALE ---
+        # mode='json' converte gli Enum (es. SourceType.SPACENEWS) in stringhe ("SpaceNews")
+        # Questo è necessario perché Celery/Redis accettano solo tipi semplici (JSON).
+        settings_dict = settings.model_dump(mode='json')
+        
+        # Debug: Stampa cosa stiamo mandando al worker
+        print(f"[Backend] Dispatching task with sources: {settings_dict.get('sources')}")
+
+        # Lanciamo il task asincrono
+        task = execute_scrape_task.delay(settings_dict)
+        
+        return {
+            "task_id": task.id, 
+            "status": "Accepted", 
+            "message": "Task inviato al worker cluster"
+        }
+    except Exception as e:
+        print(f"Errore dispatch task: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# --- 4. ENDPOINT: CONTROLLO STATO (POLLING) ---
+@app.get("/api/tasks/{task_id}")
+async def get_task_status(task_id: str):
+    task_result = AsyncResult(task_id)
+    
+    response = {
+        "task_id": task_id,
+        "status": task_result.status,
+        "result": None
+    }
+
+    if task_result.ready():
+        if task_result.successful():
+            response["result"] = task_result.result
+            response["status"] = "SUCCESS"
+        else:
+            response["status"] = "FAILURE"
+            response["error"] = str(task_result.result)
+    
+    return response

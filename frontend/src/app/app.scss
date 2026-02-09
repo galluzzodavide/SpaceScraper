@@ -7,6 +7,8 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  background-color: #1976d2 !important; /* Colore Primary Material */
+  color: white !important;
 }
 
 /* ============================================== */
@@ -43,7 +45,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: 1px solid transparent;
-            height: 100%; /* Altezza uniforme */
+            height: 100%;
             display: flex;
             flex-direction: column;
 
@@ -72,7 +74,7 @@
             }
 
             mat-card-content {
-                flex-grow: 1; /* Spinge il pulsante in basso */
+                flex-grow: 1;
                 margin-top: 10px;
                 p {
                     color: #555;
@@ -103,7 +105,7 @@
 
 /* Configurazione (Sidebar Sinistra) */
 .config-card {
-  width: 350px;
+  width: 380px; /* Leggermente più largo per le checkbox */
   flex-shrink: 0;
   
   .form-grid { 
@@ -128,76 +130,59 @@
       text-align: center; 
       font-size: 12px; 
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+  }
+  
+  /* --- STILE CHECKBOX SORGENTI MULTIPLE --- */
+  .sources-section {
+      background: #fafafa;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #eee;
+
+      .sources-grid {
+          display: grid;
+          grid-template-columns: 1fr; /* Una colonna per pulizia */
+          gap: 8px;
+          
+          .source-item {
+             font-size: 13px;
+          }
+      }
   }
 }
 
 /* Area Risultati (Destra) */
 .results-area {
   flex-grow: 1;
-  width: 0;
+  width: 0; /* Trucco Flexbox per overflow */
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Progress Bar & Status */
-.progress-card {
-    .progress-header { 
-        display: flex; 
-        justify-content: space-between; 
-        margin-bottom: 10px; 
-    }
-    .status-text { font-weight: 500; color: #555; }
-    .counter-badge { 
-        background: #e3f2fd; 
-        color: #1976d2; 
-        padding: 4px 10px; 
-        border-radius: 12px; 
-        font-weight: bold; 
-        font-size: 12px; 
-    }
-}
+/* --- LOADING STATE --- */
+.status-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 
-/* Live Feed Log */
-.logs-card {
-    background: #1e1e1e; 
-    color: #e0e0e0; 
-    height: 300px; 
-    border-radius: 8px; 
-    display: flex; 
-    flex-direction: column;
-    
-    .logs-header { 
-        background: #2d2d2d; 
-        padding: 10px; 
-        font-size: 12px; 
-        text-transform: uppercase; 
-        color: #aaa; 
-        display: flex; 
-        align-items: center; 
+    .progress-card {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        
+        h3 {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
     }
-    
-    .logs-list { 
-        flex: 1; 
-        overflow-y: auto; 
-        padding: 10px; 
-        font-family: monospace; 
-        font-size: 13px; 
-        display: flex; 
-        flex-direction: column; 
-        gap: 5px; 
-    }
-    
-    .log-item { 
-        display: flex; 
-        gap: 10px; 
-        .log-time { color: #666; min-width: 60px; } 
-    }
-    .log-item.info { color: #bdbdbd; }
-    .log-item.success { color: #69f0ae; font-weight: bold; }
-    .log-item.warning { color: #ffd740; }
-    .log-item.error { color: #ff5252; }
 }
 
 /* ========================================= */
@@ -210,6 +195,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  overflow: hidden; /* Importante per i bordi arrotondati */
 
   /* Header Tabella (Titolo + Filtri) */
   .table-header {
@@ -219,9 +205,10 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap; 
-      gap: 10px;
+      gap: 15px;
+      background: #fff;
       
-      h2 { margin: 0; font-size: 18px; color: #333; }
+      h2 { margin: 0; font-size: 18px; color: #333; font-weight: 500; }
   }
 
   /* Pulsanti Filtro */
@@ -249,18 +236,19 @@
   .table-scroll-wrapper {
       width: 100%;
       overflow-x: auto;
-      padding-bottom: 15px;
+      padding-bottom: 5px; /* Spazio per la scrollbar */
       background: white;
   }
 
   table { 
       width: 100%;
-      min-width: 3100px; /* Forza lo scroll */
+      /* Larghezza minima per evitare colonne schiacciate */
+      min-width: 2000px; 
       border-collapse: collapse;
   }
   
   td.mat-cell, th.mat-header-cell {
-      padding: 12px;
+      padding: 12px 16px;
       font-size: 13px;
       white-space: normal;
       border-bottom: 1px solid #f0f0f0;
@@ -269,12 +257,13 @@
   }
 
   th.mat-header-cell {
-      color: #333;
+      color: #444;
       font-weight: 600;
       background: #fafafa;
       border-bottom: 2px solid #ddd;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 11px;
+      letter-spacing: 0.5px;
   }
 
   /* Badge Score (Verde/Giallo/Rosso) */
@@ -293,6 +282,17 @@
       &.score-low { background-color: #d32f2f; }    
   }
 
+  /* Badge TRL (Tech Readiness Level) */
+  .trl-badge {
+      background: #e0f7fa;
+      color: #006064;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 11px;
+      white-space: nowrap;
+  }
+
   /* Badge Status Deal */
   .status-badge {
       font-size: 10px; 
@@ -300,33 +300,61 @@
       padding: 3px 8px; 
       border-radius: 12px; 
       background: #eee;
+      color: #555;
+      font-weight: 600;
+      white-space: nowrap;
       
       &.announced { background: #e3f2fd; color: #1565c0; }
       &.completed { background: #e8f5e9; color: #2e7d32; }
       &.rumor { background: #fff3e0; color: #ef6c00; }
   }
 
-  /* Larghezze Colonne per leggibilità */
-  .mat-column-relevance_score { min-width: 70px; text-align: center; }
-  .mat-column-published_date { min-width: 100px; }
-  .mat-column-title { min-width: 250px; font-weight: 500; }
-  .mat-column-summary { min-width: 400px; color: #444; }
-  .mat-column-why_it_matters { min-width: 300px; font-style: italic; }
-  .mat-column-entities { min-width: 250px; }
-  .mat-column-key_assets { min-width: 250px; }
-  .mat-column-investors { min-width: 200px; }
+  /* Link Titoli */
+  .deal-link {
+      text-decoration: none;
+      color: #1976d2;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      
+      &:hover { text-decoration: underline; }
+  }
+
+  /* Larghezze Colonne Ottimizzate */
+  .mat-column-relevance_score { width: 60px; text-align: center; }
+  .mat-column-published_date { width: 90px; }
+  .mat-column-source { width: 100px; }
+  .mat-column-title { min-width: 220px; max-width: 300px; }
+  .mat-column-deal_type { width: 110px; }
+  .mat-column-deal_status { width: 90px; }
   
-  /* Colonne minori */
-  .mat-column-source, .mat-column-section, .mat-column-amount, .mat-column-valuation { min-width: 120px; }
+  /* Colonne Finanziarie */
+  .mat-column-amount { width: 120px; white-space: nowrap; }
+  .mat-column-investors { min-width: 150px; }
+  
+  /* Colonne Tecniche */
+  .mat-column-technology_readiness_level { width: 80px; text-align: center; }
+  .mat-column-orbit { width: 100px; }
+  .mat-column-mission_type { width: 120px; }
+
+  /* Riassunto */
+  .mat-column-summary { min-width: 350px; color: #444; font-size: 12px; }
 }
 
 /* Empty State */
 .empty-state { 
     text-align: center; 
-    padding: 50px; 
+    padding: 60px 20px; 
     color: #999; 
     background: #fafafa; 
-    border: 1px dashed #ccc; 
+    border: 2px dashed #ddd; 
     border-radius: 8px; 
     margin-top: 20px;
+
+    h3 {
+        margin: 15px 0 5px 0;
+        color: #555;
+        font-weight: 500;
+    }
 }
