@@ -1,7 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core'; // Aggiunto OnDestroy
+import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
+import * as XLSX from 'xlsx'; 
 
 // Material Imports
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -21,6 +22,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider'; // Ensure imported here
 
 import { ApiService } from './services/api.service';
 import { Deal, ScrapeSettings, SourceType } from './models/deal.model';
@@ -49,7 +51,7 @@ const ALL_SOURCES = [
     MatChipsModule, MatCardModule, MatFormFieldModule,
     MatInputModule, MatSelectModule, MatExpansionModule, MatTooltipModule,
     MatButtonToggleModule, MatGridListModule, MatSnackBarModule,
-    MatCheckboxModule 
+    MatCheckboxModule, MatDividerModule // <--- ADDED THIS TO FIX NG8001 ERROR
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
@@ -69,7 +71,7 @@ export class AppComponent implements OnInit, OnDestroy {
     sources: [], 
     ai_model: 'mistral-large-latest',
     api_key: '', 
-    min_year: 2024,
+    min_year: 2020,
     max_pages: 1,
     system_prompt: '',
     force_rescan: false
@@ -264,12 +266,59 @@ export class AppComponent implements OnInit, OnDestroy {
       }
   }
 
+  // --- NEW EXPORT FUNCTION: EXPORT TO EXCEL ---
+  exportToExcel() {
+    if (this.allDeals.length === 0) {
+      this.showNotification("Nessun dato da esportare.", "info");
+      return;
+    }
+
+    // Precise mapping of the requested columns
+    // We use 'any' to avoid type errors if the backend returns null fields
+    const dataToExport = this.allDeals.map((deal: any) => ({
+      source: deal.source,
+      url: deal.url,
+      title: deal.title,
+      published_date: deal.published_date,
+      section: deal.section || '',
+      is_relevant: deal.is_relevant ? 'Yes' : 'No',
+      relevance_score: deal.relevance_score,
+      deal_type: deal.deal_type,
+      deal_status: deal.deal_status,
+      acquirer: this.formatData(deal.acquirer),
+      target: this.formatData(deal.target),
+      investors: this.formatData(deal.investors),
+      amount: deal.amount,
+      currency: deal.currency,
+      valuation: deal.valuation,
+      stake_percent: deal.stake_percent,
+      key_assets: this.formatData(deal.key_assets),
+      geography: this.formatData(deal.geography),
+      summary: deal.summary,
+      why_it_matters: deal.why_it_matters,
+      entities: this.formatData(deal.entities)
+    }));
+
+    // Create Workbook and Worksheet
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataToExport);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Deals');
+
+    // Generate file name with timestamp
+    const timestamp = new Date().toISOString().slice(0,19).replace(/:/g, "-");
+    const fileName = `SpaceScraper_Results_${timestamp}.xlsx`;
+
+    // Download
+    XLSX.writeFile(wb, fileName);
+    this.showNotification("File Excel scaricato correttamente!", "success");
+  }
+
   getScoreClass(score: any): string {
       const val = parseFloat(score);
       if (isNaN(val)) return '';
-      if (val >= 0.90) return 'score-high';     
-      if (val >= 0.70) return 'score-medium';   
-      return 'score-low';                       
+      if (val >= 0.90) return 'score-high';
+      if (val >= 0.70) return 'score-medium';
+      return 'score-low'; 
   }
 
   formatData(input: any): string {

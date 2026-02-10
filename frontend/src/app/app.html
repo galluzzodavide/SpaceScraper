@@ -98,6 +98,9 @@
       <div class="table-header">
           <div style="display:flex; align-items:center; gap:10px;">
              <h2>Results ({{filteredDeals.length}})</h2>
+             <button mat-mini-fab color="primary" matTooltip="Download Excel Full Report" (click)="exportToExcel()" *ngIf="allDeals.length > 0">
+                <mat-icon>file_download</mat-icon>
+             </button>
           </div>
           <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedType" (change)="applyFilter(group.value)">
               <mat-button-toggle value="ALL">All</mat-button-toggle>

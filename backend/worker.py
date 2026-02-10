@@ -26,7 +26,7 @@ celery_app.conf.update(
     task_acks_late=True,
 )
 
-@celery_app.task(bind=True, name="execute_scrape_task")
+@celery_app.task(bind=True, name="execute_scrape_task", time_limit=3600, soft_time_limit=3600)
 def execute_scrape_task(self, settings_dict: dict):
     """
     Riceve il dizionario JSON, lo riconverte in oggetto Pydantic (gestendo gli Enum)
