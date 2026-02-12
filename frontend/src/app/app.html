@@ -28,7 +28,7 @@
         
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Target Companies</mat-label>
-          <input matInput [(ngModel)]="settings.target_companies" placeholder="e.g. SpaceX">
+          <input matInput [(ngModel)]="settings.target_companies" placeholder="e.g. SpaceX, Blue Origin">
           <mat-icon matSuffix>business</mat-icon>
         </mat-form-field>
 
@@ -48,11 +48,31 @@
           <mat-form-field appearance="outline"><mat-label>Pages</mat-label><input matInput type="number" [(ngModel)]="settings.max_pages" (change)="calculateTime()"></mat-form-field>
         </div>
 
+        <mat-divider style="margin: 10px 0;"></mat-divider>
+        
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Mistral API Key</mat-label>
+            <mat-label>AI Brain / Model</mat-label>
+            <mat-select [(ngModel)]="settings.ai_model" (selectionChange)="calculateTime()">
+                <mat-option *ngFor="let model of availableModels" [value]="model.value">
+                    {{ model.label }}
+                </mat-option>
+            </mat-select>
+            <mat-icon matSuffix>smart_toy</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width" *ngIf="!settings.ai_model.includes('ollama')">
+          <mat-label>
+             {{ settings.ai_model.includes('groq') ? 'Groq API Key (Optional)' : 'Mistral API Key (Required)' }}
+          </mat-label>
           <input matInput [type]="'password'" [(ngModel)]="settings.api_key">
           <mat-icon matSuffix>key</mat-icon>
+          <mat-hint *ngIf="settings.ai_model.includes('groq')">Leave empty to use Backend ENV Key</mat-hint>
         </mat-form-field>
+
+        <div *ngIf="settings.ai_model.includes('ollama')" style="padding: 10px; background: #e8f5e9; border-radius: 4px; margin-bottom: 10px; display:flex; align-items:center; gap:10px;">
+            <mat-icon style="color: green;">dns</mat-icon>
+            <small style="color: #2e7d32;">Using Local AI. Ensure Ollama is running on your PC.</small>
+        </div>
 
         <div class="time-estimate"><mat-icon style="font-size: 16px; width: 16px; height: 16px; vertical-align: middle;">timer</mat-icon> <small> Est: <strong>{{ estimatedTime }}</strong></small></div>
 
@@ -98,10 +118,11 @@
       <div class="table-header">
           <div style="display:flex; align-items:center; gap:10px;">
              <h2>Results ({{filteredDeals.length}})</h2>
+             
              <button mat-mini-fab color="primary" matTooltip="Download Excel Full Report" (click)="exportToExcel()" *ngIf="allDeals.length > 0">
                 <mat-icon>file_download</mat-icon>
              </button>
-          </div>
+             </div>
           <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedType" (change)="applyFilter(group.value)">
               <mat-button-toggle value="ALL">All</mat-button-toggle>
               <mat-button-toggle value="investment">Invest</mat-button-toggle>
@@ -172,9 +193,11 @@
           </table>
       </div>
     </div>
+
     <div *ngIf="!isRunning && allDeals.length === 0" class="empty-state">
       <mat-icon style="font-size: 48px; opacity:0.5;">travel_explore</mat-icon>
       <h3>Ready</h3>
     </div>
+
   </div>
 </div>

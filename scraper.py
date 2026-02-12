@@ -5,7 +5,7 @@ import re
 import hashlib
 from pathlib import Path
 from bs4 import BeautifulSoup
-from .models import ScrapeSettings, DealData
+from models import ScrapeSettings, DealData
 
 # Configurazione Cache
 CACHE_DIR = Path("cache_deals")

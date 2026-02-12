@@ -10,7 +10,7 @@ from fake_useragent import UserAgent
 from sqlalchemy.orm import Session
 from litellm import completion
 import instructor
-from concurrent.futures import ThreadPoolExecutor, as_completed # <--- PER IL PARALLELISMO
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from database import SessionLocal
 from models import ScrapeSettings, DealModel, DealData, SourceType
@@ -34,12 +34,11 @@ class BaseAdapter(ABC):
                 if r.status_code == 200:
                     return r.json() if is_json else r.text
                 elif r.status_code == 429:
-                    print(f"[Warn] 429 Too Many Requests su {url}. Attesa 5s...")
                     time.sleep(5)
                 else:
-                    print(f"[Warn] HTTP {r.status_code} su {url}")
-            except Exception as e:
-                print(f"[Error] Request failed {url}: {e}")
+                    pass
+            except Exception:
+                pass
             time.sleep(1)
         return None
 
@@ -48,7 +47,7 @@ class BaseAdapter(ABC):
         pass
 
 # ==========================================
-# 2. ADAPTERS (Invariati nella logica, ottimizzati per thread safety)
+# 2. ADAPTERS
 # ==========================================
 class SpaceNewsAdapter(BaseAdapter):
     def fetch_articles(self) -> List[Dict]:
@@ -70,10 +69,8 @@ class SpaceNewsAdapter(BaseAdapter):
                         "raw_content": getattr(entry, 'content', [{'value': entry.summary}])[0]['value'] if hasattr(entry, 'content') else entry.summary
                     })
                 time.sleep(1)
-            except Exception as e:
-                print(f"[SpaceNews] Error: {e}")
+            except Exception:
                 break
-        print(f"[SpaceNews] Finito. Trovati {len(articles)}.")
         return articles
 
 class SnapiAdapter(BaseAdapter):
@@ -98,7 +95,6 @@ class SnapiAdapter(BaseAdapter):
                     "raw_content": post.get('summary', '') 
                 })
             time.sleep(1)
-        print(f"[SNAPI] Finito. Trovati {len(articles)}.")
         return articles
 
 class ViaSatelliteAdapter(BaseAdapter):
@@ -120,7 +116,6 @@ class ViaSatelliteAdapter(BaseAdapter):
                         "date": getattr(entry, 'published', ''),
                         "raw_content": content
                     })
-            print(f"[Via Satellite] Finito. Trovati {len(articles)}.")
             return articles
         except Exception:
             return []
@@ -141,19 +136,15 @@ class NasaTechPortAdapter(BaseAdapter):
                     "date": proj.get('lastUpdated'),
                     "raw_content": proj.get('description', '') 
                 })
-        print(f"[NASA TechPort] Finito. Trovati {len(articles)}.")
         return articles
 
 # ==========================================
-# 3. SERVICE PRINCIPALE (Multi-Threaded)
+# 3. SERVICE PRINCIPALE
 # ==========================================
 
 class SpaceScraperService:
     def __init__(self, settings: ScrapeSettings):
         self.settings = settings
-        if not self.settings.api_key:
-             raise ValueError("API Key mancante")
-        
         self.db: Session = SessionLocal()
         
         self.adapters_map = {
@@ -174,115 +165,162 @@ class SpaceScraperService:
         return adapter_class(self.settings)
 
     def _analyze_with_llm(self, text: str, meta: Dict) -> Dict:
-        """ Analisi AI (Rimane la stessa) """
-        is_technical = meta['source'] in [SourceType.VIA_SATELLITE.value, SourceType.NASA_TECHPORT.value]
+        """ 
+        Analisi AI Robust con RETRY su 429.
+        """
         client = instructor.from_litellm(completion, mode=instructor.Mode.MD_JSON)
         companies_str = self.settings.target_companies
         
-        if is_technical:
-             system_prompt = (f"Sei un Senior Technical Analyst spaziale. Analizza per: {companies_str}. "
-                              "Estrai TRL, Mission Type, Orbit. Ignora finanza.")
+        # 1. Recupero Prompt
+        base_prompt = self.settings.system_prompt
+        if not base_prompt or len(base_prompt.strip()) < 10:
+            base_prompt = "You are a space economy analyst. Extract key data."
+
+        # 2. Iniezione Contesto
+        system_prompt = f"{base_prompt}\n\nCRITICAL CONTEXT: Your analysis MUST focus on the following target companies: '{companies_str}'. If the article does not mention them or is not relevant to their activities, set is_relevant=false."
+
+        # 3. Configurazione Modello
+        model_name = self.settings.ai_model.lower()
+        api_key = self.settings.api_key
+        api_base = None
+        final_model = model_name
+
+        if "ollama" in model_name:
+            api_base = "http://host.docker.internal:11434"
+            api_key = "ollama" 
+        elif "groq" in model_name:
+            api_base = "https://api.groq.com/openai/v1"
+            clean_model = model_name.replace("groq/", "")
+            final_model = f"openai/{clean_model}" 
         else:
-             system_prompt = (f"Sei un Senior Financial Analyst. Analizza per: {companies_str}. "
-                              "Estrai M&A, Contracts, Revenue. Ignora tech specs.")
+            final_model = f"openai/{self.settings.ai_model}"
+            api_base = "https://api.mistral.ai/v1"
 
-        try:
-            resp = client.chat.completions.create(
-                model=f"openai/{self.settings.ai_model}",
-                api_base="https://api.mistral.ai/v1",
-                api_key=self.settings.api_key,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": f"URL: {meta['url']}\n\nCONTENT: {text[:15000]}"}
-                ],
-                response_model=DealData,
-                max_retries=2
-            )
-            result = resp.model_dump(exclude_none=True)
-            
-            # Auto-Correction: Se l'AI dice 'None' ma is_relevant=True, correggiamo
-            deal_type = result.get('deal_type', 'none').lower()
-            if deal_type == 'none' and result.get('is_relevant') is True:
-                print(f" [AUTO-FIX] {meta['url']} marcato IRRILEVANTE (Deal Type: None)")
-                result['is_relevant'] = False
-            return result
-        except Exception as e:
-            print(f"[LLM Error] {e}")
-            return {"is_relevant": False, "summary": str(e)}
+        if not api_key and "ollama" not in model_name:
+             return {"is_relevant": False, "summary": "Missing API Key"}
 
-    # --- NUOVO METODO: DOWNLOAD PARALLELO ---
+        kwargs = {
+            "model": final_model,
+            "api_key": api_key,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": f"URL: {meta['url']}\n\nCONTENT: {text[:18000]}"}
+            ],
+            "response_model": DealData,
+            "max_retries": 1 # LiteLLM retries interni
+        }
+        
+        if api_base:
+            kwargs["api_base"] = api_base
+
+        # --- CICLO DI RETRY MANUALE PER 429 ---
+        # Se LiteLLM fallisce con 429, aspettiamo noi manualmente
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                resp = client.chat.completions.create(**kwargs)
+                result = resp.model_dump(exclude_none=True)
+                
+                # Auto-Correction
+                deal_type = result.get('deal_type', 'none').lower()
+                if deal_type == 'none' and result.get('is_relevant') is True:
+                    result['is_relevant'] = False
+                
+                return result
+
+            except Exception as e:
+                err_str = str(e).lower()
+                # Check se è un Rate Limit
+                if "429" in err_str or "rate limit" in err_str:
+                    if attempt < max_retries - 1:
+                        # Backoff esponenziale: 10s, 20s, 30s...
+                        wait_time = 10 * (attempt + 1)
+                        print(f" [RATE LIMIT] 429 Rilevato. Pausa di {wait_time}s e riprovo...")
+                        time.sleep(wait_time)
+                        continue # Riprova il ciclo
+                    else:
+                        print(f"[LLM Error] Rate limit persistente su {meta['url']}: {e}")
+                        return {"is_relevant": False, "summary": "Skipped due to API Rate Limits"}
+                else:
+                    # Altri errori (es. Context Length) non si retryano
+                    print(f"[LLM Error] {e}")
+                    return {"is_relevant": False, "summary": str(e)}
+
+    # --- METODO FETCH SICURO ---
     def _fetch_source_safe(self, source_enum):
-        """ Wrapper sicuro per eseguire il fetch in un thread separato """
         try:
             adapter = self._get_adapter(source_enum)
             return adapter.fetch_articles()
-        except Exception as e:
-            print(f"Errore thread {source_enum}: {e}")
+        except Exception:
             return []
 
     def scrape(self):
         all_results = []
         raw_articles_batch = []
-        processed_urls_in_batch = set() # Dedup globale
+        processed_urls_in_batch = set()
         
-        print(f"AVVIO PARALLELO: {[s.value for s in self.settings.sources]}")
+        # --- DELAY ADATTIVO ---
+        current_model = self.settings.ai_model.lower()
+        if "groq" in current_model:
+            delay_seconds = 3.0 # Groq è severo
+        elif "mistral" in current_model:
+            delay_seconds = 2.0 # Mistral aumentato a 2s per sicurezza
+        else:
+            delay_seconds = 0.1 
+            
+        print(f"AVVIO ANALISI - Target: {self.settings.target_companies} - Delay base: {delay_seconds}s")
         
-        # 1. FASE DI DOWNLOAD PARALLELO (Fan-Out)
-        # Usiamo ThreadPoolExecutor per lanciare tutte le richieste HTTP insieme
+        # 1. DOWNLOAD PARALLELO
         with ThreadPoolExecutor(max_workers=5) as executor:
-            # Mappa future -> source
             future_to_source = {
                 executor.submit(self._fetch_source_safe, source): source 
                 for source in self.settings.sources
             }
-            
             for future in as_completed(future_to_source):
-                source = future_to_source[future]
                 try:
                     articles = future.result()
-                    raw_articles_batch.extend(articles) # Raccogliamo tutto in un unico calderone
-                except Exception as exc:
-                    print(f" {source.value} ha generato un'eccezione: {exc}")
+                    raw_articles_batch.extend(articles)
+                except Exception:
+                    pass
 
-        print(f"--- FASE 1 COMPLETATA: Scaricati {len(raw_articles_batch)} articoli totali. Inizio Analisi... ---")
+        print(f"--- Scaricati {len(raw_articles_batch)} articoli. Inizio Analisi AI...")
 
-        # 2. FASE DI ANALISI SEQUENZIALE (Safe DB & Rate Limits)
-        # Processiamo la lista aggregata. Questo previene lock del DB e rispetta i limiti API di Mistral.
-        for art in raw_articles_batch:
+        # 2. ANALISI SEQUENZIALE
+        for i, art in enumerate(raw_articles_batch):
             url = art['url']
+            print(f"[{i+1}/{len(raw_articles_batch)}] Processando: {url}")
             
-            # Dedup nel batch
-            if url in processed_urls_in_batch: continue
+            if url in processed_urls_in_batch: 
+                print(f"    >>> SKIP: URL già processato in questo batch (Duplicato)")
+                continue
             processed_urls_in_batch.add(url)
 
-            # Dedup nel DB
             exists = self.db.query(DealModel).filter(DealModel.url == url).first()
-            
-            if exists:
-                if not self.settings.force_rescan:
-                    if exists.is_relevant:
-                        print(f" [CACHE HIT] {url}")
-                        all_results.append(exists.analysis_payload)
-                    continue
-                else:
-                    print(f" [RESCAN] {url}")
+            if exists and not self.settings.force_rescan:
+                print(f" [{i+1}/{len(raw_articles_batch)}] SALTATO: Già nel DB -> {url}")
+                if exists.is_relevant:
+                    all_results.append(exists.analysis_payload)
+                continue
 
-            # Pre-processing
             soup = BeautifulSoup(art['raw_content'], "html.parser")
             for s in soup(["script", "style"]): s.decompose()
             clean_text = soup.get_text(separator=" ", strip=True)
             if len(clean_text) < 100: continue
 
-            # Analisi AI
-            print(f" [AI PROCESSING] {url} (Source: {art['source']})")
+            print(f" [{i+1}/{len(raw_articles_batch)}] Analisi: {url}...")
+            
+            # Qui chiamiamo la funzione che ora ha il retry interno
             analysis = self._analyze_with_llm(clean_text, art)
+            
+            if analysis.get('is_relevant'):
+                print(f"   ---> RILEVANTE")
+                all_results.append(analysis)
             
             analysis['source'] = art['source']
             analysis['published_date'] = art['date']
             analysis['title'] = art['title']
             analysis['url'] = url
             
-            # Salvataggio DB
             if exists:
                 exists.analysis_payload = analysis
                 exists.is_relevant = analysis.get('is_relevant', False)
@@ -295,10 +333,6 @@ class SpaceScraperService:
                 self.db.add(new_deal)
             self.db.commit()
             
-            if analysis.get('is_relevant', False):
-                all_results.append(analysis)
-            
-            # Rate limit per non bruciare la chiave API
-            time.sleep(0.5)
+            time.sleep(delay_seconds)
 
         return all_results

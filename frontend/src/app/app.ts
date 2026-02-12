@@ -66,12 +66,22 @@ export class AppComponent implements OnInit, OnDestroy {
 
   displayedSources: any[] = [];
 
+  // --- ADDED THIS TO FIX TS2339 ERROR ---
+  availableModels = [
+    { value: 'groq/llama-3.3-70b-versatile', label: 'Groq (Llama 3.3 - 70B Versatile)' },
+    { value: 'groq/llama-3.1-8b-instant', label: 'Groq (Llama 3.1 - 8B Instant)' },
+    { value: 'mistral-large-latest', label: 'Mistral API (Standard)' },
+    { value: 'mistral-small', label: 'Mistral API (Small)' },
+    { value: 'ollama/mistral', label: 'llama Local' }
+  ];
+  // --------------------------------------
+
   settings: ScrapeSettings = {
     target_companies: 'ICEYE',
     sources: [], 
     ai_model: 'mistral-large-latest',
     api_key: '', 
-    min_year: 2020,
+    min_year: 2024,
     max_pages: 1,
     system_prompt: '',
     force_rescan: false
@@ -316,9 +326,9 @@ export class AppComponent implements OnInit, OnDestroy {
   getScoreClass(score: any): string {
       const val = parseFloat(score);
       if (isNaN(val)) return '';
-      if (val >= 0.90) return 'score-high';
-      if (val >= 0.70) return 'score-medium';
-      return 'score-low'; 
+      if (val >= 0.90) return 'score-high';     
+      if (val >= 0.70) return 'score-medium';   
+      return 'score-low';                       
   }
 
   formatData(input: any): string {
