@@ -1,7 +1,7 @@
 from typing import List, Optional, Any, Union
 from datetime import datetime
 from enum import Enum
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 # --- IMPORTS PER DATABASE (SQLAlchemy) ---
 from sqlalchemy import Column, Integer, String, DateTime, Boolean
@@ -76,7 +76,7 @@ class DealData(BaseModel):
     deal_status: Optional[str] = "unknown"
     acquirer: Optional[Any] = None
     target: Optional[Any] = None
-    investors: Optional[Any] = None
+    investors: Optional[List[str]] = []
     amount: Optional[Union[str, int, float]] = None
     currency: Optional[str] = "USD"
     valuation: Optional[Union[str, int, float]] = None

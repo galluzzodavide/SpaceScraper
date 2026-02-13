@@ -173,8 +173,8 @@ class SpaceScraperService:
         
         # 1. Recupero Prompt
         base_prompt = self.settings.system_prompt
-        if not base_prompt or len(base_prompt.strip()) < 10:
-            base_prompt = "You are a space economy analyst. Extract key data."
+        # if not base_prompt or len(base_prompt.strip()) < 10:
+        #    base_prompt = "You are a space economy analyst. Extract key data."
 
         # 2. Iniezione Contesto
         system_prompt = f"{base_prompt}\n\nCRITICAL CONTEXT: Your analysis MUST focus on the following target companies: '{companies_str}'. If the article does not mention them or is not relevant to their activities, set is_relevant=false."
