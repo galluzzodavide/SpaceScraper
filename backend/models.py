@@ -51,6 +51,9 @@ class DealModel(Base):
     
     # Flag di stato rapido
     is_relevant = Column(Boolean, default=False)
+
+    # input esatto dell'utente (es. "ICEYE")
+    search_target = Column(String, index=True, nullable=True)
     
     # --- IL CUORE IBRIDO: JSONB ---
     analysis_payload = Column(JSONB, nullable=False)
@@ -83,6 +86,7 @@ class DealData(BaseModel):
     stake_percent: Optional[Union[str, int, float]] = None
     key_assets: Optional[Any] = None
     geography: Optional[Any] = None
+
     
     # --- CAMPI TECNICI (Technical Controller) ---
     technology_readiness_level: Optional[str] = None # TRL (per NASA)

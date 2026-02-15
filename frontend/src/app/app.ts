@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 import { FormsModule } from '@angular/forms'; 
 import * as XLSX from 'xlsx'; 
 
@@ -22,21 +22,20 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDividerModule } from '@angular/material/divider'; // Ensure imported here
+import { MatDividerModule } from '@angular/material/divider';
 
 import { ApiService } from './services/api.service';
 import { Deal, ScrapeSettings, SourceType } from './models/deal.model';
 import { PROMPT_TEMPLATES, PromptTemplate } from './prompts';
+import { HeatmapGrid } from './components/heatmap-grid/heatmap-grid';
+import { RouterOutlet } from '@angular/router';
+import { DataService } from './services/data.service';
 
-// --- DEFINIZIONE SORGENTI DISPONIBILI ---
 const ALL_SOURCES = [
-    // FINANCIAL SOURCES
     { name: SourceType.SPACENEWS, category: 'Financial', label: 'SpaceNews (Business)' },
     { name: SourceType.SNAPI, category: 'Financial', label: 'SNAPI (Aggregator)' },
     { name: SourceType.SPACEWORKS, category: 'Financial', label: 'SpaceWorks (Benchmark)' },
     { name: SourceType.EURO_SPACEFLIGHT, category: 'Financial', label: 'European Spaceflight (EU)' },
-    
-    // TECHNICAL SOURCES
     { name: SourceType.VIA_SATELLITE, category: 'Technical', label: 'Via Satellite (Tech)' },
     { name: SourceType.NASA_TECHPORT, category: 'Technical', label: 'NASA TechPort (R&D)' }
 ];
@@ -51,22 +50,22 @@ const ALL_SOURCES = [
     MatChipsModule, MatCardModule, MatFormFieldModule,
     MatInputModule, MatSelectModule, MatExpansionModule, MatTooltipModule,
     MatButtonToggleModule, MatGridListModule, MatSnackBarModule,
-    MatCheckboxModule, MatDividerModule // <--- ADDED THIS TO FIX NG8001 ERROR
+    MatCheckboxModule, MatDividerModule, RouterOutlet, HeatmapGrid
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
+
 export class AppComponent implements OnInit, OnDestroy {
   
-  viewMode: 'dashboard' | 'template-selection' = 'template-selection';
+  viewMode: 'dashboard' | 'template-selection' = 'dashboard';
   
   templates = PROMPT_TEMPLATES;
-  selectedTemplateName: string = ''; 
-  selectedTemplateId: string = ''; 
+  selectedTemplateName: string = 'Financial Controller'; 
+  selectedTemplateId: string = 'financial-controller'; 
 
-  displayedSources: any[] = [];
+  displayedSources: any[] = ALL_SOURCES.filter(s => s.category === 'Financial');
 
-  // --- ADDED THIS TO FIX TS2339 ERROR ---
   availableModels = [
     { value: 'groq/llama-3.3-70b-versatile', label: 'Groq (Llama 3.3 - 70B Versatile)' },
     { value: 'groq/llama-3.1-8b-instant', label: 'Groq (Llama 3.1 - 8B Instant)' },
@@ -74,12 +73,11 @@ export class AppComponent implements OnInit, OnDestroy {
     { value: 'mistral-small', label: 'Mistral API (Small)' },
     { value: 'ollama/mistral', label: 'llama Local' }
   ];
-  // --------------------------------------
 
   settings: ScrapeSettings = {
     target_companies: 'ICEYE',
-    sources: [], 
-    ai_model: 'mistral-large-latest',
+    sources: [SourceType.SPACENEWS], 
+    ai_model: 'mistral-large-latest', 
     api_key: '', 
     min_year: 2024,
     max_pages: 1,
@@ -93,59 +91,66 @@ export class AppComponent implements OnInit, OnDestroy {
   
   get deals() { return this.filteredDeals; }
 
-  // --- STATO CARICAMENTO ---
   isRunning = false;
   statusMessage = 'Ready';
   estimatedTime = '0 sec';
-  
-  // Variabili per la progress bar
   progressValue = 0;
-  private progressInterval: any; // Riferimento al timer
+  private progressInterval: any; 
 
-  // --- DEFINIZIONE COLONNE ---
-  financialColumns: string[] = [
-    'relevance_score', 'published_date', 'source', 'title', 
-    'deal_type', 'deal_status', 'amount', 'investors', 'summary'
-  ];
-
-  technicalColumns: string[] = [
-    'relevance_score', 'source', 'title', 
-    'technology_readiness_level', 
-    'key_assets',                 
-    'amount',                     
-    'mission_type',               
-    'summary'
-  ];
-
+  financialColumns: string[] = ['relevance_score', 'published_date', 'source', 'title', 'deal_type', 'deal_status', 'amount', 'investors', 'summary'];
+  technicalColumns: string[] = ['relevance_score', 'source', 'title', 'technology_readiness_level', 'key_assets', 'amount', 'mission_type', 'summary'];
   displayedColumns: string[] = this.financialColumns; 
 
   constructor(
+    private http: HttpClient, 
     private api: ApiService, 
-    private cdr: ChangeDetectorRef, // Fondamentale per aggiornare la UI durante il timer
-    private snackBar: MatSnackBar
-  ) {}
+    private cdr: ChangeDetectorRef, 
+    private snackBar: MatSnackBar,
+    private dataService: DataService
+  ) {
+      const defaultTemplate = this.templates.find(t => t.id === this.selectedTemplateId);
+      if (defaultTemplate) {
+          this.settings.system_prompt = defaultTemplate.content;
+      }
+      this.calculateTime();
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+      if (this.settings.target_companies) {
+          this.dataService.updateTargets(this.settings.target_companies);
+      }
+  }
 
-  // Pulizia timer se il componente viene distrutto
+  // Lasciamo la funzione se volessi richiamarla manualmente in futuro, ma non la usiamo all'avvio
+  loadHistoricalData() {
+    this.http.get<any[]>('http://localhost:8000/api/deals?limit=100')
+      .subscribe({
+        next: (data) => {
+          this.allDeals = data;
+          this.allDeals.sort((a, b) => {
+            const dateA = a.published_date ? new Date(a.published_date).getTime() : 0;
+            const dateB = b.published_date ? new Date(b.published_date).getTime() : 0;
+            return dateB - dateA;
+          });
+          this.applyFilter('ALL');
+        },
+        error: (err) => console.error('Impossibile caricare lo storico:', err)
+      });
+  }
+
   ngOnDestroy() {
       if (this.progressInterval) clearInterval(this.progressInterval);
   }
 
   toggleSource(sourceName: string, isChecked: boolean) {
     if (isChecked) {
-      if (!this.settings.sources.includes(sourceName)) {
-        this.settings.sources.push(sourceName);
-      }
+      if (!this.settings.sources.includes(sourceName)) this.settings.sources.push(sourceName);
     } else {
       if (this.settings.sources.length > 1) {
         this.settings.sources = this.settings.sources.filter(s => s !== sourceName);
       } else {
         this.showNotification("Seleziona almeno una fonte!", "info");
-        setTimeout(() => {
-             this.settings.sources = [...this.settings.sources];
-             this.cdr.detectChanges();
-        }, 0);
+        setTimeout(() => { this.settings.sources = [...this.settings.sources]; this.cdr.detectChanges(); }, 0);
       }
     }
     this.calculateTime();
@@ -157,6 +162,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   changeTemplate() {
       this.viewMode = 'template-selection';
+  }
+
+  onPersonaChange(templateId: string) {
+      const template = this.templates.find(t => t.id === templateId);
+      if (template) {
+          this.selectTemplate(template);
+      }
   }
 
   selectTemplate(template: PromptTemplate) {
@@ -177,7 +189,6 @@ export class AppComponent implements OnInit, OnDestroy {
           this.displayedColumns = this.financialColumns;
           this.settings.sources = [SourceType.SPACENEWS];
       }
-
       this.calculateTime();
       this.viewMode = 'dashboard';
   }
@@ -188,49 +199,34 @@ export class AppComponent implements OnInit, OnDestroy {
     this.estimatedTime = mins > 0 ? `${mins} min ${totalSecs % 60} sec` : `${totalSecs} sec`;
   }
 
-  // --- LOGICA DI CARICAMENTO E PROGRESSO SIMULATO ---
   startAnalysis() {
     if (!this.settings.api_key || this.settings.api_key.trim() === '') {
       this.showNotification("ERRORE: Devi inserire una Mistral API Key!", "error");
       return; 
     }
-    
     this.isRunning = true;
     this.progressValue = 0; 
     this.statusMessage = `Avvio analisi (${this.selectedTemplateName})...`;
     this.allDeals = []; 
     this.filteredDeals = []; 
 
-    // AVVIO SIMULAZIONE PROGRESSO
-    // Poiché il backend non invia aggiornamenti parziali, simuliamo l'avanzamento
-    // per dare feedback visivo all'utente.
     if (this.progressInterval) clearInterval(this.progressInterval);
     
     this.progressInterval = setInterval(() => {
-        // Incrementa lentamente fino al 90%, poi aspetta
         if (this.progressValue < 90) {
-            // Incremento variabile per sembrare "naturale"
-            const increment = Math.random() * 2; 
-            this.progressValue += increment;
-            
-            // Aggiorna messaggi in base alla % per renderlo vivo
+            this.progressValue += Math.random() * 2;
             if (this.progressValue > 20 && this.progressValue < 40) this.statusMessage = "Scaricamento dati dalle fonti...";
             if (this.progressValue > 40 && this.progressValue < 70) this.statusMessage = "Analisi AI in corso...";
             if (this.progressValue > 70) this.statusMessage = "Finalizzazione risultati...";
-            
-            // IMPORTANTE: Forza l'aggiornamento della UI
             this.cdr.detectChanges();
         }
-    }, 800); // Ogni 800ms
+    }, 800); 
     
-    // CHIAMATA API REALE
     this.api.startScrape(this.settings).subscribe({
       next: (results) => {
-        // Quando arriva la risposta, fermiamo il timer e andiamo al 100%
         clearInterval(this.progressInterval);
         this.progressValue = 100;
         this.statusMessage = 'Elaborazione completata!';
-        
         this.allDeals = results;
         this.allDeals.sort((a, b) => {
             const dateA = a.published_date ? new Date(a.published_date).getTime() : 0;
@@ -239,25 +235,20 @@ export class AppComponent implements OnInit, OnDestroy {
         });
         this.applyFilter('ALL');
         this.cdr.detectChanges();
-        
-        // Piccolo delay per far vedere il 100% pieno prima di nascondere la barra
         setTimeout(() => {
             this.isRunning = false;
             this.cdr.detectChanges();
-            
             if (results.length > 0) this.showNotification(`Analisi completata: trovati ${results.length} risultati.`, "success");
             else this.showNotification("Nessun risultato trovato.", "info");
         }, 800);
       },
       error: (err) => {
         clearInterval(this.progressInterval);
-        console.error(err);
         this.progressValue = 0;
-        
         setTimeout(() => {
             this.isRunning = false;
             this.statusMessage = 'Errore';
-            this.showNotification("Errore durante l'analisi. Controlla la console.", "error");
+            this.showNotification("Errore durante l'analisi.", "error");
             this.cdr.detectChanges();
         }, 500);
       }
@@ -276,7 +267,7 @@ export class AppComponent implements OnInit, OnDestroy {
       }
   }
 
-  // --- NEW EXPORT FUNCTION: EXPORT TO EXCEL ---
+    // --- NEW EXPORT FUNCTION: EXPORT TO EXCEL ---
   exportToExcel() {
     if (this.allDeals.length === 0) {
       this.showNotification("Nessun dato da esportare.", "info");
@@ -326,9 +317,9 @@ export class AppComponent implements OnInit, OnDestroy {
   getScoreClass(score: any): string {
       const val = parseFloat(score);
       if (isNaN(val)) return '';
-      if (val >= 0.90) return 'score-high';     
-      if (val >= 0.70) return 'score-medium';   
-      return 'score-low';                       
+      if (val >= 0.90) return 'score-high';     
+      if (val >= 0.70) return 'score-medium';   
+      return 'score-low';                       
   }
 
   formatData(input: any): string {

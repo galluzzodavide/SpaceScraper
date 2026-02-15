@@ -3,6 +3,7 @@ import requests
 import feedparser
 import os
 import random
+import dateutil.parser
 from abc import ABC, abstractmethod
 from typing import List, Dict, Set
 from bs4 import BeautifulSoup
@@ -11,9 +12,10 @@ from sqlalchemy.orm import Session
 from litellm import completion
 import instructor
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
+from datetime import datetime
 from database import SessionLocal
 from models import ScrapeSettings, DealModel, DealData, SourceType
+
 
 # ==========================================
 # 1. CLASSE BASE ADAPTER
@@ -321,14 +323,19 @@ class SpaceScraperService:
             analysis['title'] = art['title']
             analysis['url'] = url
             
+            current_target = self.settings.target_companies.strip().upper()
+
             if exists:
                 exists.analysis_payload = analysis
                 exists.is_relevant = analysis.get('is_relevant', False)
+                exists.title = art['title']
+                exists.search_target = current_target
             else:
                 new_deal = DealModel(
                     url=url, source=art['source'], title=art['title'],
                     is_relevant=analysis.get('is_relevant', False),
-                    analysis_payload=analysis
+                    analysis_payload=analysis,
+                    search_target=current_target
                 )
                 self.db.add(new_deal)
             self.db.commit()

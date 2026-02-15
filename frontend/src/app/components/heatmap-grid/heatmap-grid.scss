@@ -1,0 +1,203 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.heatmap-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 15px;
+
+  // --- POSIZIONAMENTO CRUCIALE ---
+  padding: 20px 20px 20px 420px;
+  box-sizing: border-box; 
+  // -------------------------------
+
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: #ffffff; 
+}
+
+.tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: #000; 
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+  padding: 0; 
+
+  // Effetto Hover
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.4);
+
+    .company-logo-center {
+      opacity: 0.5; 
+      filter: grayscale(0%); 
+      transform: translate(-50%, -50%) scale(1.05); 
+    }
+    
+    // Effetto hover anche per il testo watermark
+    .text-watermark {
+        color: rgba(255, 255, 255, 0.15);
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.1);
+    }
+  }
+
+  // --- CLASSI DIMENSIONI ---
+  &.tile-large { grid-column: span 2; grid-row: span 2; }
+  &.tile-medium { grid-column: span 2; grid-row: span 1; }
+  &.tile-small { grid-column: span 1; grid-row: span 1; }
+
+  // --- CLASSI COLORE ---
+  &.score-high .tile-overlay {
+    background: linear-gradient(to top, rgba(0, 200, 83, 0.9) 0%, rgba(0, 200, 83, 0.1) 100%);
+  }
+  &.score-medium .tile-overlay {
+    background: linear-gradient(to top, rgba(41, 98, 255, 0.9) 0%, rgba(41, 98, 255, 0.1) 100%);
+  }
+  &.score-low .tile-overlay {
+    background: linear-gradient(to top, rgba(55, 71, 79, 0.9) 0%, rgba(55, 71, 79, 0.1) 100%);
+  }
+}
+
+// --- LOGO CENTRALE (IMMAGINE) ---
+.company-logo-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 70%; 
+  height: 60%; 
+  object-fit: contain; 
+  
+  opacity: 0.8; 
+  // filter: grayscale(100%); 
+  z-index: 0; 
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+// --- NUOVO: LOGO TESTUALE (FALLBACK) ---
+// Questo compare solo se l'immagine fallisce
+.text-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg); // Ruotato per stile
+  
+  margin: 0;
+  font-family: 'Arial Black', sans-serif; // Font massiccio
+  font-size: 5rem; // Gigante
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.08); // Quasi trasparente
+  
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  transition: all 0.4s ease;
+}
+
+// --- LIVELLO OVERLAY ---
+.tile-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1; 
+  mix-blend-mode: multiply; 
+}
+
+// --- LIVELLO CONTENUTO ---
+.tile-content {
+  position: relative;
+  z-index: 2; 
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  color: white;
+
+  // --- NUOVO: BADGE NEWS (Posizionato in alto a dx) ---
+  .news-badge {
+      align-self: flex-end; // Spinge a destra
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+  }
+
+  // Contenitore inferiore
+  .bottom-info {
+    margin-top: auto;
+    
+    // --- NUOVO: NOME AZIENDA (Titolo in basso) ---
+    .mini-header {
+        margin: 0 0 5px 0;
+        font-size: 1.3rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        line-height: 1;
+    }
+  }
+
+  .latest-headline {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+    font-style: italic;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// --- BARRA SCORE ---
+.score-bar-container {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 2px;
+  width: 100%;
+
+  .score-bar-fill {
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transition: width 1s ease-in-out;
+  }
+}
+
+.score-text {
+  font-size: 0.7rem;
+  font-weight: 800;
+  opacity: 0.9;
+  float: right;
+  margin-top: 4px;
+}
+
+.no-data-msg {
+  color: #666;
+  text-align: center;
+  padding-top: 50px;
+  padding-left: 420px;
+}

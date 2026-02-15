@@ -1,0 +1,37 @@
+<div *ngIf="companies.length === 0" class="no-data-msg">
+  <h3>⚠ Nessun dato trovato</h3>
+</div>
+
+<div class="heatmap-container" *ngIf="companies.length > 0">
+  <div *ngFor="let company of companies" 
+       class="tile" 
+       [ngClass]="getTileSizeClass(company.score) + ' ' + getScoreClass(company.score)">
+
+    <img [src]="getLogoUrl(company.name)"
+         [hidden]="logoErrors[company.name]" 
+         class="company-logo-center" 
+         (error)="handleImgError($event, company.name)" 
+         alt="">
+    
+    <h1 *ngIf="logoErrors[company.name]" class="text-watermark">
+      {{ company.name | slice:0:6 }}
+    </h1>
+
+    <div class="tile-overlay"></div>
+
+    <div class="tile-content">
+        <div class="tile-header">
+          <span class="news-badge">{{ company.articles_count }} News</span>
+        </div>
+        
+        <div class="bottom-info">
+            <p class="latest-headline">{{ company.latest_news | slice:0:60 }}...</p>
+            
+            <div class="score-bar-container">
+               <div class="score-bar-fill" [style.width.%]="(company.score / 15) * 100"></div>
+            </div>
+            <span class="score-text">{{ company.score }} pts</span>
+        </div>
+    </div>
+  </div>
+</div>
